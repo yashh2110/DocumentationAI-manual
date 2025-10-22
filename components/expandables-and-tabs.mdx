@@ -1,0 +1,749 @@
+---
+title: Expandables & Tabs
+description: "Create interactive, organized content for ACME Company with expandable sections and tabbed interfaces using Documentation.AI's interactive components."
+---
+
+Organize content efficiently with collapsible sections and tabbed interfaces. These components help reduce cognitive load while keeping detailed information easily accessible.
+
+## Basic Expandables
+
+### Single expandable sections
+
+Use expandables to hide detailed information until needed:
+
+<Expandable title="What is Your SaaS Product?" default-open="false">
+
+Your SaaS Product is a comprehensive collaboration platform designed for modern teams. It combines project management, real-time communication, and workflow automation in a single, intuitive interface.
+
+**Key capabilities**:
+- Project and task management with customizable workflows
+- Real-time collaboration tools including comments and mentions
+- Integration with 50+ popular development and productivity tools
+- Advanced reporting and analytics for team performance
+- Mobile apps for iOS and Android with offline capability
+- Enterprise-grade security with SSO and audit logs
+
+**Who uses it**: Teams of all sizes, from 2-person startups to 1000+ person enterprises across industries including technology, marketing, consulting, and manufacturing.
+
+</Expandable>
+
+<Expandable title="How does pricing work?" default-open="false">
+
+We offer transparent, per-user pricing with no hidden fees:
+
+**Free Plan** - Perfect for small teams getting started
+- Up to 5 team members
+- 3 active projects
+- Basic integrations
+- Email support
+
+**Professional Plan** - $12/user/month for growing teams
+- Up to 25 team members
+- Unlimited projects
+- All integrations
+- Priority support
+- Advanced features like custom workflows and analytics
+
+**Enterprise Plan** - Custom pricing for large organizations
+- Unlimited users and projects
+- Dedicated support manager
+- Advanced security features (SSO, audit logs)
+- Custom integrations and professional services
+
+All plans include a 14-day free trial with access to all features.
+
+</Expandable>
+
+```jsx
+<Expandable title="What is Your SaaS Product?" default-open="false">
+Your SaaS Product is a comprehensive collaboration platform designed for modern teams...
+</Expandable>
+
+<Expandable title="How does pricing work?" default-open="false">
+We offer transparent, per-user pricing with no hidden fees...
+</Expandable>
+```
+
+### Expandables with default open state
+
+Start important sections expanded to draw immediate attention:
+
+<Expandable title="🚨 Important Security Notice" default-open="true">
+
+**Immediate action required**: We've identified a security vulnerability in API versions prior to v2.1.0.
+
+**What happened**: A potential authentication bypass was discovered that could allow unauthorized access to user data under specific conditions.
+
+**Impact**: Less than 0.1% of users were potentially affected. No evidence of exploitation has been found.
+
+**Action required**:
+1. **Update immediately** to API version 2.1.0 or later
+2. **Rotate your API keys** as a precautionary measure  
+3. **Review access logs** for any suspicious activity
+
+**Timeline**: This vulnerability was patched on March 1, 2024. All hosted instances have been automatically updated.
+
+[View detailed security advisory →](security-advisory-2024-001)
+
+</Expandable>
+
+<Expandable title="📋 Quick Start Checklist" default-open="true">
+
+Get up and running in 10 minutes:
+
+- [ ] **Create account** - [Sign up here](https://acme.com/signup)
+- [ ] **Verify email** - Check your inbox for confirmation
+- [ ] **Complete profile** - Add your name and company info
+- [ ] **Create workspace** - Set up your team's home base
+- [ ] **Invite team members** - Add colleagues via email
+- [ ] **Start first project** - Use our template or start from scratch
+- [ ] **Connect tools** - Link Slack, GitHub, or other services
+- [ ] **Complete tutorial** - 5-minute guided walkthrough
+
+**Need help?** Contact support or schedule a [demo call](https://acme.com/demo).
+
+</Expandable>
+
+```jsx
+<Expandable title="🚨 Important Security Notice" default-open="true">
+**Immediate action required**: We've identified a security vulnerability...
+</Expandable>
+```
+
+## ExpandableGroup
+
+### Organized FAQ sections
+
+Group related expandables for better organization:
+
+<ExpandableGroup>
+<Expandable title="Getting Started" default-open="false">
+
+**Q: Do I need a credit card to start?**  
+No! Our free plan includes everything you need to get started. You only need to add payment information when upgrading to a paid plan.
+
+**Q: How long does setup take?**  
+Most teams are up and running in under 10 minutes. This includes account creation, workspace setup, and inviting your first team members.
+
+**Q: Can I import data from other tools?**  
+Yes! We support imports from Trello, Asana, Monday.com, Notion, and many other platforms. Our support team can help with the migration process.
+
+</Expandable>
+
+<Expandable title="Account & Billing" default-open="false">
+
+**Q: How does per-user pricing work?**  
+You pay for each active team member in your workspace. Inactive or deactivated users don't count toward your billing.
+
+**Q: Can I change plans anytime?**  
+Absolutely! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and billing is prorated automatically.
+
+**Q: What payment methods do you accept?**  
+We accept all major credit cards (Visa, MasterCard, American Express) and ACH transfers for annual plans. Enterprise customers can also pay by invoice.
+
+**Q: Do you offer refunds?**  
+Yes, we offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, contact support for a full refund.
+
+</Expandable>
+
+<Expandable title="Security & Privacy" default-open="false">
+
+**Q: Where is my data stored?**  
+Your data is stored in secure, SOC 2 Type II certified data centers. You can choose your data residency region during setup.
+
+**Q: Do you encrypt my data?**  
+Yes! All data is encrypted at rest using AES-256 encryption and in transit using TLS 1.3. We use industry-standard security practices.
+
+**Q: Can I export my data?**  
+Absolutely. You can export all your data at any time in standard formats (JSON, CSV, PDF). There are no lock-in restrictions.
+
+**Q: Do you have enterprise security features?**  
+Yes! Enterprise plans include SSO integration, audit logs, IP allowlisting, and advanced user management features.
+
+</Expandable>
+
+<Expandable title="Integrations & API" default-open="false">
+
+**Q: What integrations are available?**  
+We integrate with 50+ tools including Slack, GitHub, Figma, Google Calendar, Zoom, and many more. [View all integrations](integrations).
+
+**Q: Do you have an API?**  
+Yes! We provide a comprehensive REST API with full documentation. Perfect for custom integrations and automation workflows.
+
+**Q: Can you build custom integrations?**  
+Enterprise customers can request custom integrations. Our professional services team works with you to build exactly what you need.
+
+</Expandable>
+</ExpandableGroup>
+
+### Step-by-step tutorials
+
+Break complex processes into manageable sections:
+
+<ExpandableGroup>
+<Expandable title="Step 1: Environment Setup" default-open="true">
+
+**Install required software**:
+
+1. **Node.js 16+** - Download from [nodejs.org](https://nodejs.org)
+2. **Git** - Download from [git-scm.com](https://git-scm.com)
+3. **Code editor** - We recommend [VS Code](https://code.visualstudio.com)
+
+**Verify installation**:
+```bash
+node --version  # Should show v16.0.0 or higher
+git --version   # Should show git version info
+```
+
+**Optional but recommended**:
+- Install the "Documentation.AI" VS Code extension for syntax highlighting
+- Configure git with your name and email:
+  ```bash
+  git config --global user.name "Your Name"
+  git config --global user.email "your.email@acme.com"
+  ```
+
+</Expandable>
+
+<Expandable title="Step 2: Project Setup" default-open="false">
+
+**Clone the starter template**:
+```bash
+git clone https://github.com/yourcompany/docs-starter.git my-docs
+cd my-docs
+```
+
+**Install dependencies**:
+```bash
+npm install
+```
+
+**Start the development server**:
+```bash
+npm run dev
+```
+
+Your documentation site will be available at `http://localhost:3000`.
+
+**Project structure**:
+```
+my-docs/
+├── pages/           # Your documentation pages
+├── components/      # Custom components
+├── public/          # Images and static files
+├── styles/          # CSS and styling
+└── documentation.json  # Site configuration
+```
+
+</Expandable>
+
+<Expandable title="Step 3: Configuration" default-open="false">
+
+**Edit site settings** in `documentation.json`:
+
+```json
+{
+  "name": "My Product Docs",
+  "initialRoute": "getting-started/introduction",
+  "colors": {
+    "light": { "brand": "#3b82f6" },
+    "dark": { "brand": "#60a5fa" }
+  },
+  "navbar": {
+    "actions": {
+      "primary": {
+        "title": "Get Started",
+        "link": "https://myapp.com/signup"
+      }
+    }
+  }
+}
+```
+
+**Add your branding**:
+- Upload your logo to the `public/` directory
+- Update the logo paths in `documentation.json`
+- Customize colors to match your brand
+
+**Configure navigation**:
+- Define your page structure in the `navigation` section
+- Organize pages into logical groups and tabs
+- Use clear, descriptive titles for each section
+
+</Expandable>
+
+<Expandable title="Step 4: Content Creation" default-open="false">
+
+**Create your first page** in `pages/getting-started/introduction.mdx`:
+
+```markdown
+---
+title: "Welcome to My Product"
+description: "Get started with our amazing platform"
+---
+
+# Welcome to My Product
+
+This is your introduction page. You can use:
+
+- **Markdown** for basic formatting
+- **Components** for interactive elements
+- **Code blocks** for examples
+- **Images** for visual content
+
+<Callout kind="info">
+  This is a callout component!
+</Callout>
+```
+
+**Best practices**:
+- Use clear, descriptive headings
+- Break content into scannable sections  
+- Include practical examples and code snippets
+- Add navigation between related pages
+
+</Expandable>
+
+<Expandable title="Step 5: Deployment" default-open="false">
+
+**Build for production**:
+```bash
+npm run build
+```
+
+**Deploy to Documentation.AI hosting**:
+1. Push your code to GitHub
+2. Connect your repository in the Documentation.AI dashboard
+3. Configure automatic deployments
+4. Your site will be live at `yourproject.documentationai.io`
+
+**Custom domain setup** (optional):
+1. Add your domain in the dashboard
+2. Update your DNS settings as instructed  
+3. SSL certificate will be automatically provisioned
+
+**Continuous deployment**:
+- Changes pushed to your main branch deploy automatically
+- Preview deployments for pull requests
+- Rollback capability for any deployment
+
+</Expandable>
+</ExpandableGroup>
+
+## Advanced Expandable Patterns
+
+### Troubleshooting guides
+
+Organize solutions by symptom or error type:
+
+<ExpandableGroup>
+<Expandable title="🔍 Login and Authentication Issues" default-open="false">
+
+**"Invalid credentials" error**:
+
+*Symptoms*: Login form shows "Invalid email or password" message
+
+*Causes & Solutions*:
+1. **Incorrect password** - Use the "Forgot Password" link to reset
+2. **Account not verified** - Check your email for verification link
+3. **Caps lock enabled** - Passwords are case-sensitive
+4. **Corporate firewall** - Contact IT to allowlist `*.acme.com`
+
+**Two-factor authentication problems**:
+
+*Symptoms*: 2FA code not working or app not generating codes
+
+*Solutions*:
+1. **Time sync issues** - Ensure your phone's time is accurate
+2. **Wrong authenticator app** - Make sure you're using the correct app
+3. **Backup codes** - Use one of your saved backup codes
+4. **Contact support** - We can temporarily disable 2FA to regain access
+
+</Expandable>
+
+<Expandable title="⚡ Performance and Loading Issues" default-open="false">
+
+**Slow page loading**:
+
+*Symptoms*: Pages take more than 5 seconds to load
+
+*Troubleshooting steps*:
+1. **Check internet connection** - Try loading other websites
+2. **Clear browser cache** - Ctrl+Shift+Delete (Windows) or Cmd+Shift+Delete (Mac)
+3. **Disable browser extensions** - Try loading in incognito/private mode
+4. **Check our status page** - Visit [status.acme.com](https://status.acme.com)
+
+**App not responding**:
+
+*Symptoms*: Interface freezes or buttons don't work
+
+*Solutions*:
+1. **Refresh the page** - F5 or Cmd+R
+2. **Update your browser** - We support the latest 2 versions of major browsers
+3. **Check JavaScript** - Ensure JavaScript is enabled in your browser
+4. **Try different browser** - Test with Chrome, Firefox, or Safari
+
+</Expandable>
+
+<Expandable title="🔧 Integration and Sync Issues" default-open="false">
+
+**Slack notifications not working**:
+
+*Check these settings*:
+1. **Integration status** - Go to Settings → Integrations and verify Slack shows "Connected"
+2. **Channel permissions** - Ensure the bot has permission to post in your channels
+3. **Notification preferences** - Check that relevant notifications are enabled
+4. **Test the integration** - Use the "Test Connection" button in integration settings
+
+**GitHub sync failing**:
+
+*Common causes*:
+1. **Token expired** - Refresh the GitHub integration in settings
+2. **Repository permissions** - Ensure our app has access to the correct repositories
+3. **Webhook configuration** - Check that webhooks are properly configured in GitHub
+4. **Branch protection** - Verify our bot can create branches and pull requests
+
+</Expandable>
+</ExpandableGroup>
+
+### Feature documentation with examples
+
+Combine explanations with live examples:
+
+<ExpandableGroup>
+<Expandable title="📊 Advanced Search Syntax" default-open="false">
+
+**Basic search**:
+- `project management` - Find pages containing both words
+- `"exact phrase"` - Find pages with the exact phrase
+- `author:john` - Find content created by John
+
+**Advanced operators**:
+- `AND`, `OR`, `NOT` - Combine search terms
+- `*` - Wildcard matching (`integr*` matches "integration", "integrate")
+- `type:task` - Search specific content types
+- `created:2024` - Find content created in 2024
+
+**Search examples**:
+```
+api AND documentation NOT deprecated
+"getting started" OR tutorial  
+author:sarah type:project created:2024-01
+integr* AND slack
+```
+
+**Pro tips**:
+- Use quotes for multi-word terms
+- Combine multiple filters for precise results
+- Save frequent searches for quick access
+- Search supports real-time results as you type
+
+</Expandable>
+
+<Expandable title="🔄 Automation Rules" default-open="false">
+
+**Auto-assignment rules**:
+
+Create rules to automatically assign tasks based on criteria:
+
+```javascript
+// Example: Auto-assign bug reports to QA team
+{
+  "trigger": "task_created",
+  "conditions": {
+    "labels": ["bug"],
+    "priority": ["high", "critical"]
+  },
+  "actions": {
+    "assign_to": "qa_team",
+    "notify": ["team_lead"],
+    "add_labels": ["needs_triage"]
+  }
+}
+```
+
+**Status automation**:
+
+Move tasks automatically based on events:
+
+```javascript
+// Example: Move to testing when PR is merged
+{
+  "trigger": "github_pr_merged",
+  "actions": {
+    "move_to_status": "ready_for_testing",
+    "notify_assignee": true,
+    "add_comment": "PR merged, ready for QA testing"
+  }
+}
+```
+
+**Setup instructions**:
+1. Go to Settings → Automation
+2. Click "Create New Rule"  
+3. Define trigger conditions
+4. Specify actions to take
+5. Test with sample data
+6. Enable the rule
+
+</Expandable>
+
+<Expandable title="🎨 Custom Themes and Branding" default-open="false">
+
+**Brand colors**:
+
+Customize your workspace appearance:
+
+```json
+{
+  "colors": {
+    "light": {
+      "brand": "#3b82f6",      // Primary brand color
+      "accent": "#1d4ed8",     // Secondary accent  
+      "success": "#10b981",    // Success messages
+      "warning": "#f59e0b",    // Warning alerts
+      "error": "#ef4444"       // Error messages
+    },
+    "dark": {
+      "brand": "#60a5fa",      // Adjusted for dark mode
+      "accent": "#3b82f6",
+      "success": "#34d399", 
+      "warning": "#fbbf24",
+      "error": "#f87171"
+    }
+  }
+}
+```
+
+**Logo requirements**:
+- **Format**: PNG or SVG preferred
+- **Size**: 200×50px for main logo, 32×32px for favicon
+- **Variants**: Provide light and dark versions
+- **Background**: Transparent for best results
+
+**Advanced customization**:
+- Custom CSS for fine-tuned styling
+- Font selection from Google Fonts library
+- Custom domain with SSL included
+- White-label options for enterprise customers
+
+</Expandable>
+</ExpandableGroup>
+
+## Best Practices
+
+### Content organization strategy
+
+**Logical grouping**:
+- Group related topics together in ExpandableGroups
+- Use descriptive titles that clearly indicate what's inside
+- Order items from most common to least common
+- Consider your users' mental model and workflow
+
+**Progressive disclosure**:
+- Start with essential information visible
+- Use `default-open="true"` sparingly for critical items
+- Hide advanced or detailed information in expandables
+- Provide clear section previews in titles
+
+### Writing effective expandable titles
+
+**Good title examples**:
+- ✅ "How do I reset my password?" (clear question)
+- ✅ "Setting up GitHub integration" (specific task)  
+- ✅ "Troubleshooting login errors" (clear scope)
+- ✅ "API rate limits and quotas" (specific topic)
+
+**Poor title examples**:
+- ❌ "More information" (vague)
+- ❌ "Click here" (non-descriptive)
+- ❌ "Advanced" (unclear what's advanced)
+- ❌ "Other stuff" (meaningless)
+
+### When to use expandables vs. separate pages
+
+**Use expandables for**:
+- FAQ sections with short answers
+- Optional details that supplement main content  
+- Step-by-step processes with logical breaks
+- Troubleshooting guides with multiple solutions
+- Supplementary information that not everyone needs
+
+**Use separate pages for**:
+- Complete topics that deserve dedicated space
+- Content that needs its own URL for linking/bookmarking
+- Long-form guides or tutorials
+- Content that forms part of a logical navigation flow
+- Information that needs to rank in search results
+
+<Callout kind="tip">
+  **Accessibility consideration**: Expandable components are fully keyboard accessible and work with screen readers. The expand/collapse state is announced to assistive technologies.
+</Callout>
+
+## Advanced Techniques
+
+### Nested content organization
+
+Create sophisticated information architectures:
+
+<ExpandableGroup>
+<Expandable title="API Documentation" default-open="false">
+
+**Authentication**:
+<Expandable title="Bearer Token Authentication" default-open="false">
+
+Include your API token in the Authorization header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+     https://api.acme.com/users
+```
+
+**Token management**:
+- Tokens expire after 24 hours
+- Refresh tokens are valid for 30 days  
+- Store tokens securely (never in client-side code)
+
+</Expandable>
+
+<Expandable title="API Key Authentication" default-open="false">
+
+Pass your API key as a header or query parameter:
+
+```bash
+# As header (recommended)
+curl -H "X-API-Key: YOUR_API_KEY" \
+     https://api.acme.com/users
+
+# As query parameter  
+curl "https://api.acme.com/users?api_key=YOUR_API_KEY"
+```
+
+</Expandable>
+
+**Rate Limits**:
+- 1000 requests per hour for authenticated requests
+- 100 requests per hour for unauthenticated requests  
+- Rate limit headers included in all responses
+
+**Error Handling**:
+- Standard HTTP status codes
+- Detailed error messages in JSON format
+- Request IDs for troubleshooting
+
+</Expandable>
+
+<Expandable title="Integration Guides" default-open="false">
+
+<ExpandableGroup>
+<Expandable title="Slack Integration Setup" default-open="false">
+
+**Step 1**: Install the app from Slack App Directory  
+**Step 2**: Authorize permissions for your workspace  
+**Step 3**: Configure notification preferences  
+**Step 4**: Test the integration with a sample notification
+
+</Expandable>
+
+<Expandable title="GitHub Integration Setup" default-open="false">
+
+**Step 1**: Install the GitHub app on your repositories  
+**Step 2**: Configure webhook URLs in your repository settings  
+**Step 3**: Map GitHub issues to project tasks  
+**Step 4**: Enable automatic task creation from pull requests
+
+</Expandable>
+</ExpandableGroup>
+
+</Expandable>
+</ExpandableGroup>
+
+<Callout kind="warning">
+  **Avoid deep nesting**: While technically possible, avoid nesting expandables more than 2-3 levels deep. It creates poor user experience and can confuse navigation.
+</Callout>
+
+### Dynamic content with CodeGroups
+
+Combine expandables with tabbed content:
+
+<ExpandableGroup>
+<Expandable title="Multi-language Code Examples" default-open="false">
+
+<CodeGroup tabs="JavaScript,Python,Go">
+```javascript
+// JavaScript SDK implementation
+const client = new ApiClient({
+  token: 'your-api-token',
+  baseURL: 'https://api.acme.com'
+});
+
+async function getUsers() {
+  try {
+    const response = await client.get('/users');
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch users:', error);
+    throw error;
+  }
+}
+```
+
+```python
+# Python SDK implementation
+from api_client import ApiClient
+
+client = ApiClient(
+    token='your-api-token',
+    base_url='https://api.acme.com'
+)
+
+def get_users():
+    try:
+        response = client.get('/users')
+        return response.json()
+    except Exception as error:
+        print(f'Failed to fetch users: {error}')
+        raise
+```
+
+```go
+// Go SDK implementation
+package main
+
+import (
+    "fmt"
+    "github.com/your-company/api-client-go"
+)
+
+func main() {
+    client := apiclient.New(apiclient.Config{
+        Token:   "your-api-token",
+        BaseURL: "https://api.acme.com",
+    })
+
+    users, err := client.GetUsers()
+    if err != nil {
+        fmt.Printf("Failed to fetch users: %v\n", err)
+        return
+    }
+
+    fmt.Printf("Retrieved %d users\n", len(users))
+}
+```
+</CodeGroup>
+
+Each SDK provides the same functionality with language-specific conventions and error handling patterns.
+
+</Expandable>
+</ExpandableGroup>
+
+---
+
+## What's next?
+
+You've now mastered all the major Documentation.AI components! Here's how to continue:
+
+- **[API Reference](../api-reference/getting-started)** - Explore our comprehensive API documentation
+- **[Best Practices](../guides/best-practices)** - Learn how to use components effectively  
+- **[Configuration Guide](../guides/configuration)** - Set up advanced features and automation
+- **[Getting Started](../getting-started/introduction)** - Review the fundamentals if needed

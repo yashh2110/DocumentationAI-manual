@@ -1,0 +1,761 @@
+---
+title: Code Examples
+description: "Showcase code with syntax highlighting, multiple language support, and interactive features using Documentation.AI's code components for ACME Company APIs."
+---
+
+Present code beautifully with syntax highlighting, copy functionality, and multi-language support. Documentation.AI's code components make technical content more accessible and actionable.
+
+## Basic Code Blocks
+
+### Simple code block
+
+Use fenced code blocks with language identifiers for automatic syntax highlighting:
+
+```javascript
+function greetUser(name) {
+  return `Hello, ${name}! Welcome to our platform.`;
+}
+
+const message = greetUser("Developer");
+console.log(message);
+```
+
+````markdown
+```javascript
+function greetUser(name) {
+  return `Hello, ${name}! Welcome to our platform.`;
+}
+
+const message = greetUser("Developer");
+console.log(message);
+```
+````
+
+### Supported languages
+
+Documentation.AI supports syntax highlighting for 50+ programming languages:
+
+**Popular languages**:
+```python
+# Python example
+def calculate_total(items):
+    return sum(item.price * item.quantity for item in items)
+
+total = calculate_total(shopping_cart)
+print(f"Total: ${total:.2f}")
+```
+
+```go
+// Go example
+package main
+
+import "fmt"
+
+func main() {
+    message := "Hello, Documentation.AI!"
+    fmt.Println(message)
+}
+```
+
+```rust
+// Rust example  
+fn main() {
+    let message = "Hello from Rust!";
+    println!("{}", message);
+}
+```
+
+```sql
+-- SQL example
+SELECT users.name, COUNT(orders.id) as order_count
+FROM users
+LEFT JOIN orders ON users.id = orders.user_id  
+GROUP BY users.id, users.name
+HAVING COUNT(orders.id) > 5;
+```
+
+**Configuration languages**:
+```yaml
+# YAML configuration
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - DATABASE_URL=postgres://localhost/myapp
+```
+
+```json
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "lodash": "^4.17.21"
+  }
+}
+```
+
+```dockerfile
+# Dockerfile
+FROM node:16-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+EXPOSE 8000
+CMD ["npm", "start"]
+```
+
+### Shell commands and terminal output
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server  
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to production
+npm run deploy
+```
+
+```shell
+# Output example with comments
+$ curl -X GET "https://api.acme.com/users/123" \
+  -H "Authorization: Bearer YOUR_API_TOKEN"
+
+# Response:
+{
+  "id": 123,
+  "name": "John Doe", 
+  "email": "john@acme.com"
+}
+```
+
+## Advanced Code Features
+
+### Line highlighting
+
+Highlight specific lines to draw attention to important code:
+
+```javascript highlight="2,5-7"
+function processPayment(amount, cardToken) {
+  // Validate payment amount
+  if (amount <= 0) {
+    throw new Error('Invalid payment amount');
+  }
+  // Process the payment
+  const payment = await paymentGateway.charge({
+    amount: amount,
+    source: cardToken
+  });
+  
+  return payment;
+}
+```
+
+````markdown
+```javascript highlight="2,5-7"
+function processPayment(amount, cardToken) {
+  // Validate payment amount
+  if (amount <= 0) {
+    throw new Error('Invalid payment amount');
+  }
+  // Process the payment
+  const payment = await paymentGateway.charge({
+    amount: amount,
+    source: cardToken
+  });
+  
+  return payment;
+}
+```
+````
+
+### Line focus
+
+Use focus to blur non-essential lines and emphasize specific code sections:
+
+```python focus="3-5,8"
+def authenticate_user(email, password):
+    user = User.find_by_email(email)
+    
+    if user and user.verify_password(password):
+        token = generate_jwt_token(user.id)
+        return {"token": token, "user": user.to_dict()}
+    
+    raise AuthenticationError("Invalid credentials")
+```
+
+### Line numbers
+
+Add line numbers for easier reference in documentation:
+
+```typescript show-lines={true}
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  createdAt: Date;
+}
+
+class UserService {
+  async createUser(userData: Partial<User>): Promise<User> {
+    const user = new User({
+      id: generateId(),
+      ...userData,
+      createdAt: new Date()
+    });
+    
+    return await this.repository.save(user);
+  }
+}
+```
+
+## CodeGroup - Multiple Languages
+
+### Basic CodeGroup
+
+Present the same functionality in multiple programming languages:
+
+<CodeGroup tabs="JavaScript,Python,Go,cURL">
+```javascript
+// JavaScript with fetch
+const response = await fetch('https://api.acme.com/users', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + apiToken
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    email: 'john@acme.com'
+  })
+});
+
+const user = await response.json();
+console.log('Created user:', user);
+```
+
+```python
+# Python with requests
+import requests
+
+url = 'https://api.acme.com/users'
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': f'Bearer {api_token}'
+}
+data = {
+    'name': 'John Doe',
+    'email': 'john@acme.com'
+}
+
+response = requests.post(url, json=data, headers=headers)
+user = response.json()
+print(f'Created user: {user}')
+```
+
+```go
+// Go with net/http
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "net/http"
+)
+
+type User struct {
+    Name  string `json:"name"`
+    Email string `json:"email"`
+}
+
+func main() {
+    user := User{
+        Name:  "John Doe", 
+        Email: "john@acme.com",
+    }
+    
+    jsonData, _ := json.Marshal(user)
+    
+    req, _ := http.NewRequest("POST", "https://api.acme.com/users", 
+        bytes.NewBuffer(jsonData))
+    req.Header.Set("Content-Type", "application/json")
+    req.Header.Set("Authorization", "Bearer " + apiToken)
+    
+    client := &http.Client{}
+    resp, _ := client.Do(req)
+    defer resp.Body.Close()
+}
+```
+
+```bash
+# cURL command
+curl -X POST https://api.acme.com/users \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@acme.com"
+  }'
+```
+</CodeGroup>
+
+### Auto-detected language tabs
+
+CodeGroup automatically uses language identifiers as tab names when no custom tabs are specified:
+
+<CodeGroup>
+```typescript
+// TypeScript - type-safe API client
+interface CreateUserRequest {
+  name: string;
+  email: string;
+}
+
+interface User extends CreateUserRequest {
+  id: string;
+  createdAt: string;
+}
+
+const createUser = async (userData: CreateUserRequest): Promise<User> => {
+  const response = await apiClient.post<User>('/users', userData);
+  return response.data;
+};
+```
+
+```ruby
+# Ruby - elegant and readable
+class UserService
+  def create_user(name:, email:)
+    response = HTTParty.post(
+      "#{API_BASE_URL}/users",
+      body: { name: name, email: email }.to_json,
+      headers: {
+        'Content-Type' => 'application/json',
+        'Authorization' => "Bearer #{api_token}"
+      }
+    )
+    
+    JSON.parse(response.body)
+  end
+end
+```
+
+```php
+<?php
+// PHP - server-side integration
+class UserService {
+    private $apiToken;
+    
+    public function __construct($apiToken) {
+        $this->apiToken = $apiToken;
+    }
+    
+    public function createUser($name, $email) {
+        $data = json_encode([
+            'name' => $name,
+            'email' => $email
+        ]);
+        
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "Content-Type: application/json\r\n" .
+                           "Authorization: Bearer {$this->apiToken}\r\n",
+                'content' => $data
+            ]
+        ]);
+        
+        return json_decode(
+            file_get_contents('https://api.acme.com/users', false, $context),
+            true
+        );
+    }
+}
+?>
+```
+</CodeGroup>
+
+### Complex workflow examples
+
+Show complete workflows with multiple steps:
+
+<CodeGroup tabs="Setup,Authentication,Usage,Error Handling">
+```javascript
+// Initial setup and configuration
+import { ApiClient } from '@yourcompany/api-client';
+
+const client = new ApiClient({
+  baseURL: 'https://api.acme.com',
+  timeout: 10000,
+  retries: 3,
+  apiVersion: 'v2'
+});
+
+// Configure default headers
+client.setDefaultHeaders({
+  'User-Agent': 'MyApp/1.0',
+  'Accept': 'application/json'
+});
+```
+
+```javascript
+// Authentication and token management  
+class AuthManager {
+  constructor(clientId, clientSecret) {
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.token = null;
+    this.refreshToken = null;
+  }
+
+  async authenticate() {
+    const response = await fetch('/oauth/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        grant_type: 'client_credentials',
+        client_id: this.clientId,
+        client_secret: this.clientSecret
+      })
+    });
+
+    const data = await response.json();
+    this.token = data.access_token;
+    this.refreshToken = data.refresh_token;
+    
+    return this.token;
+  }
+}
+```
+
+```javascript
+// Making authenticated API calls
+class UserManager {
+  constructor(authManager) {
+    this.auth = authManager;
+  }
+
+  async getUser(userId) {
+    const token = await this.auth.getValidToken();
+    
+    const response = await fetch(`/api/users/${userId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new ApiError(`Failed to fetch user: ${response.status}`);
+    }
+
+    return response.json();
+  }
+
+  async updateUser(userId, updates) {
+    const token = await this.auth.getValidToken();
+    
+    const response = await fetch(`/api/users/${userId}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updates)
+    });
+
+    return response.json();
+  }
+}
+```
+
+```javascript
+// Comprehensive error handling
+class ApiError extends Error {
+  constructor(message, status, response) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+    this.response = response;
+  }
+}
+
+async function handleApiCall(apiCall) {
+  try {
+    return await apiCall();
+  } catch (error) {
+    // Network errors
+    if (!error.response) {
+      console.error('Network error:', error.message);
+      throw new ApiError('Network connection failed', 0, null);
+    }
+
+    // HTTP errors
+    const { status, data } = error.response;
+    
+    switch (status) {
+      case 401:
+        // Token expired, try refresh
+        await authManager.refreshToken();
+        return apiCall(); // Retry once
+        
+      case 429:
+        // Rate limited, wait and retry
+        const retryAfter = error.response.headers['retry-after'] || 60;
+        await sleep(retryAfter * 1000);
+        return apiCall();
+        
+      case 500:
+        console.error('Server error:', data);
+        throw new ApiError('Server error occurred', status, data);
+        
+      default:
+        throw new ApiError(`API error: ${data.message}`, status, data);
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Code Documentation Patterns
+
+### Inline code and variables
+
+Use backticks for inline code, variables, and technical terms:
+
+When calling the `createUser()` function, pass a `userData` object containing the required `name` and `email` fields. The function returns a `Promise<User>` that resolves to the created user object.
+
+The `API_BASE_URL` environment variable should be set to `https://api.acme.com` for production or `http://localhost:3000` for development.
+
+### Code comments and explanations
+
+Add helpful comments within code blocks:
+
+```javascript
+// Initialize the payment processor with your API credentials
+const processor = new PaymentProcessor({
+  apiKey: process.env.STRIPE_API_KEY,    // Your Stripe API key
+  webhook: process.env.STRIPE_WEBHOOK,   // Webhook endpoint secret
+  currency: 'usd'                        // Default currency
+});
+
+async function processSubscription(customerId, planId) {
+  try {
+    // Create the subscription with a 7-day trial
+    const subscription = await processor.createSubscription({
+      customer: customerId,
+      items: [{ price: planId }],
+      trial_period_days: 7,
+      metadata: {
+        source: 'documentation_example'  // Track signup source
+      }
+    });
+
+    // Send confirmation email to customer
+    await emailService.send({
+      to: subscription.customer.email,
+      template: 'subscription_confirmed',
+      data: { subscription }
+    });
+
+    return subscription;
+  } catch (error) {
+    // Log error for debugging but don't expose sensitive details
+    console.error('Subscription creation failed:', error);
+    throw new Error('Unable to process subscription');
+  }
+}
+```
+
+### Before and after examples
+
+Show code improvements and migrations:
+
+<CodeGroup tabs="Before (Legacy),After (Improved)">
+```javascript
+// Old approach - callback hell and error prone
+function getUserData(userId, callback) {
+  getUser(userId, function(err, user) {
+    if (err) {
+      callback(err);
+      return;
+    }
+    
+    getProfile(user.profileId, function(err, profile) {
+      if (err) {
+        callback(err);
+        return;
+      }
+      
+      getPreferences(user.id, function(err, preferences) {
+        if (err) {
+          callback(err);
+          return;
+        }
+        
+        callback(null, {
+          user: user,
+          profile: profile,
+          preferences: preferences
+        });
+      });
+    });
+  });
+}
+```
+
+```javascript
+// Modern approach - async/await with proper error handling
+async function getUserData(userId) {
+  try {
+    // Fetch all data in parallel for better performance
+    const [user, profile, preferences] = await Promise.all([
+      getUser(userId),
+      getProfile(userId), 
+      getPreferences(userId)
+    ]);
+
+    return {
+      user,
+      profile, 
+      preferences
+    };
+  } catch (error) {
+    // Centralized error handling with context
+    throw new UserDataError(
+      `Failed to fetch user data for ${userId}: ${error.message}`,
+      { userId, originalError: error }
+    );
+  }
+}
+```
+</CodeGroup>
+
+## Interactive Code Features
+
+### Copy functionality
+
+All code blocks automatically include a copy button in the top-right corner. Users can click to copy the entire code block to their clipboard.
+
+<Callout kind="tip">
+  **Tip**: Test your code examples before publishing. Copy the code from your own documentation and make sure it works as expected.
+</Callout>
+
+### Code block titles
+
+Add descriptive titles to code blocks for better context:
+
+```javascript title="server.js - Express server setup"
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+```
+
+### Highlighting with explanations
+
+Combine line highlighting with detailed explanations:
+
+```python highlight="1-3,8-10,15"
+# Configuration and imports
+import os
+from datetime import datetime, timedelta
+from typing import Optional
+
+class TokenManager:
+    def __init__(self, secret_key: str):
+        # Store the secret key securely
+        self.secret_key = secret_key
+        self.algorithm = 'HS256'
+        
+    def generate_token(self, user_id: str, expires_hours: int = 24) -> str:
+        payload = {
+            'user_id': user_id,
+            # Set expiration time
+            'exp': datetime.utcnow() + timedelta(hours=expires_hours),
+            'iat': datetime.utcnow()
+        }
+        
+        return jwt.encode(payload, self.secret_key, algorithm=self.algorithm)
+```
+
+**Highlighted sections explanation**:
+- **Lines 1-3**: Import necessary dependencies for JWT token management
+- **Lines 8-10**: Initialize the token manager with security configuration
+- **Line 15**: Calculate token expiration based on current time plus specified hours
+
+## Best Practices
+
+### Code organization
+
+**Do's**:
+- ✅ Include relevant imports and dependencies
+- ✅ Add helpful comments for complex logic
+- ✅ Show both success and error scenarios  
+- ✅ Use realistic variable names and values
+- ✅ Keep examples focused and concise
+
+**Don'ts**:
+- ❌ Include production API keys or secrets
+- ❌ Use overly complex examples for basic concepts
+- ❌ Show deprecated or outdated syntax
+- ❌ Skip error handling in examples
+- ❌ Use confusing variable names like `foo` and `bar`
+
+### Language-specific considerations
+
+**JavaScript/TypeScript**:
+- Use modern ES6+ syntax
+- Include type annotations for TypeScript
+- Show both Promise and async/await patterns
+
+**Python**:
+- Follow PEP 8 style guidelines
+- Include type hints where helpful
+- Use descriptive variable names
+
+**Go**:
+- Include proper error handling
+- Show package declarations
+- Use idiomatic Go patterns
+
+---
+
+## What's next?
+
+Continue exploring component features:
+
+- **[Callouts & Alerts](callouts-and-alerts)** - Highlight important information
+- **[Images & Media](images-and-media)** - Add visual content to code examples
+- **[Tables & Lists](tables-and-lists)** - Organize complex data
+- **[Expandables & Tabs](expandables-and-tabs)** - Create interactive code documentation

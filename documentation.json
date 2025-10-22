@@ -1,0 +1,164 @@
+{
+  "name": "ACME Company",
+  "initialRoute": "getting-started/introduction",
+  "logo-dark": "https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013180373-k2duii3j57f-logo-dark-full.svg",
+  "logo-light": "https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013153861-qlexiirnnji-logo-light-full.svg",
+  "logo-small-dark": "https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013124688-hmgekndm4e-logo-dark-small.svg",
+  "logo-small-light": "https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013089327-1bugjc5e8ru-logo-light-small.svg",
+  "colors": {
+    "light": {
+      "brand": "#2d2d2d"
+    },
+    "dark": {
+      "brand": "#f8f9fa"
+    }
+  },
+  "navbar": {
+    "actions": {
+      "primary": {
+        "title": "Get Started",
+        "link": "https://acme.com/signup"
+      },
+      "links": [
+        {
+          "title": "Login",
+          "link": "https://acme.com/login"
+        },
+        {
+          "title": "Support",
+          "link": "mailto:support@acme.com"
+        }
+      ]
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "getting-started/introduction",
+                "icon": "star"
+              },
+              {
+                "title": "Quickstart",
+                "path": "getting-started/quickstart",
+                "icon": "zap"
+              },
+              {
+                "title": "Core Concepts",
+                "path": "getting-started/core-concepts",
+                "icon": "lightbulb"
+              }
+            ]
+          },
+          {
+            "group": "Guides",
+            "icon": "map",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Installation",
+                "path": "guides/installation",
+                "icon": "download"
+              },
+              {
+                "title": "Configuration",
+                "path": "guides/configuration",
+                "icon": "settings"
+              },
+              {
+                "title": "Best Practices",
+                "path": "guides/best-practices",
+                "icon": "check-circle"
+              }
+            ]
+          },
+          {
+            "group": "Components Demo",
+            "icon": "package",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Components Overview",
+                "path": "components/components-overview",
+                "icon": "eye"
+              },
+              {
+                "title": "Text & Formatting",
+                "path": "components/text-and-formatting",
+                "icon": "type"
+              },
+              {
+                "title": "Code Examples",
+                "path": "components/code-examples",
+                "icon": "code"
+              },
+              {
+                "title": "Callouts & Alerts",
+                "path": "components/callouts-and-alerts",
+                "icon": "megaphone"
+              },
+              {
+                "title": "Images & Media",
+                "path": "components/images-and-media",
+                "icon": "image"
+              },
+              {
+                "title": "Tables & Lists",
+                "path": "components/tables-and-lists",
+                "icon": "list"
+              },
+              {
+                "title": "Expandables & Tabs",
+                "path": "components/expandables-and-tabs",
+                "icon": "chevron-down"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "play-circle",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "Authentication",
+                "path": "api-reference/authentication",
+                "icon": "key"
+              },
+              {
+                "title": "Getting Started",
+                "path": "api-reference/getting-started",
+                "icon": "rocket"
+              }
+            ]
+          },
+          {
+            "group": "Pet Store API",
+            "icon": "database",
+            "expandable": true,
+            "openapi": "api-reference/petstore-openapi.yaml",
+            "pages": []
+          }
+        ]
+      }
+    ]
+  },
+  "seo": {
+    "robots:index": true,
+    "robots:follow": true
+  }
+}

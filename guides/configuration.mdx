@@ -1,0 +1,723 @@
+---
+title: Configuration Guide
+description: "Advanced configuration options for ACME Company including workflows, automation, notifications, and performance optimization."
+---
+
+Fine-tune ACME Company to match your team's specific needs and workflows. This guide covers advanced settings, automation, and optimization techniques.
+
+## Workflow Configuration
+
+### Custom workflow design
+
+Design workflows that match your team's processes:
+
+<CodeGroup tabs="Marketing Workflow,Development Workflow,Support Workflow">
+```yaml
+# Marketing Campaign Workflow
+name: "Marketing Campaign"
+stages:
+  - name: "Ideation"
+    color: "#e2e8f0"
+    auto_assign: "marketing-lead"
+    
+  - name: "Planning" 
+    color: "#fef3c7"
+    required_fields: ["target_audience", "budget"]
+    
+  - name: "Content Creation"
+    color: "#dbeafe"
+    parallel_tasks: true
+    
+  - name: "Review & Approval"
+    color: "#fed7aa"
+    approval_required: true
+    approvers: ["marketing-director", "legal-team"]
+    
+  - name: "Launch"
+    color: "#dcfce7"
+    notifications: ["slack", "email"]
+    
+  - name: "Analysis"
+    color: "#f3e8ff"
+    auto_create_followup: true
+```
+
+```yaml
+# Software Development Workflow  
+name: "Feature Development"
+stages:
+  - name: "Backlog"
+    color: "#f1f5f9"
+    
+  - name: "In Progress"
+    color: "#dbeafe"
+    wip_limit: 3
+    time_tracking: true
+    
+  - name: "Code Review"
+    color: "#fed7aa"
+    github_integration: true
+    required_reviewers: 2
+    
+  - name: "Testing"
+    color: "#fde68a"
+    automated_tests: true
+    
+  - name: "Deployed"
+    color: "#dcfce7"
+    auto_close_linked_issues: true
+```
+
+```yaml
+# Customer Support Workflow
+name: "Support Ticket"
+stages:
+  - name: "New"
+    color: "#fee2e2"
+    auto_assign: "next_available"
+    sla_timer: 24  # hours
+    
+  - name: "In Progress"
+    color: "#fef3c7"
+    customer_notifications: true
+    
+  - name: "Waiting for Customer"
+    color: "#e0e7ff"
+    pause_sla: true
+    auto_reminder: 72  # hours
+    
+  - name: "Resolved"
+    color: "#dcfce7"
+    customer_survey: true
+    
+  - name: "Closed"
+    color: "#f1f5f9"
+    auto_archive: 30  # days
+```
+</CodeGroup>
+
+### Workflow rules and automation
+
+Set up rules to automate repetitive tasks:
+
+<ExpandableGroup>
+<Expandable title="Auto-assignment Rules" default-open="true">
+
+**Round-robin assignment**:
+```javascript
+// Automatically assign new tasks to team members in rotation
+{
+  "trigger": "task_created",
+  "conditions": {
+    "project_id": "support_project",
+    "task_type": "support_ticket"
+  },
+  "action": {
+    "assign_to": "round_robin",
+    "team": ["john@company.com", "sarah@company.com", "mike@company.com"]
+  }
+}
+```
+
+**Skill-based assignment**:
+```javascript
+// Assign based on task labels or types
+{
+  "trigger": "task_created", 
+  "conditions": {
+    "labels": ["javascript", "frontend"]
+  },
+  "action": {
+    "assign_to": "user_with_skills",
+    "required_skills": ["javascript", "react"]
+  }
+}
+```
+
+**Workload balancing**:
+```javascript
+// Assign to team member with lowest current workload
+{
+  "trigger": "task_created",
+  "action": {
+    "assign_to": "least_busy",
+    "team": "frontend_developers",
+    "max_concurrent_tasks": 5
+  }
+}
+```
+
+</Expandable>
+
+<Expandable title="Status Change Automation" default-open="false">
+
+**Automatic progression**:
+```javascript
+// Move task to next stage when all subtasks complete
+{
+  "trigger": "all_subtasks_completed",
+  "action": {
+    "move_to_stage": "ready_for_review"
+  }
+}
+```
+
+**Time-based transitions**:
+```javascript
+// Move stale tasks automatically
+{
+  "trigger": "task_idle_for",
+  "duration": "72_hours",
+  "conditions": {
+    "current_stage": "waiting_for_customer"
+  },
+  "action": {
+    "move_to_stage": "follow_up_needed",
+    "add_comment": "No response from customer after 72 hours"
+  }
+}
+```
+
+**Integration-triggered updates**:
+```javascript
+// Update task when GitHub PR is merged
+{
+  "trigger": "github_pr_merged",
+  "action": {
+    "move_to_stage": "ready_for_testing",
+    "add_comment": "Code merged to main branch",
+    "notify": ["qa_team"]
+  }
+}
+```
+
+</Expandable>
+
+<Expandable title="Notification Automation" default-open="false">
+
+**Deadline reminders**:
+```javascript
+// Send reminders before deadlines
+{
+  "trigger": "deadline_approaching",
+  "timing": ["24_hours_before", "1_hour_before"],
+  "action": {
+    "notify": ["assignee", "project_manager"],
+    "channels": ["slack", "email"]
+  }
+}
+```
+
+**Escalation rules**:
+```javascript  
+// Escalate overdue high-priority tasks
+{
+  "trigger": "task_overdue",
+  "conditions": {
+    "priority": "high",
+    "overdue_duration": "24_hours"
+  },
+  "action": {
+    "notify": ["assignee_manager", "project_lead"],
+    "escalation_level": "urgent"
+  }
+}
+```
+
+</Expandable>
+</ExpandableGroup>
+
+## Notification Management
+
+### Notification preferences
+
+Configure when and how your team receives updates:
+
+<CodeGroup tabs="Personal Settings,Team Defaults,Project Overrides">
+```json
+{
+  "personal_preferences": {
+    "immediate_notifications": [
+      "assigned_to_me",
+      "mentioned_in_comments", 
+      "high_priority_updates"
+    ],
+    "digest_notifications": {
+      "frequency": "daily",
+      "time": "09:00",
+      "include": ["project_summaries", "deadline_reminders"]
+    },
+    "channels": {
+      "slack": {
+        "enabled": true,
+        "do_not_disturb": {
+          "weekdays": "18:00-09:00",
+          "weekends": "all_day"
+        }
+      },
+      "email": {
+        "enabled": true,
+        "digest_only": true
+      },
+      "browser": {
+        "enabled": true,
+        "sound": false
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "team_defaults": {
+    "new_member_notifications": [
+      "task_assignments",
+      "project_updates",
+      "deadline_reminders"
+    ],
+    "notification_schedule": {
+      "business_hours": "09:00-17:00",
+      "timezone": "America/New_York",
+      "urgent_override": true
+    },
+    "digest_settings": {
+      "weekly_summary": {
+        "enabled": true,
+        "day": "monday",
+        "time": "09:00"
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "project_overrides": {
+    "urgent_projects": {
+      "immediate_notifications": "all_updates",
+      "channels": ["slack", "email", "sms"],
+      "bypass_do_not_disturb": true
+    },
+    "low_priority_projects": {
+      "digest_only": true,
+      "frequency": "weekly"
+    },
+    "client_projects": {
+      "external_notifications": {
+        "enabled": true,
+        "template": "client_friendly",
+        "recipients": ["client@company.com"]
+      }
+    }
+  }
+}
+```
+</CodeGroup>
+
+### Smart notification filtering
+
+Reduce notification fatigue with intelligent filtering:
+
+**Priority-based filtering**:
+- **High priority**: Immediate notifications for urgent tasks
+- **Medium priority**: Included in daily digest
+- **Low priority**: Weekly digest only
+
+**Role-based notifications**:
+- **Project managers**: All project activity
+- **Team members**: Assigned tasks and mentions only
+- **Stakeholders**: Milestone and deadline updates only
+
+**Context-aware timing**:
+- **Active hours**: Real-time notifications during work hours
+- **Off hours**: Batch in next-day digest (unless urgent)
+- **Focus time**: Pause notifications during scheduled focus blocks
+
+## Integration Configuration
+
+### Advanced integration settings
+
+<ExpandableGroup>
+<Expandable title="GitHub Advanced Setup" default-open="true">
+
+**Branch protection integration**:
+```yaml
+# .github/workflows/yourapp-integration.yml
+name: YourApp Integration
+on:
+  pull_request:
+    types: [opened, synchronize, closed]
+  issues:
+    types: [opened, closed]
+
+jobs:
+  sync-with-yourapp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync PR with task
+        uses: yourapp/github-sync@v2
+        with:
+          api-key: ${{ secrets.YOURAPP_API_KEY }}
+          workspace-id: ${{ secrets.WORKSPACE_ID }}
+          auto-create-tasks: true
+          link-prs-to-tasks: true
+          update-status-on-merge: true
+```
+
+**Custom field mapping**:
+```javascript
+// Map GitHub labels to YourApp task properties
+{
+  "field_mapping": {
+    "github_labels": {
+      "bug": { "task_type": "bug", "priority": "high" },
+      "feature": { "task_type": "feature", "priority": "medium" },
+      "documentation": { "task_type": "docs", "priority": "low" }
+    },
+    "pr_status": {
+      "draft": "in_progress",
+      "ready_for_review": "review",
+      "merged": "completed"
+    }
+  }
+}
+```
+
+</Expandable>
+
+<Expandable title="Slack Advanced Features" default-open="false">
+
+**Interactive Slack commands**:
+```javascript
+// Custom slash commands for task management
+/yourapp create "Review API documentation" @john #api-project
+/yourapp assign task-123 @sarah
+/yourapp status task-456 completed
+/yourapp summary #marketing-project
+```
+
+**Rich Slack notifications**:
+```json
+{
+  "slack_message_format": {
+    "task_assigned": {
+      "template": "interactive_card",
+      "include_actions": ["complete", "comment", "reassign"],
+      "show_preview": true
+    },
+    "project_summary": {
+      "template": "digest", 
+      "include_charts": true,
+      "show_overdue": true
+    }
+  }
+}
+```
+
+**Channel automation**:
+```javascript
+// Auto-create Slack channels for new projects
+{
+  "trigger": "project_created",
+  "action": {
+    "create_slack_channel": {
+      "name_pattern": "proj-{project_name}",
+      "invite_members": "project_team",
+      "pin_project_link": true
+    }
+  }
+}
+```
+
+</Expandable>
+
+<Expandable title="Calendar Integration" default-open="false">
+
+**Deadline sync**:
+```json
+{
+  "calendar_sync": {
+    "enabled": true,
+    "calendars": {
+      "google": {
+        "create_events_for": ["deadlines", "milestones", "meetings"],
+        "event_duration": "30_minutes",
+        "reminder_settings": ["15_minutes", "1_day"]
+      },
+      "outlook": {
+        "bidirectional_sync": true,
+        "calendar_name": "YourApp Tasks"
+      }
+    }
+  }
+}
+```
+
+**Meeting integration**:
+```javascript
+// Create tasks from calendar meetings
+{
+  "trigger": "calendar_event_created", 
+  "conditions": {
+    "event_title_contains": ["planning", "review", "standup"]
+  },
+  "action": {
+    "create_task": {
+      "title": "Follow up on {meeting_title}",
+      "due_date": "{meeting_date} + 1_day",
+      "assign_to": "meeting_organizer"
+    }
+  }
+}
+```
+
+</Expandable>
+</ExpandableGroup>
+
+## Performance Optimization
+
+### Workspace performance
+
+**Large team optimization**:
+
+<CodeGroup tabs="Database Settings,Caching Config,Network Optimization">
+```json
+{
+  "database_optimization": {
+    "indexing": {
+      "custom_indexes": true,
+      "query_optimization": "automatic"
+    },
+    "data_retention": {
+      "completed_tasks": "1_year", 
+      "archived_projects": "3_years",
+      "activity_logs": "2_years"
+    },
+    "cleanup_schedule": {
+      "frequency": "weekly",
+      "low_impact_hours": "02:00-04:00"
+    }
+  }
+}
+```
+
+```json
+{
+  "caching": {
+    "browser_cache": {
+      "static_assets": "7_days",
+      "api_responses": "5_minutes",
+      "user_preferences": "1_hour"
+    },
+    "server_cache": {
+      "project_data": "15_minutes",
+      "user_permissions": "30_minutes",
+      "integration_data": "10_minutes"
+    }
+  }
+}
+```
+
+```json
+{
+  "network": {
+    "cdn_optimization": {
+      "enabled": true,
+      "regions": ["us-east", "us-west", "europe", "asia"]
+    },
+    "compression": {
+      "api_responses": "gzip",
+      "static_files": "brotli"
+    },
+    "prefetching": {
+      "enabled": true,
+      "aggressive_mode": false
+    }
+  }
+}
+```
+</CodeGroup>
+
+### Browser optimization
+
+**Client-side performance**:
+
+1. **Enable offline mode** for core functionality
+2. **Configure progressive loading** for large projects
+3. **Set up background sync** for mobile users
+4. **Optimize image loading** with lazy loading and WebP format
+
+<Callout kind="tip">
+  Enable "Performance Mode" in user settings for slower connections or older devices. This reduces animations and loads content progressively.
+</Callout>
+
+## Security Configuration
+
+### Advanced security settings
+
+<ExpandableGroup>
+<Expandable title="Session Management" default-open="false">
+
+**Session policies**:
+```json
+{
+  "session_management": {
+    "timeout_idle": "8_hours",
+    "timeout_absolute": "24_hours", 
+    "concurrent_sessions": 3,
+    "device_tracking": true,
+    "suspicious_activity_detection": {
+      "enabled": true,
+      "actions": ["notify_admin", "require_2fa", "temporary_lock"]
+    }
+  }
+}
+```
+
+**Device management**:
+- Track all logged-in devices
+- Remote logout capability
+- New device notifications
+- Trusted device registration
+
+</Expandable>
+
+<Expandable title="Data Access Controls" default-open="false">
+
+**Field-level permissions**:
+```json
+{
+  "field_permissions": {
+    "sensitive_fields": {
+      "customer_data": ["admin", "customer_success"],
+      "financial_info": ["admin", "finance_team"],
+      "personal_info": ["admin", "hr_team"]
+    },
+    "project_restrictions": {
+      "confidential_projects": {
+        "visibility": "explicit_access_only",
+        "download_permissions": "admin_only"
+      }
+    }
+  }
+}
+```
+
+**Audit configuration**:
+```json
+{
+  "audit_logging": {
+    "log_level": "detailed",
+    "tracked_actions": [
+      "user_login", "data_export", "permission_changes",
+      "task_deletion", "project_access", "integration_changes"
+    ],
+    "retention": "7_years",
+    "real_time_alerts": [
+      "bulk_data_export", "admin_permission_grant",
+      "unusual_access_pattern"
+    ]
+  }
+}
+```
+
+</Expandable>
+
+<Expandable title="Compliance Settings" default-open="false">
+
+**GDPR compliance**:
+```json
+{
+  "gdpr_compliance": {
+    "data_processing_consent": "explicit",
+    "right_to_erasure": {
+      "enabled": true,
+      "processing_time": "30_days"
+    },
+    "data_portability": {
+      "export_formats": ["json", "csv", "pdf"],
+      "automated_export": true
+    },
+    "privacy_by_design": {
+      "data_minimization": true,
+      "purpose_limitation": true,
+      "storage_limitation": true
+    }
+  }
+}
+```
+
+**Industry-specific compliance**:
+- **HIPAA** (Healthcare): Enhanced encryption and access logging
+- **SOX** (Finance): Immutable audit trails and segregation of duties
+- **ISO 27001**: Comprehensive security management system
+
+</Expandable>
+</ExpandableGroup>
+
+## Troubleshooting Configuration Issues
+
+### Common configuration problems
+
+<ExpandableGroup>
+<Expandable title="Workflow not triggering automation" default-open="false">
+
+**Diagnosis steps**:
+1. Check automation rule conditions and syntax
+2. Verify user permissions for automated actions
+3. Review integration connection status
+4. Check rate limits and throttling settings
+
+**Common fixes**:
+- Ensure proper field names in automation conditions
+- Verify API tokens have sufficient permissions  
+- Check for conflicting automation rules
+- Review webhook delivery logs
+
+</Expandable>
+
+<Expandable title="Integration sync failures" default-open="false">
+
+**Debugging process**:
+1. **Check connection status** in integration settings
+2. **Review error logs** for specific failure messages
+3. **Test webhook endpoints** manually
+4. **Verify API rate limits** aren't exceeded
+5. **Check data format compatibility** between systems
+
+**Resolution steps**:
+- Refresh authentication tokens if expired
+- Update webhook URLs if they've changed
+- Adjust sync frequency to avoid rate limits
+- Contact support for persistent issues
+
+</Expandable>
+
+<Expandable title="Performance issues with large datasets" default-open="false">
+
+**Optimization strategies**:
+1. **Enable data archiving** for old projects
+2. **Use pagination** for large task lists
+3. **Implement lazy loading** for project views
+4. **Configure database indexes** for custom fields
+5. **Set up CDN caching** for static assets
+
+**Monitoring performance**:
+- Track page load times in browser developer tools
+- Monitor API response times in integration logs
+- Use built-in performance analytics dashboard
+- Set up alerts for degraded performance
+
+</Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+After completing your configuration:
+
+- **[Review best practices](best-practices)** - Optimize your team's workflow
+- **[Test all integrations](../api-reference/getting-started)** - Ensure everything works correctly  
+- **[Train your team](../components/components-overview)** - Show them the new features
+- **[Monitor performance](../guides/best-practices#performance-monitoring)** - Track system health

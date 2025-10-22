@@ -1,0 +1,866 @@
+---
+title: Getting Started with the API
+description: "Start making API calls to the ACME Company API with step-by-step examples and practical use cases."
+---
+
+The ACME Company API provides a complete platform for managing your business data and operations. This guide walks you through making your first API calls and implementing common workflows.
+
+## Before You Start
+
+Make sure you have:
+- [ ] **API credentials** - Get your API key from the [dashboard](https://dashboard.acme.com)
+- [ ] **Base URL** - All requests go to `https://api.acme.com/v1`
+- [ ] **HTTP client** - Use cURL, Postman, or your preferred programming language
+- [ ] **Basic authentication** - Review our [authentication guide](authentication) if needed
+
+<Callout kind="info">
+  **New to APIs?** This guide assumes basic familiarity with REST APIs and HTTP methods. Check out our [API basics tutorial](api-basics) if you're just getting started.
+</Callout>
+
+## Your First API Call
+
+Let's start by fetching the list of available pets:
+
+<CodeGroup tabs="cURL,JavaScript,Python,Go">
+```bash
+curl -X GET "https://api.acme.com/v1/pets" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -H "Content-Type: application/json"
+```
+
+```javascript
+const response = await fetch('https://api.acme.com/v1/pets', {
+  headers: {
+    'X-API-Key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const pets = await response.json();
+console.log('Available pets:', pets);
+```
+
+```python
+import requests
+
+headers = {
+    'X-API-Key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'https://api.acme.com/v1/pets',
+    headers=headers
+)
+
+pets = response.json()
+print(f"Found {len(pets['pets'])} pets")
+```
+
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "io"
+    "net/http"
+)
+
+func main() {
+    client := &http.Client{}
+    req, _ := http.NewRequest("GET", "https://api.acme.com/v1/pets", nil)
+    
+    req.Header.Add("X-API-Key", "YOUR_API_KEY")
+    req.Header.Add("Content-Type", "application/json")
+    
+    resp, err := client.Do(req)
+    if err != nil {
+        fmt.Printf("Error: %v\n", err)
+        return
+    }
+    defer resp.Body.Close()
+    
+    body, _ := io.ReadAll(resp.Body)
+    fmt.Printf("Response: %s\n", body)
+}
+```
+</CodeGroup>
+
+**Expected response**:
+```json
+{
+  "pets": [
+    {
+      "id": 1,
+      "name": "Buddy",
+      "category": {
+        "id": 1,
+        "name": "Dogs"
+      },
+      "status": "available",
+      "age": 3,
+      "breed": "Golden Retriever"
+    },
+    {
+      "id": 2,
+      "name": "Whiskers", 
+      "category": {
+        "id": 2,
+        "name": "Cats"
+      },
+      "status": "available",
+      "age": 2,
+      "breed": "Persian"
+    }
+  ],
+  "pagination": {
+    "limit": 20,
+    "offset": 0,
+    "total": 2,
+    "hasMore": false
+  }
+}
+```
+
+<Callout kind="success">
+  **Success!** If you received a response with pet data, your authentication is working correctly and you're ready to explore more endpoints.
+</Callout>
+
+## Common API Workflows
+
+### 1. Creating a New Pet
+
+Add a pet to the store with all required information:
+
+<ExpandableGroup>
+<Expandable title="Basic Pet Creation" default-open="true">
+
+**Endpoint**: `POST /pets`
+
+**Required fields**:
+- `name` - Pet's name
+- `categoryId` - Category identifier  
+- `status` - Pet status (`available`, `pending`, or `sold`)
+
+<CodeGroup tabs="JavaScript,Python,cURL">
+```javascript
+const newPet = {
+  name: "Max",
+  categoryId: 1, // Dogs category
+  status: "available",
+  age: 2,
+  breed: "Labrador",
+  description: "Friendly and energetic dog, great with kids"
+};
+
+const response = await fetch('https://api.acme.com/v1/pets', {
+  method: 'POST',
+  headers: {
+    'X-API-Key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(newPet)
+});
+
+const createdPet = await response.json();
+console.log('Created pet with ID:', createdPet.id);
+```
+
+```python
+import requests
+
+new_pet = {
+    "name": "Max",
+    "categoryId": 1,  # Dogs category
+    "status": "available", 
+    "age": 2,
+    "breed": "Labrador",
+    "description": "Friendly and energetic dog, great with kids"
+}
+
+response = requests.post(
+    'https://api.acme.com/v1/pets',
+    json=new_pet,
+    headers={'X-API-Key': 'YOUR_API_KEY'}
+)
+
+created_pet = response.json()
+print(f"Created pet with ID: {created_pet['id']}")
+```
+
+```bash
+curl -X POST "https://api.acme.com/v1/pets" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Max",
+    "categoryId": 1,
+    "status": "available",
+    "age": 2,
+    "breed": "Labrador", 
+    "description": "Friendly and energetic dog, great with kids"
+  }'
+```
+</CodeGroup>
+
+**Successful response** (Status 201):
+```json
+{
+  "id": 123,
+  "name": "Max",
+  "category": {
+    "id": 1,
+    "name": "Dogs"
+  },
+  "status": "available",
+  "age": 2,
+  "breed": "Labrador",
+  "description": "Friendly and energetic dog, great with kids",
+  "photoUrls": [],
+  "tags": [],
+  "createdAt": "2024-01-15T10:30:00Z",
+  "updatedAt": "2024-01-15T10:30:00Z"
+}
+```
+
+</Expandable>
+
+<Expandable title="Pet with Photos and Tags" default-open="false">
+
+Create a more detailed pet entry with photos and tags:
+
+```javascript
+const detailedPet = {
+  name: "Luna",
+  categoryId: 2, // Cats category
+  status: "available",
+  age: 1,
+  breed: "Siamese",
+  description: "Beautiful blue-eyed Siamese kitten",
+  photoUrls: [
+    "https://images.acme.com/cats/luna1.jpg",
+    "https://images.acme.com/cats/luna2.jpg"
+  ],
+  tags: [
+    { name: "playful" },
+    { name: "indoor" },
+    { name: "vaccinated" }
+  ]
+};
+
+const response = await fetch('https://api.acme.com/v1/pets', {
+  method: 'POST',
+  headers: {
+    'X-API-Key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(detailedPet)
+});
+```
+
+**Pro tips for pet creation**:
+- **Use descriptive names** that help identify the pet
+- **Include photos** to increase adoption chances
+- **Add relevant tags** for better searchability
+- **Provide accurate breed** and age information
+- **Write engaging descriptions** that highlight personality
+
+</Expandable>
+</ExpandableGroup>
+
+### 2. Searching and Filtering Pets
+
+Find pets based on specific criteria:
+
+<ExpandableGroup>
+<Expandable title="Filter by Status and Category" default-open="true">
+
+**Available query parameters**:
+- `status` - Filter by availability (`available`, `pending`, `sold`)
+- `category` - Filter by category name
+- `limit` - Number of results (default: 20, max: 100)
+- `offset` - Skip results for pagination
+
+<CodeGroup tabs="Available Dogs,Pending Adoptions,Recently Added">
+```javascript
+// Find all available dogs
+const response = await fetch(
+  'https://api.acme.com/v1/pets?status=available&category=Dogs&limit=10',
+  {
+    headers: {
+      'X-API-Key': 'YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    }
+  }
+);
+
+const availableDogs = await response.json();
+console.log(`Found ${availableDogs.pets.length} available dogs`);
+```
+
+```javascript
+// Find pets with pending adoption
+const response = await fetch(
+  'https://api.acme.com/v1/pets?status=pending&limit=50',
+  {
+    headers: {
+      'X-API-Key': 'YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    }
+  }
+);
+
+const pendingPets = await response.json();
+console.log('Pets awaiting adoption:', pendingPets.pets);
+```
+
+```javascript
+// Get recently added pets (last 20)
+const response = await fetch(
+  'https://api.acme.com/v1/pets?limit=20&offset=0',
+  {
+    headers: {
+      'X-API-Key': 'YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    }
+  }
+);
+
+const recentPets = await response.json();
+// Note: Results are ordered by creation date (newest first)
+```
+</CodeGroup>
+
+</Expandable>
+
+<Expandable title="Pagination for Large Results" default-open="false">
+
+Handle large datasets with proper pagination:
+
+```javascript
+async function getAllAvailablePets() {
+  const allPets = [];
+  let offset = 0;
+  const limit = 50; // Reasonable batch size
+  let hasMore = true;
+
+  while (hasMore) {
+    const response = await fetch(
+      `https://api.acme.com/v1/pets?status=available&limit=${limit}&offset=${offset}`,
+      {
+        headers: {
+          'X-API-Key': 'YOUR_API_KEY',
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    const data = await response.json();
+    allPets.push(...data.pets);
+    
+    hasMore = data.pagination.hasMore;
+    offset += limit;
+    
+    console.log(`Fetched ${data.pets.length} pets, total so far: ${allPets.length}`);
+  }
+
+  return allPets;
+}
+
+// Usage
+const allAvailablePets = await getAllAvailablePets();
+console.log(`Total available pets: ${allAvailablePets.length}`);
+```
+
+**Performance tips**:
+- Use reasonable batch sizes (20-50 items)
+- Implement loading states in your UI
+- Consider caching results for repeated queries
+- Use `hasMore` to determine if more pages exist
+
+</Expandable>
+</ExpandableGroup>
+
+### 3. Updating Pet Information
+
+Modify existing pet details:
+
+<ExpandableGroup>
+<Expandable title="Update Pet Status" default-open="true">
+
+**Endpoint**: `PUT /pets/{petId}`
+
+Common status updates:
+- `available` → `pending` (adoption in progress)
+- `pending` → `sold` (adoption completed)
+- `sold` → `available` (returned to store)
+
+```javascript
+async function updatePetStatus(petId, newStatus) {
+  const updateData = {
+    status: newStatus
+  };
+
+  const response = await fetch(`https://api.acme.com/v1/pets/${petId}`, {
+    method: 'PUT',
+    headers: {
+      'X-API-Key': 'YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updateData)
+  });
+
+  if (response.ok) {
+    const updatedPet = await response.json();
+    console.log(`Pet ${updatedPet.name} status updated to: ${updatedPet.status}`);
+    return updatedPet;
+  } else {
+    throw new Error(`Failed to update pet: ${response.status}`);
+  }
+}
+
+// Usage examples
+await updatePetStatus(123, 'pending'); // Mark as adoption in progress
+await updatePetStatus(456, 'sold');    // Mark as successfully adopted
+```
+
+</Expandable>
+
+<Expandable title="Complete Pet Information Update" default-open="false">
+
+Update multiple fields at once:
+
+```javascript
+async function updatePetDetails(petId, updates) {
+  // Only include fields that are being updated
+  const updateData = {};
+  
+  if (updates.name) updateData.name = updates.name;
+  if (updates.age) updateData.age = updates.age;
+  if (updates.description) updateData.description = updates.description;
+  if (updates.status) updateData.status = updates.status;
+  if (updates.photoUrls) updateData.photoUrls = updates.photoUrls;
+
+  const response = await fetch(`https://api.acme.com/v1/pets/${petId}`, {
+    method: 'PUT',
+    headers: {
+      'X-API-Key': 'YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updateData)
+  });
+
+  return response.json();
+}
+
+// Example: Update pet description and add photos
+const updatedPet = await updatePetDetails(123, {
+  description: "Updated: Very friendly dog, loves playing fetch and swimming",
+  photoUrls: [
+    "https://images.acme.com/pets/123/action1.jpg",
+    "https://images.acme.com/pets/123/portrait.jpg"
+  ]
+});
+
+console.log('Pet updated:', updatedPet);
+```
+
+</Expandable>
+</ExpandableGroup>
+
+### 4. Managing Categories
+
+Work with pet categories for better organization:
+
+<ExpandableGroup>
+<Expandable title="List All Categories" default-open="true">
+
+**Endpoint**: `GET /categories`
+
+```javascript
+const response = await fetch('https://api.acme.com/v1/categories', {
+  headers: {
+    'X-API-Key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const { categories } = await response.json();
+
+categories.forEach(category => {
+  console.log(`${category.id}: ${category.name} - ${category.description}`);
+});
+```
+
+**Expected response**:
+```json
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Dogs",
+      "description": "All types of dogs"
+    },
+    {
+      "id": 2, 
+      "name": "Cats",
+      "description": "All types of cats"
+    },
+    {
+      "id": 3,
+      "name": "Birds",
+      "description": "All types of birds"
+    }
+  ]
+}
+```
+
+</Expandable>
+
+<Expandable title="Create New Category" default-open="false">
+
+**Endpoint**: `POST /categories`
+
+```javascript
+const newCategory = {
+  name: "Reptiles",
+  description: "Snakes, lizards, turtles, and other reptiles"
+};
+
+const response = await fetch('https://api.acme.com/v1/categories', {
+  method: 'POST',
+  headers: {
+    'X-API-Key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(newCategory)
+});
+
+const createdCategory = await response.json();
+console.log('New category created:', createdCategory);
+
+// Now you can use this category ID when creating pets
+const newSnake = {
+  name: "Slither",
+  categoryId: createdCategory.id,
+  status: "available",
+  breed: "Ball Python"
+};
+```
+
+</Expandable>
+</ExpandableGroup>
+
+## Image Upload and Management
+
+### Uploading Pet Photos
+
+**Endpoint**: `POST /pets/{petId}/upload-image`
+
+<CodeGroup tabs="JavaScript,Python,cURL">
+```javascript
+async function uploadPetImage(petId, imageFile, description) {
+  const formData = new FormData();
+  formData.append('image', imageFile);
+  formData.append('description', description);
+
+  const response = await fetch(`https://api.acme.com/v1/pets/${petId}/upload-image`, {
+    method: 'POST',
+    headers: {
+      'X-API-Key': 'YOUR_API_KEY'
+      // Don't set Content-Type for FormData - browser will set it automatically
+    },
+    body: formData
+  });
+
+  const result = await response.json();
+  console.log('Image uploaded:', result.imageUrl);
+  return result;
+}
+
+// Usage with file input
+const fileInput = document.querySelector('#pet-photo');
+const file = fileInput.files[0];
+
+if (file) {
+  await uploadPetImage(123, file, 'Main profile photo');
+}
+```
+
+```python
+import requests
+
+def upload_pet_image(pet_id, image_path, description):
+    with open(image_path, 'rb') as image_file:
+        files = {'image': image_file}
+        data = {'description': description}
+        
+        response = requests.post(
+            f'https://api.acme.com/v1/pets/{pet_id}/upload-image',
+            files=files,
+            data=data,
+            headers={'X-API-Key': 'YOUR_API_KEY'}
+        )
+        
+        return response.json()
+
+# Usage
+result = upload_pet_image(123, './pet_photo.jpg', 'Main profile photo')
+print(f"Image uploaded: {result['imageUrl']}")
+```
+
+```bash
+curl -X POST "https://api.acme.com/v1/pets/123/upload-image" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -F "image=@pet_photo.jpg" \
+  -F "description=Main profile photo"
+```
+</CodeGroup>
+
+**Response**:
+```json
+{
+  "message": "Image uploaded successfully",
+  "imageUrl": "https://images.acme.com/pets/123/main.jpg"
+}
+```
+
+<Callout kind="tip">
+  **Image requirements**: JPG, PNG, or GIF formats up to 5MB. Images are automatically resized to optimize loading times while maintaining quality.
+</Callout>
+
+## Error Handling Best Practices
+
+### Robust Error Handling Pattern
+
+```javascript
+class PetStoreAPI {
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+    this.baseUrl = 'https://api.acme.com/v1';
+  }
+
+  async request(endpoint, options = {}) {
+    const url = `${this.baseUrl}${endpoint}`;
+    
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        'X-API-Key': this.apiKey,
+        'Content-Type': 'application/json',
+        ...options.headers
+      }
+    });
+
+    // Handle different error types
+    if (!response.ok) {
+      await this.handleError(response);
+    }
+
+    return response.json();
+  }
+
+  async handleError(response) {
+    const errorData = await response.json();
+    
+    switch (response.status) {
+      case 400:
+        throw new Error(`Bad Request: ${errorData.message}`);
+      case 401:
+        throw new Error('Unauthorized: Check your API key');
+      case 404:
+        throw new Error(`Not Found: ${errorData.message}`);
+      case 429:
+        const retryAfter = response.headers.get('Retry-After') || 60;
+        throw new Error(`Rate limited. Try again in ${retryAfter} seconds`);
+      case 500:
+        throw new Error('Server error. Please try again later');
+      default:
+        throw new Error(`API Error (${response.status}): ${errorData.message}`);
+    }
+  }
+
+  // Convenience methods
+  async getPets(params = {}) {
+    const query = new URLSearchParams(params).toString();
+    return this.request(`/pets${query ? `?${query}` : ''}`);
+  }
+
+  async getPet(id) {
+    return this.request(`/pets/${id}`);
+  }
+
+  async createPet(petData) {
+    return this.request('/pets', {
+      method: 'POST',
+      body: JSON.stringify(petData)
+    });
+  }
+
+  async updatePet(id, updates) {
+    return this.request(`/pets/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(updates)
+    });
+  }
+}
+
+// Usage
+const api = new PetStoreAPI('YOUR_API_KEY');
+
+try {
+  const pets = await api.getPets({ status: 'available', limit: 10 });
+  console.log('Available pets:', pets);
+} catch (error) {
+  console.error('Error fetching pets:', error.message);
+}
+```
+
+## Rate Limits and Optimization
+
+### Understanding Rate Limits
+
+The ACME Company API enforces the following rate limits:
+
+| Authentication | Requests per Hour | Burst Limit |
+|---------------|-------------------|-------------|
+| **API Key** | 1,000 | 100 per minute |
+| **JWT Token** | 5,000 | 300 per minute |
+| **Unauthenticated** | 100 | 20 per minute |
+
+**Rate limit headers** in responses:
+```
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1642694400
+```
+
+### Optimization Strategies
+
+<ExpandableGroup>
+<Expandable title="Request Batching and Caching" default-open="true">
+
+```javascript
+class OptimizedPetStoreAPI extends PetStoreAPI {
+  constructor(apiKey) {
+    super(apiKey);
+    this.cache = new Map();
+    this.cacheTimeout = 5 * 60 * 1000; // 5 minutes
+  }
+
+  // Cache frequently accessed data
+  async getCachedPet(id) {
+    const cacheKey = `pet_${id}`;
+    const cached = this.cache.get(cacheKey);
+    
+    if (cached && Date.now() - cached.timestamp < this.cacheTimeout) {
+      return cached.data;
+    }
+
+    const pet = await this.getPet(id);
+    this.cache.set(cacheKey, {
+      data: pet,
+      timestamp: Date.now()
+    });
+
+    return pet;
+  }
+
+  // Batch multiple pet requests
+  async getMultiplePets(ids) {
+    const promises = ids.map(id => this.getCachedPet(id));
+    return Promise.all(promises);
+  }
+
+  // Intelligent pagination
+  async getAllPetsInCategory(categoryName, batchSize = 50) {
+    const allPets = [];
+    let offset = 0;
+    let hasMore = true;
+
+    while (hasMore) {
+      const result = await this.getPets({
+        category: categoryName,
+        limit: batchSize,
+        offset: offset
+      });
+
+      allPets.push(...result.pets);
+      hasMore = result.pagination.hasMore;
+      offset += batchSize;
+
+      // Add small delay to be respectful of rate limits
+      if (hasMore) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+    }
+
+    return allPets;
+  }
+}
+```
+
+</Expandable>
+
+<Expandable title="Retry Logic with Exponential Backoff" default-open="false">
+
+```javascript
+async function requestWithRetry(requestFn, maxRetries = 3) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await requestFn();
+    } catch (error) {
+      // Don't retry on client errors (4xx)
+      if (error.message.includes('400') || error.message.includes('401')) {
+        throw error;
+      }
+
+      // Retry on rate limits and server errors
+      if (attempt < maxRetries) {
+        const delay = Math.pow(2, attempt) * 1000; // Exponential backoff
+        console.log(`Request failed, retrying in ${delay}ms... (attempt ${attempt})`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      } else {
+        throw error;
+      }
+    }
+  }
+}
+
+// Usage
+const pets = await requestWithRetry(() => 
+  api.getPets({ status: 'available' })
+);
+```
+
+</Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+<Callout kind="success">
+  **Great job!** You've learned the fundamentals of the ACME Company API. You can now create, read, update, and manage pets and categories.
+</Callout>
+
+### Explore More Features
+
+- **[Complete API Reference](petstore-openapi.yaml)** - Explore all available endpoints and parameters
+- **[Authentication Guide](authentication)** - Learn about JWT tokens and advanced security
+- **[Webhooks](webhooks)** - Get real-time notifications for pet updates
+- **[SDKs and Libraries](sdks)** - Official libraries for popular programming languages
+
+### Common Next Steps
+
+1. **Build a pet listing application** with search and filtering
+2. **Implement user authentication** for customer accounts
+3. **Add real-time updates** with webhooks
+4. **Create an admin dashboard** for pet management
+5. **Integrate with payment systems** for adoption fees
+
+### Get Help
+
+- **[API Support Forum](https://community.acme.com)** - Ask questions and share solutions
+- **[Contact Support](mailto:api-support@acme.com)** - Get direct help from our team
+- **[Status Page](https://status.acme.com)** - Monitor API uptime and incidents
+- **[Changelog](changelog)** - Stay updated on API changes and new features

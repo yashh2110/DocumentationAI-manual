@@ -1,0 +1,426 @@
+---
+title: Text & Formatting
+description: "Master text formatting, typography, and content structure with Documentation.AI's text components for ACME Company."
+---
+
+Create well-structured, readable content with Documentation.AI's text formatting components. From basic typography to advanced content organization, these tools help you communicate effectively.
+
+## Headings and Structure
+
+### Heading hierarchy
+
+Use consistent heading levels to create scannable, well-structured content:
+
+# Heading 1 (H1) - Page Title
+## Heading 2 (H2) - Major Sections  
+### Heading 3 (H3) - Subsections
+#### Heading 4 (H4) - Details
+
+```markdown
+# Heading 1 (H1) - Page Title
+## Heading 2 (H2) - Major Sections  
+### Heading 3 (H3) - Subsections
+#### Heading 4 (H4) - Details
+```
+
+<Callout kind="tip">
+  **Best practice**: Use only one H1 per page for the main title, then structure content hierarchically with H2, H3, etc. Skip heading levels sparingly.
+</Callout>
+
+### Content structure patterns
+
+**Documentation page structure**:
+
+```text
+# Main Topic (H1)
+├── ## Overview (H2)
+├── ## Getting Started (H2)
+│   ├── ### Prerequisites (H3)
+│   ├── ### Installation (H3)
+│   └── ### Basic Usage (H3)
+├── ## Advanced Features (H2)
+│   ├── ### Configuration (H3)
+│   └── ### Integration (H3)
+└── ## Troubleshooting (H2)
+    ├── ### Common Issues (H3)
+    └── ### Getting Help (H3)
+```
+
+## Text Formatting
+
+### Basic formatting
+
+Apply emphasis and styling to improve readability:
+
+**Bold text** for important concepts and **key terms**  
+*Italic text* for emphasis and *foreign phrases*  
+`Inline code` for technical terms and `variable names`  
+~~Strikethrough text~~ for corrections or deprecated features
+
+```markdown
+**Bold text** for important concepts and **key terms**  
+*Italic text* for emphasis and *foreign phrases*  
+`Inline code` for technical terms and `variable names`  
+~~Strikethrough text~~ for corrections or deprecated features
+```
+
+### Advanced text styling
+
+**Combination formatting**:
+- ***Bold and italic*** for maximum emphasis
+- **`Bold code`** for important technical terms
+- *`Italic code`* for code comments or variables
+
+**Special characters and symbols**:
+- Em dashes — for breaks in thought
+- En dashes – for ranges (pages 10–20)
+- Ellipses… for incomplete thoughts
+- Smart quotes "for dialogue" and 'for quotes within quotes'
+
+```markdown
+- ***Bold and italic*** for maximum emphasis
+- **`Bold code`** for important technical terms
+- *`Italic code`* for code comments or variables
+```
+
+## Lists and Organization
+
+### Unordered lists
+
+Use bullet points for non-sequential information:
+
+- **Feature highlights**
+  - Real-time collaboration
+  - Advanced search capabilities
+  - Custom integrations
+  - Mobile apps for iOS and Android
+
+- **Benefits for teams**
+  - Improved productivity
+  - Better communication
+  - Centralized knowledge
+  - Reduced context switching
+
+```markdown
+- **Feature highlights**
+  - Real-time collaboration
+  - Advanced search capabilities
+  - Custom integrations
+  - Mobile apps for iOS and Android
+
+- **Benefits for teams**
+  - Improved productivity
+  - Better communication
+  - Centralized knowledge
+  - Reduced context switching
+```
+
+### Ordered lists
+
+Use numbered lists for sequential steps or prioritized items:
+
+1. **Account setup**
+   1. Create your account at [signup page](https://acme.com/signup)
+   2. Verify your email address
+   3. Complete your profile information
+
+2. **Workspace configuration**
+   1. Choose your workspace name
+   2. Invite team members
+   3. Set up integrations
+
+3. **First project creation**
+   1. Select a project template
+   2. Define project goals and timeline
+   3. Add initial tasks and assignments
+
+```markdown
+1. **Account setup**
+   1. Create your account at [signup page](https://acme.com/signup)
+   2. Verify your email address
+   3. Complete your profile information
+
+2. **Workspace configuration**
+   1. Choose your workspace name
+   2. Invite team members
+   3. Set up integrations
+```
+
+### Mixed list styles
+
+Combine different list types for complex information:
+
+**Project planning checklist**:
+- [ ] **Planning phase**
+  - [x] Gather requirements
+  - [x] Create project timeline
+  - [ ] Assign team members
+  
+- [ ] **Development phase**
+  1. Set up development environment
+  2. Create feature branches
+  3. Implement core functionality
+  4. Write tests
+  
+- [ ] **Launch phase**
+  - [ ] User acceptance testing
+  - [ ] Performance optimization
+  - [ ] Production deployment
+
+```markdown
+**Project planning checklist**:
+- [ ] **Planning phase**
+  - [x] Gather requirements
+  - [x] Create project timeline
+  - [ ] Assign team members
+  
+- [ ] **Development phase**
+  1. Set up development environment
+  2. Create feature branches
+  3. Implement core functionality
+  4. Write tests
+```
+
+## Links and References
+
+### Internal links
+
+Link to other pages in your documentation:
+
+- [Getting started guide](../getting-started/quickstart)
+- [API authentication](../api-reference/authentication)
+- [Best practices](../guides/best-practices)
+- [Component overview](components-overview)
+
+```markdown
+- [Getting started guide](../getting-started/quickstart)
+- [API authentication](../api-reference/authentication)
+- [Best practices](../guides/best-practices)
+- [Component overview](components-overview)
+```
+
+### External links
+
+Link to external resources (open in new tabs):
+
+- [Official website](https://acme.com)
+- [GitHub repository](https://github.com/yourcompany/yourapp)
+- [Support portal](https://support.acme.com)
+- [Community forum](https://community.acme.com)
+
+### Reference-style links
+
+For cleaner markdown, especially with repeated links:
+
+Check out our [documentation][docs] and [API reference][api] for more details. 
+The [community forum][community] is also a great resource.
+
+[docs]: https://docs.acme.com
+[api]: https://api.acme.com
+[community]: https://community.acme.com
+
+```markdown
+Check out our [documentation][docs] and [API reference][api] for more details. 
+The [community forum][community] is also a great resource.
+
+[docs]: https://docs.acme.com
+[api]: https://api.acme.com  
+[community]: https://community.acme.com
+```
+
+## Blockquotes and Citations
+
+### Simple blockquotes
+
+Use blockquotes for highlighting important information or quotes:
+
+> "The best documentation is the one that gets used. Make it accessible, searchable, and actionable."
+> 
+> — Documentation.AI Design Philosophy
+
+```markdown
+> "The best documentation is the one that gets used. Make it accessible, searchable, and actionable."
+> 
+> — Documentation.AI Design Philosophy
+```
+
+### Multi-level blockquotes
+
+Nest blockquotes for conversations or layered context:
+
+> **Product Manager**: We need to improve our API documentation.
+> 
+> > **Developer**: I agree. The current examples are outdated.
+> > 
+> > > **Technical Writer**: I can update them this week. Should I also add more error handling examples?
+
+```markdown
+> **Product Manager**: We need to improve our API documentation.
+> 
+> > **Developer**: I agree. The current examples are outdated.
+> > 
+> > > **Technical Writer**: I can update them this week.
+```
+
+## Horizontal Rules and Separators
+
+Use horizontal rules to create visual breaks between sections:
+
+---
+
+**Above this line**: Getting started content  
+**Below this line**: Advanced configuration topics
+
+---
+
+```markdown
+---
+
+**Above this line**: Getting started content  
+**Below this line**: Advanced configuration topics
+
+---
+```
+
+## Tables for Data
+
+### Simple tables
+
+Create tables for structured data comparison:
+
+| Feature | Free Plan | Pro Plan | Enterprise |
+|---------|-----------|----------|------------|
+| Users | 5 | 25 | Unlimited |
+| Projects | 3 | Unlimited | Unlimited |
+| Storage | 1GB | 100GB | 1TB |
+| Support | Email | Priority | Dedicated |
+
+```markdown
+| Feature | Free Plan | Pro Plan | Enterprise |
+|---------|-----------|----------|------------|
+| Users | 5 | 25 | Unlimited |
+| Projects | 3 | Unlimited | Unlimited |
+| Storage | 1GB | 100GB | 1TB |
+| Support | Email | Priority | Dedicated |
+```
+
+### Aligned tables
+
+Control column alignment for better presentation:
+
+| Item | Price | Quantity | Total |
+|:-----|------:|---------:|------:|
+| Widget A | $12.99 | 2 | $25.98 |
+| Widget B | $8.50 | 1 | $8.50 |
+| Widget C | $15.00 | 3 | $45.00 |
+| **Total** | | **6** | **$79.48** |
+
+```markdown
+| Item | Price | Quantity | Total |
+|:-----|------:|---------:|------:|
+| Widget A | $12.99 | 2 | $25.98 |
+| Widget B | $8.50 | 1 | $8.50 |
+| Widget C | $15.00 | 3 | $45.00 |
+| **Total** | | **6** | **$79.48** |
+```
+
+<Callout kind="info">
+  **Table alignment**: Use `:---` for left align, `---:` for right align, and `:---:` for center align in the header separator row.
+</Callout>
+
+## Typography Best Practices
+
+### Readability guidelines
+
+**Optimal line length**: Aim for 50-75 characters per line for maximum readability.
+
+**Paragraph breaks**: Use blank lines between paragraphs to create visual breathing room.
+
+**Emphasis moderation**: **Bold** and *italic* text lose impact when overused. Use sparingly for true emphasis.
+
+### Content hierarchy patterns
+
+**Effective information hierarchy**:
+
+```text
+# Main Topic (Most Important)
+Brief overview paragraph
+
+## Major Section (Very Important)  
+Context and introduction
+
+### Specific Feature (Important)
+Detailed explanation with examples
+
+#### Implementation Details (Less Important)
+Technical specifics and edge cases
+```
+
+### Writing style guidelines
+
+**Active voice examples**:
+- ✅ "Click the Save button to store your changes"
+- ❌ "Changes can be stored by clicking the Save button"
+
+**Clear action words**:
+- ✅ "Configure your API key in the settings panel"
+- ❌ "API key configuration is available in settings"
+
+**Consistent terminology**:
+- Choose one term and stick with it (e.g., "workspace" vs "organization")
+- Create a glossary for technical terms
+- Use the same words for the same concepts throughout
+
+## Accessibility Considerations
+
+### Semantic structure
+
+Use proper heading hierarchy for screen readers:
+
+```markdown
+# Main Page Title (H1)
+## Section Title (H2)
+### Subsection (H3)
+#### Detail Level (H4)
+
+<!-- Don't skip levels -->
+# Main Title (H1)
+### Subsection (H3) ❌ Skips H2
+```
+
+### Descriptive link text
+
+Write link text that makes sense out of context:
+
+✅ **Good link text**:
+- [Download the installation guide](link)
+- [View pricing plans](link)
+- [Contact our support team](link)
+
+❌ **Poor link text**:
+- [Click here](link)
+- [Read more](link)
+- [This link](link)
+
+### Alternative formats
+
+Consider multiple ways to present information:
+
+- **Visual learners**: Use tables, lists, and clear headings
+- **Sequential learners**: Provide numbered steps and logical flow
+- **Reference users**: Include jump links and clear section breaks
+
+<Callout kind="tip">
+  **Accessibility tip**: Always provide context for links, use descriptive headings, and maintain consistent formatting patterns throughout your documentation.
+</Callout>
+
+---
+
+## What's next?
+
+Master more advanced components:
+
+- **[Code Examples](code-examples)** - Syntax highlighting and interactive code
+- **[Callouts & Alerts](callouts-and-alerts)** - Attention-grabbing information boxes  
+- **[Tables & Lists](tables-and-lists)** - Advanced data presentation
+- **[Images & Media](images-and-media)** - Rich visual content

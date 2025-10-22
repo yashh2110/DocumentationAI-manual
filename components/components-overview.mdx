@@ -1,0 +1,442 @@
+---
+title: Components Overview
+description: "Comprehensive overview of all Documentation.AI components available for creating rich, interactive documentation for ACME Company."
+---
+
+Documentation.AI provides a rich library of components to create engaging, interactive documentation. All components work seamlessly in both web and code editors, giving you flexibility in how you author content.
+
+## What are components?
+
+Components are reusable building blocks that enhance your markdown content with interactive features, better formatting, and structured information presentation. They range from simple formatting helpers to complex API documentation tools.
+
+<Callout kind="info">
+  All components are built with accessibility in mind and work across all modern browsers and devices.
+</Callout>
+
+## Component categories
+
+### Text & Formatting Components
+
+Essential components for structuring and formatting your content:
+
+- **Headings and Text** - Typography and text formatting options
+- **Lists and Tables** - Structured data presentation
+- **Callouts** - Highlighted information boxes with different styles
+- **Expandables** - Collapsible content sections
+
+<Callout kind="tip">
+  Start with these basic components - they handle 80% of most documentation needs and are easy to learn.
+</Callout>
+
+### Code & Technical Components
+
+Specialized components for developer-focused content:
+
+- **Code Blocks** - Syntax-highlighted code with copy functionality
+- **Code Groups** - Tabbed interfaces for multi-language examples
+- **ParamField** - API parameter documentation
+- **ResponseField** - API response documentation
+
+### Media & Visual Components
+
+Rich media and visual elements:
+
+- **Images** - Optimized image display with responsive sizing
+- **Videos and Iframes** - Embedded multimedia content
+
+### Interactive Components
+
+Advanced interactive elements for enhanced user experience:
+
+- **Expandable Groups** - Organized collapsible sections
+- **Tabs** - Multi-panel content organization
+
+## Quick component reference
+
+<ExpandableGroup>
+<Expandable title="Basic Syntax Examples" default-open="true">
+
+Here are the most commonly used components:
+
+<Callout kind="info">Important information</Callout>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+console.log("Hello World");
+```
+
+```python
+print("Hello World")
+```
+</CodeGroup>
+
+<Expandable title="Click to expand">
+Hidden content here
+</Expandable>
+
+<ParamField path="id" param-type="string" required="true">
+  Unique identifier for the resource
+</ParamField>
+
+**Code syntax:**
+
+````markdown
+<Callout kind="info">Important information</Callout>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+console.log("Hello World");
+```
+
+```python
+print("Hello World")
+```
+</CodeGroup>
+
+<Expandable title="Click to expand">
+Hidden content here
+</Expandable>
+
+<ParamField path="id" param-type="string" required="true">
+  Unique identifier for the resource
+</ParamField>
+````
+
+</Expandable>
+
+<Expandable title="Advanced Usage Patterns" default-open="false">
+
+More complex component combinations:
+
+<ExpandableGroup>
+<Expandable title="Installation">
+<CodeGroup tabs="npm,yarn,pnpm">
+```bash
+npm install package-name
+```
+
+```bash  
+yarn add package-name
+```
+
+```bash
+pnpm add package-name
+```
+</CodeGroup>
+</Expandable>
+
+<Expandable title="Configuration">
+<Callout kind="warning">
+Remember to restart your server after configuration changes.
+</Callout>
+
+```json
+{
+  "apiKey": "your-api-key",
+  "environment": "production"
+}
+```
+</Expandable>
+</ExpandableGroup>
+
+<Image 
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="ACME Company abstract design example"
+  width="800"
+  height="400"
+/>
+
+**Code syntax:**
+
+````markdown
+<ExpandableGroup>
+<Expandable title="Installation">
+<CodeGroup tabs="npm,yarn,pnpm">
+```bash
+npm install package-name
+```
+
+```bash  
+yarn add package-name
+```
+
+```bash
+pnpm add package-name
+```
+</CodeGroup>
+</Expandable>
+
+<Expandable title="Configuration">
+<Callout kind="warning">
+Remember to restart your server after configuration changes.
+</Callout>
+
+```json
+{
+  "apiKey": "your-api-key",
+  "environment": "production"
+}
+```
+</Expandable>
+</ExpandableGroup>
+
+<Image 
+  uid="acme-overview-image"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="ACME Company abstract design example"
+  width="800"  
+  height="400"
+/>
+````
+
+</Expandable>
+</ExpandableGroup>
+
+## Component selection guide
+
+### Choose components based on content type
+
+<ExpandableGroup>
+<Expandable title="Getting Started Pages" default-open="true">
+
+Use welcoming callouts and structured overviews:
+
+<Callout kind="success">
+  Welcome to ACME Company! 
+</Callout>
+
+<ExpandableGroup>
+<Expandable title="What you'll learn">
+- Core concepts
+- Basic workflows  
+- Best practices
+</Expandable>
+</ExpandableGroup>
+
+**Syntax:**
+````markdown
+<Callout kind="success">
+  Welcome to ACME Company! 
+</Callout>
+
+<ExpandableGroup>
+<Expandable title="What you'll learn">
+- Core concepts
+- Basic workflows  
+- Best practices
+</Expandable>
+</ExpandableGroup>
+````
+
+</Expandable>
+
+<Expandable title="API Reference Pages" default-open="false">
+
+Document parameters and responses clearly:
+
+<ParamField path="userId" param-type="string" required="true">
+  The unique identifier for the user
+</ParamField>
+
+<ResponseField name="user" type="object">
+  User object with profile information
+</ResponseField>
+
+**Syntax:**
+````markdown
+<ParamField path="userId" param-type="string" required="true">
+  The unique identifier for the user
+</ParamField>
+
+<ResponseField name="user" type="object">
+  User object with profile information
+</ResponseField>
+````
+
+</Expandable>
+
+<Expandable title="Tutorial Pages" default-open="false">
+
+Provide clear prerequisites and step-by-step instructions:
+
+<Callout kind="info">
+  **Prerequisites**: Node.js 16+ and npm installed
+</Callout>
+
+**Steps:**
+1. Install the package
+2. Configure your environment
+3. Start building
+
+**Syntax:**
+````markdown
+<Callout kind="info">
+  **Prerequisites**: Node.js 16+ and npm installed
+</Callout>
+
+1. Install the package:
+```bash
+npm install our-package
+```
+
+2. Configure your environment:
+```javascript
+const config = {
+  apiKey: process.env.API_KEY
+};
+```
+````
+
+</Expandable>
+
+<Expandable title="Troubleshooting Pages" default-open="false">
+
+Organize solutions with expandable error sections:
+
+<ExpandableGroup>
+<Expandable title="Common Error: Connection Timeout">
+
+<Callout kind="alert">
+**Error**: Connection timeout after 5000ms
+</Callout>
+
+**Solutions**:
+1. Check your internet connection
+2. Verify API endpoint URL
+3. Increase timeout value to 10 seconds
+
+</Expandable>
+
+<Expandable title="Authentication Failed">
+Contact support if authentication continues to fail.
+</Expandable>
+</ExpandableGroup>
+
+**Syntax:**
+````markdown
+<ExpandableGroup>
+<Expandable title="Common Error: Connection Timeout">
+
+<Callout kind="alert">
+**Error**: Connection timeout after 5000ms
+</Callout>
+
+**Solutions**:
+1. Check your internet connection
+2. Verify API endpoint URL  
+3. Increase timeout value
+
+</Expandable>
+</ExpandableGroup>
+````
+
+</Expandable>
+</ExpandableGroup>
+
+## Component best practices
+
+### Writing effective content
+
+**Do's**:
+- ✅ Use clear, descriptive titles for expandables and sections
+- ✅ Provide context before showing code examples
+- ✅ Include error handling in code samples  
+- ✅ Test all code examples before publishing
+- ✅ Use consistent naming conventions
+
+**Don'ts**:
+- ❌ Nest components more than 3 levels deep
+- ❌ Use technical jargon without explanation
+- ❌ Create walls of text without visual breaks
+- ❌ Skip alternative text for images
+- ❌ Forget to update examples when APIs change
+
+### Accessibility considerations
+
+All components are designed with accessibility in mind:
+
+- **Keyboard navigation** - All interactive elements are keyboard accessible
+- **Screen reader support** - Proper ARIA labels and semantic structure
+- **Color contrast** - Meets WCAG 2.1 AA standards
+- **Focus management** - Clear focus indicators and logical tab order
+- **Alternative text** - Required for all images and media
+
+<Callout kind="tip">
+  Always provide meaningful `alt` text for images and descriptive titles for expandable sections. This helps both screen readers and SEO.
+</Callout>
+
+### Performance considerations
+
+**Optimizing component usage**:
+
+- **Image optimization** - Upload images through the editor for automatic optimization
+- **Code highlighting** - Limited to 50 lines per block for best performance  
+- **Lazy loading** - Large expandable sections load content only when opened
+- **Caching** - Component rendering is cached for faster page loads
+
+## Getting started with components
+
+### In the web editor
+
+1. **Type `/` commands** to insert components quickly:
+   - `/callout` - Insert a callout box
+   - `/code` - Add a code block
+   - `/expandable` - Create collapsible content
+   - `/image` - Upload and insert images
+
+2. **Use the component toolbar** - Click the `+` button to browse all available components
+
+3. **Drag and drop** - Rearrange components visually in the editor
+
+### In code/MDX files
+
+1. **Import components** are available automatically in all `.mdx` files
+2. **Use JSX syntax** with component props as documented
+3. **Preview changes** using your development server or git integration
+
+<CodeGroup tabs="Web Editor,Code Editor">
+```text
+Web Editor Workflow:
+1. Click where you want to add a component
+2. Type "/" to open component picker
+3. Choose component from list or type name
+4. Fill in component properties in the sidebar
+5. Content appears instantly with live preview
+
+Benefits:
+- Visual editing with immediate feedback
+- No syntax knowledge required
+- Built-in property validation
+- Drag-and-drop component organization
+```
+
+```text
+Code Editor Workflow:
+1. Open your .mdx file in your preferred editor
+2. Write JSX syntax for the component
+3. Add properties as attributes
+4. Preview using local development or git push
+5. Leverage IDE features like autocomplete
+
+Benefits:
+- Full control over component properties
+- Version control friendly
+- Batch editing capabilities
+- Advanced IDE features (find/replace, etc.)
+```
+</CodeGroup>
+
+## What's next?
+
+Explore specific component types:
+
+- **[Text & Formatting](text-and-formatting)** - Master the basics of content formatting
+- **[Code Examples](code-examples)** - Learn advanced code presentation techniques
+- **[Callouts & Alerts](callouts-and-alerts)** - Create attention-grabbing information boxes
+- **[Images & Media](images-and-media)** - Add rich visual content
+- **[Tables & Lists](tables-and-lists)** - Organize structured information
+- **[Expandables & Tabs](expandables-and-tabs)** - Create interactive, organized content
+
+<Callout kind="success">
+  **Ready to start building?** Each component page includes live examples you can copy and customize for your own documentation.
+</Callout>

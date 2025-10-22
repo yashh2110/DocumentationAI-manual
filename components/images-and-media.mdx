@@ -1,0 +1,503 @@
+---
+title: Images & Media
+description: "Add visual content with images, videos, and embedded media using Documentation.AI's media components for ACME Company."
+---
+
+Enhance your documentation with rich visual content. Documentation.AI provides optimized image handling, video embedding, and support for various media types to make your content more engaging and informative.
+
+## Images
+
+### Basic image usage
+
+Add images with automatic optimization and responsive sizing:
+
+<Image
+  uid="acme-image-01"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="ACME Company abstract design example"
+  width="800"
+  height="400"
+/>
+
+```jsx
+<Image
+  uid="your-unique-id"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="ACME Company abstract design example"
+  width="800"
+  height="400"
+/>
+```
+
+<Callout kind="info">
+  **Alt text is required**: Always provide descriptive alt text for accessibility and SEO. Describe what the image shows, not just "image" or "screenshot".
+</Callout>
+
+### Image sizing and alignment
+
+Control image dimensions and positioning:
+
+**Default sizing (responsive)**:
+<Image
+  uid="acme-image-02"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Example of a responsive image that scales with container"
+  width="600"
+  height="300"
+/>
+
+**Fixed width with center alignment**:
+<Image
+  uid="acme-image-03"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Example of a centered fixed-width image"
+  width="400"
+  height="200"
+  style="width: 400px; height: auto; margin: 0 auto;"
+/>
+
+**Small inline image**:
+<Image
+  uid="acme-image-04"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Small inline image example"
+  width="200"
+  height="100"
+  style="width: 200px; height: auto; float: right; margin: 0 0 1rem 1rem;"
+/>
+
+This text wraps around the small image. You can use CSS styling to control how images interact with surrounding text content. This is useful for diagrams, icons, or small screenshots that supplement the main text.
+
+```jsx
+<!-- Responsive (default) -->
+<Image
+  uid="acme-image-05"
+  src="https://acme.com/image.png"
+  alt="Descriptive alt text"
+  width="600"
+  height="300"
+/>
+
+<!-- Fixed width, centered -->
+<Image
+  uid="acme-image-06"
+  src="https://acme.com/image.png"
+  alt="Descriptive alt text"
+  width="400"
+  height="200"
+  style="width: 400px; height: auto; margin: 0 auto;"
+/>
+
+<!-- Inline with text wrapping -->
+<Image
+  uid="acme-image-07"
+  src="https://acme.com/image.png"
+  alt="Descriptive alt text"
+  width="200"
+  height="100"
+  style="width: 200px; height: auto; float: right; margin: 0 0 1rem 1rem;"
+/>
+```
+
+### Performance optimization
+
+Use performance attributes for optimal loading:
+
+<Image
+  uid="acme-image-08"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Critical image that appears above the fold"
+  width="800"
+  height="400"
+  priority={true}
+  fetchpriority="high"
+/>
+
+```jsx
+<!-- For above-the-fold images -->
+<Image
+  uid="acme-image-09"
+  src="https://acme.com/hero-image.png"
+  alt="Main dashboard view"
+  width="800"
+  height="400"
+  priority={true}
+  fetchpriority="high"
+/>
+```
+
+<Callout kind="tip">
+  **Performance tip**: Use `priority={true}` only for above-the-fold images that are critical for user experience. Overusing priority can hurt overall page performance.
+</Callout>
+
+## Image Types and Use Cases
+
+### Screenshots and UI examples
+
+Perfect for showing actual interfaces and workflows:
+
+<Image
+  uid="acme-image-10"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Login page showing email and password fields with sign-in button"
+  width="700"
+  height="450"
+/>
+
+**Best practices for UI screenshots**:
+- Use consistent browser and device types
+- Include relevant UI context (navigation, headers)
+- Highlight important elements with annotations if needed
+- Keep screenshots up-to-date with current interface
+
+### Diagrams and architecture
+
+Use images to explain complex systems and workflows:
+
+<Image
+  uid="acme-image-11"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="System architecture showing API gateway, microservices, and database connections"
+  width="750"
+  height="500"
+/>
+
+**Common diagram types**:
+- System architecture diagrams
+- Database schema illustrations  
+- User flow charts
+- Network topology maps
+- Process flowcharts
+
+### Code annotations
+
+Enhance code examples with visual annotations:
+
+<Image
+  uid="acme-image-12"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Code snippet with numbered annotations explaining each section"
+  width="800"
+  height="300"
+/>
+
+```javascript
+// The code being annotated in the image above
+function authenticateUser(credentials) {
+  // 1. Validate input parameters
+  if (!credentials.email || !credentials.password) {
+    throw new Error('Email and password required');
+  }
+  
+  // 2. Hash password for comparison
+  const hashedPassword = hashPassword(credentials.password);
+  
+  // 3. Query database for user
+  const user = database.findUser({ email: credentials.email });
+  
+  // 4. Compare passwords and return result
+  return user && user.password === hashedPassword;
+}
+```
+
+## Videos and Embedded Media
+
+### Video embedding
+
+Embed videos from popular platforms:
+
+```jsx
+<!-- YouTube video -->
+<iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/VIDEO_ID" 
+  title="Getting Started with Our Platform"
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+
+<!-- Vimeo video -->
+<iframe 
+  src="https://player.vimeo.com/video/VIDEO_ID" 
+  width="640" 
+  height="360" 
+  frameborder="0" 
+  allow="autoplay; fullscreen; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+```
+
+<Callout kind="info">
+  **Video accessibility**: Always include captions for videos and provide transcripts when possible. Use descriptive titles that explain what the video demonstrates.
+</Callout>
+
+### Interactive demos and prototypes
+
+Embed interactive prototypes and demos:
+
+```jsx
+<!-- Figma prototype -->
+<iframe 
+  style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+  width="800" 
+  height="450" 
+  src="https://www.figma.com/embed?embed_host=share&url=YOUR_FIGMA_URL" 
+  allowfullscreen>
+</iframe>
+
+<!-- CodePen demo -->
+<iframe 
+  height="400" 
+  style="width: 100%;" 
+  scrolling="no" 
+  title="Interactive Component Demo" 
+  src="https://codepen.io/username/embed/PEN_ID?default-tab=result" 
+  frameborder="no" 
+  loading="lazy" 
+  allowtransparency="true" 
+  allowfullscreen="true">
+</iframe>
+```
+
+## Media Organization Patterns
+
+### Before and after comparisons
+
+Show improvements and changes visually:
+
+<CodeGroup tabs="Before (Old UI),After (New UI)">
+<Image
+  uid="acme-image-13"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Previous interface with cluttered navigation and poor spacing"
+  width="600"
+  height="400"
+/>
+
+<Image
+  uid="acme-image-14"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"  
+  alt="Updated interface with clean navigation and improved spacing"
+  width="600"
+  height="400"
+/>
+</CodeGroup>
+
+### Step-by-step visual guides
+
+Combine images with instructions:
+
+**Step 1: Access the settings menu**
+<Image
+  uid="acme-image-15"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Dashboard with settings icon highlighted in top navigation"
+  width="500"
+  height="300"
+/>
+
+Click on the settings icon (⚙️) in the top navigation bar.
+
+**Step 2: Navigate to integrations**
+<Image
+  uid="acme-image-16"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Settings page with integrations tab selected"
+  width="500" 
+  height="300"
+/>
+
+Select the "Integrations" tab from the settings sidebar.
+
+**Step 3: Connect your service**
+<Image
+  uid="acme-image-17"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Integration setup form with connect button highlighted"
+  width="500"
+  height="300"
+/>
+
+Click "Connect" next to your desired service and follow the authentication flow.
+
+### Multiple views and perspectives
+
+Show different aspects of the same feature:
+
+<ExpandableGroup>
+<Expandable title="Desktop View" default-open="true">
+<Image
+  uid="acme-image-18"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Full desktop dashboard showing sidebar navigation and main content area"
+  width="800"
+  height="500"
+/>
+</Expandable>
+
+<Expandable title="Mobile View" default-open="false">
+<Image
+  uid="acme-image-19"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Mobile dashboard with collapsible navigation and touch-friendly interface"
+  width="375"
+  height="667"
+  style="width: 375px; height: auto; margin: 0 auto;"
+/>
+</Expandable>
+
+<Expandable title="Tablet View" default-open="false">  
+<Image
+  uid="acme-image-20"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Tablet dashboard with adapted navigation suitable for medium screens"
+  width="768"
+  height="1024"
+  style="width: 500px; height: auto; margin: 0 auto;"
+/>
+</Expandable>
+</ExpandableGroup>
+
+## Best Practices
+
+### Image optimization
+
+**File formats**:
+- **PNG** - Screenshots, diagrams, images with transparency
+- **JPEG** - Photos, complex images with many colors
+- **SVG** - Icons, simple diagrams, logos (scalable)
+- **WebP** - Modern format with excellent compression (auto-converted by Documentation.AI)
+
+**Size guidelines**:
+- **Screenshots**: 1200-1600px wide for desktop, 375-414px for mobile
+- **Diagrams**: 800-1200px wide depending on complexity
+- **Icons**: 32px, 64px, or SVG for different use cases
+- **Hero images**: 1920px wide or larger for full-width displays
+
+### Accessibility considerations
+
+**Alt text guidelines**:
+- ✅ **Good**: "Dashboard showing three active projects with completion percentages"
+- ❌ **Poor**: "Dashboard" or "Screenshot"
+
+**Descriptive alt text examples**:
+```jsx
+<!-- Good alt text -->
+<Image
+  uid="acme-image-21"
+  alt="API response showing user object with id, name, email, and createdAt fields"
+  src="api-response-example.png"
+/>
+
+<!-- Poor alt text -->  
+<Image
+  uid="acme-image-22"
+  alt="API response"
+  src="api-response-example.png"
+/>
+```
+
+**Color and contrast**:
+- Ensure text in images has sufficient contrast
+- Don't rely solely on color to convey information
+- Test images with color blindness simulators
+
+### Performance guidelines
+
+**Loading optimization**:
+- Use appropriate image sizes for display context
+- Enable lazy loading for images below the fold
+- Compress images appropriately for web delivery
+- Provide width/height attributes to prevent layout shift
+
+**CDN and hosting**:
+- Upload through Documentation.AI editor for automatic optimization
+- Use absolute URLs for external images
+- Consider image loading performance in page speed
+
+<Callout kind="tip">
+  **Image workflow**: For best results, upload images through the Documentation.AI editor. This ensures automatic optimization, CDN delivery, and proper responsive behavior.
+</Callout>
+
+## Advanced Media Features
+
+### Image captions and context
+
+Add captions to provide additional context:
+
+<Image
+  uid="acme-image-23"
+  src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp"
+  alt="Line graph showing API response times improving from 500ms to 150ms over 6 months"
+  width="700"
+  height="400"
+/>
+
+*Figure 1: API performance improvements after implementing caching and query optimization. Average response time decreased by 70% over 6 months.*
+
+### Responsive image behavior
+
+Images automatically adapt to different screen sizes:
+
+```jsx
+<!-- This image will scale down on mobile devices -->
+<Image
+  uid="acme-image-24"
+  src="wide-screenshot.png"
+  alt="Full desktop interface"
+  width="1200"
+  height="800"
+/>
+
+<!-- Use CSS for more control -->
+<Image
+  uid="acme-image-25"
+  src="wide-screenshot.png" 
+  alt="Full desktop interface"
+  width="1200"
+  height="800"
+  style="max-width: 100%; height: auto;"
+/>
+```
+
+### Image galleries and collections
+
+Organize multiple related images:
+
+<ExpandableGroup>
+<Expandable title="User Interface Screenshots" default-open="false">
+
+**Login Flow**:
+<Image src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp/600x400/7c3aed/ffffff?text=Login+Page" alt="Login page interface" width="600" height="400" />
+
+**Dashboard**:
+<Image src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp/600x400/059669/ffffff?text=Main+Dashboard" alt="Main dashboard interface" width="600" height="400" />
+
+**Settings**:
+<Image src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp/600x400/dc2626/ffffff?text=Settings+Page" alt="Settings page interface" width="600" height="400" />
+
+</Expandable>
+
+<Expandable title="Mobile App Screenshots" default-open="false">
+
+**Home Screen**:
+<Image src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp/300x600/1e40af/ffffff?text=Mobile+Home" alt="Mobile app home screen" width="300" height="600" style="width: 300px; height: auto; margin: 0 auto;" />
+
+**Profile Page**:
+<Image src="https://blob-cdn.documentation.ai/org-9a676b51-6366-4fb8-82b9-8bcebd1e04cd/doc-d763805d-9c20-4ace-b537-11aa3933f9f9/1760013284686-qcst1aqods-Abstract-Painting-Light-Blue.webp/300x600/7c2d12/ffffff?text=Mobile+Profile" alt="Mobile app profile page" width="300" height="600" style="width: 300px; height: auto; margin: 0 auto;" />
+
+</Expandable>
+</ExpandableGroup>
+
+---
+
+## What's next?
+
+Continue exploring component features:
+
+- **[Tables & Lists](tables-and-lists)** - Organize structured data alongside images
+- **[Expandables & Tabs](expandables-and-tabs)** - Create interactive galleries and media collections
+- **[Code Examples](code-examples)** - Combine visual examples with code snippets
+- **[Callouts & Alerts](callouts-and-alerts)** - Highlight important visual information
