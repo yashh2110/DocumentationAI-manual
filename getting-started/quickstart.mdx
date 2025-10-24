@@ -1,35 +1,49 @@
 ---
-title: "Quickstart Guide"
-description: "Get up and running with ACME Company in under 10 minutes. Create your workspace, set up your first project, and invite your team."
+title: Quickstart Guide
+description: >-
+  Get up and running with ACME Company in under 10 minutes. Create your
+  workspace, set up your first project, and invite your team.
 ---
-
 Get your team up and running with ACME Company in under 10 minutes. This guide covers everything from account creation to your first successful project collaboration.
 
 ## What you'll accomplish
 
+
+
+asdasdasd
+
 By the end of this guide, you'll have:
 
 - ✅ Created and configured your workspace
+
 - ✅ Set up your first project with team members
+
 - ✅ Configured integrations with your existing tools
+
 - ✅ Completed your first collaborative workflow
+
 - ✅ Understanding of core features and next steps
 
-<Callout kind="info">
-  **Time required**: 8-10 minutes  
+<Callout uid="06248664-483c-41a6-b05d-a196573738eb" kind="info" collapsed="false">
+  **Time required**: 8-10 minutes\
   **Prerequisites**: A web browser and your team's email addresses
 </Callout>
 
 ## Step 1: Create your workspace
 
 1. **Sign up** at [acme.com/signup](https://acme.com/signup)
+
 2. **Verify your email** - Check your inbox and click the confirmation link
+
 3. **Complete your profile**:
+
    - Company name: `Your Company Name`
+
    - Team size: Select your current team size
+
    - Primary use case: Choose what best describes your needs
 
-<Callout kind="tip">
+<Callout uid="eecd8ef8-bfe7-47a9-bf3e-f49b0afa3b21" kind="tip" collapsed="false">
   Choose a clear workspace name that your team will recognize. You can always change this later in settings.
 </Callout>
 
@@ -38,43 +52,51 @@ By the end of this guide, you'll have:
 ## Step 2: Set up your first project
 
 1. **Click "Create Project"** from your dashboard
+
 2. **Choose a template** or start from scratch:
+
    - **Product Launch**: For launching new features or products
-   - **Marketing Campaign**: For coordinating marketing efforts  
+
+   - **Marketing Campaign**: For coordinating marketing efforts
+
    - **Development Sprint**: For engineering teams
+
    - **Blank Project**: Start with a clean slate
 
 3. **Configure your project**:
+
    - Project name: `Welcome Project`
+
    - Description: `Getting familiar with the platform`
+
    - Privacy: `Team members only`
 
-<CodeGroup tabs="Project Configuration,Advanced Options">
-```json
-{
-  "name": "Welcome Project",
-  "description": "Getting familiar with the platform",
-  "template": "product-launch",
-  "privacy": "team",
-  "features": {
-    "comments": true,
-    "integrations": true,
-    "analytics": true
+<CodeGroup uid="b1d10e7e-eee8-4e1f-90e5-bfe8a87a403d" show-lines="true" tabs={[]}>
+  ```json
+  {
+    "name": "Welcome Project",
+    "description": "Getting familiar with the platform",
+    "template": "product-launch",
+    "privacy": "team",
+    "features": {
+      "comments": true,
+      "integrations": true,
+      "analytics": true
+    }
   }
-}
-```
+  ```
 
-```json
-{
-  "advanced_settings": {
-    "auto_notifications": true,
-    "workflow_automation": false,
-    "custom_fields": [],
-    "integration_webhooks": [],
-    "backup_frequency": "daily"
+  ```json
+  {
+    "advanced_settings": {
+      "auto_notifications": true,
+      "workflow_automation": false,
+      "custom_fields": [],
+      "integration_webhooks": [],
+      "backup_frequency": "daily"
+    }
   }
-}
-```
+  ```
 </CodeGroup>
 
 **Result**: Your project is created with a starter workflow and sample tasks
@@ -82,20 +104,24 @@ By the end of this guide, you'll have:
 ## Step 3: Invite your team
 
 1. **Click "Invite Team"** in your project
+
 2. **Add team members**:
+
    - Enter email addresses (one per line or comma-separated)
+
    - Choose their role: `Member`, `Admin`, or `Viewer`
+
    - Add a personal message (optional)
 
 3. **Set permissions** for each role:
 
-| Role | Create Projects | Edit Content | Admin Settings | View Analytics |
-|------|----------------|--------------|----------------|----------------|
-| Viewer | ❌ | ❌ | ❌ | ❌ |
-| Member | ✅ | ✅ | ❌ | ✅ |
-| Admin | ✅ | ✅ | ✅ | ✅ |
+| Role   | Create Projects | Edit Content | Admin Settings | View Analytics |
+| ------ | --------------- | ------------ | -------------- | -------------- |
+| Viewer | ❌               | ❌            | ❌              | ❌              |
+| Member | ✅               | ✅            | ❌              | ✅              |
+| Admin  | ✅               | ✅            | ✅              | ✅              |
 
-<Callout kind="success">
+<Callout uid="271e9089-c342-467a-bc08-b31de3451495" kind="success" collapsed="false">
   Team members will receive an email invitation with a direct link to join your workspace.
 </Callout>
 
@@ -107,55 +133,65 @@ Integrate with tools your team already uses:
 
 ### Popular integrations
 
-<ExpandableGroup>
-<Expandable title="Slack Integration" default-open="true">
+<ExpandableGroup uid="c0287748-6985-4eaf-be78-83897fd0677a">
+  <Expandable title="Slack Integration" default-open="true">
+    Connect your Slack workspace to get notifications:
 
-Connect your Slack workspace to get notifications:
+    1. Go to **Settings → Integrations**
 
-1. Go to **Settings → Integrations**
-2. Click **Connect Slack**
-3. Choose which channels receive notifications
-4. Test the integration with a sample message
+    2. Click **Connect Slack**
 
-```bash
-# Test notification will appear as:
-📋 New task created: "Review quickstart guide"
-👤 Assigned to: @john.doe
-🔗 View task: https://acme.com/projects/123/tasks/456
-```
+    3. Choose which channels receive notifications
 
-</Expandable>
+    4. Test the integration with a sample message
 
-<Expandable title="GitHub Integration" default-open="false">
+    ```bash
+    # Test notification will appear as:
+    📋 New task created: "Review quickstart guide"
+    👤 Assigned to: @john.doe
+    🔗 View task: https://acme.com/projects/123/tasks/456
+    ```
+  </Expandable>
 
-Sync with your code repositories:
+  <Expandable title="GitHub Integration" default-open="false">
+    Sync with your code repositories:
 
-1. Go to **Settings → Integrations → GitHub**
-2. Authorize the connection
-3. Select repositories to sync
-4. Configure webhook events
+    1. Go to **Settings → Integrations → GitHub**
 
-**Supported events**:
-- Pull request updates
-- Issue linking
-- Commit references
-- Release notifications
+    2. Authorize the connection
 
-</Expandable>
+    3. Select repositories to sync
 
-<Expandable title="Calendar Integration" default-open="false">
+    4. Configure webhook events
 
-Sync deadlines with Google Calendar or Outlook:
+    **Supported events**:
 
-1. **Settings → Integrations → Calendar**
-2. **Authorize** your calendar app
-3. **Choose sync options**:
-   - Task deadlines
-   - Project milestones
-   - Team meetings
-   - Sprint reviews
+    - Pull request updates
 
-</Expandable>
+    - Issue linking
+
+    - Commit references
+
+    - Release notifications
+  </Expandable>
+
+  <Expandable title="Calendar Integration" default-open="false">
+    Sync deadlines with Google Calendar or Outlook:
+
+    1. **Settings → Integrations → Calendar**
+
+    2. **Authorize** your calendar app
+
+    3. **Choose sync options**:
+
+       - Task deadlines
+
+       - Project milestones
+
+       - Team meetings
+
+       - Sprint reviews
+  </Expandable>
 </ExpandableGroup>
 
 ## Step 5: Create your first workflow
@@ -165,32 +201,45 @@ Now let's create a real workflow to see the platform in action:
 ### Create tasks and assign them
 
 1. **Add a new task**: Click the `+` button
+
    - Title: `Set up team onboarding process`
+
    - Description: `Create a checklist for new team members`
+
    - Assignee: Yourself
+
    - Due date: Tomorrow
+
    - Priority: `High`
 
 2. **Add subtasks**:
+
    - `Create onboarding checklist`
-   - `Prepare welcome materials`  
+
+   - `Prepare welcome materials`
+
    - `Schedule team introduction meeting`
 
 3. **Set up a workflow**:
+
    - **To Do** → **In Progress** → **Review** → **Done**
 
-<Callout kind="tip">
+<Callout uid="7f21ece6-8336-4700-bb60-570d9fac0370" kind="tip" collapsed="false">
   Use drag-and-drop to move tasks between workflow stages. Team members get notified automatically when tasks change status.
 </Callout>
 
 ### Add comments and collaboration
 
 1. **Click on your task** to open details
+
 2. **Add a comment**: `@mention` team members to get their attention
+
 3. **Attach files**: Drag images, documents, or links
+
 4. **Set up notifications**: Choose how you want to be updated
 
 **Example comment with mentions**:
+
 ```text
 Hey @sarah, can you help review the onboarding checklist? 
 I've attached the draft document here. Let me know what you think!
@@ -207,48 +256,69 @@ I've attached the draft document here. Let me know what you think!
 Navigate to your **Dashboard** to see:
 
 - **Task completion rates** across projects
-- **Team productivity** insights  
+
+- **Team productivity** insights
+
 - **Upcoming deadlines** and bottlenecks
+
 - **Recent activity** from all team members
 
 ### Advanced features to explore
 
 - **Custom automation**: Set up rules to automatically assign tasks or send notifications
+
 - **Time tracking**: Log hours and generate reports
+
 - **Templates**: Create reusable project templates for your team
+
 - **API access**: Integrate with custom tools using our REST API
 
 ## Validation and next steps
 
 ### ✅ Confirm everything is working
 
-- [ ] Can you see your project dashboard?
-- [ ] Did team members receive and accept invitations?
-- [ ] Are integrations sending notifications correctly?
-- [ ] Can you create, assign, and complete a task?
-- [ ] Is everyone able to comment and collaborate?
+- Can you see your project dashboard?
 
-<Callout kind="success">
+- Did team members receive and accept invitations?
+
+- Are integrations sending notifications correctly?
+
+- Can you create, assign, and complete a task?
+
+- Is everyone able to comment and collaborate?
+
+<Callout uid="923d8e39-a933-4da0-ba1a-4a0c5d006086" kind="success" collapsed="false">
   **Congratulations!** You've successfully set up ACME Company. Your team is ready to collaborate effectively.
 </Callout>
 
 ### What to do next
 
 #### Immediate next steps (next 30 minutes)
-- **[Explore components](../components/components-overview)** - Learn about advanced features
-- **[Set up automation](../guides/configuration)** - Automate repetitive tasks
-- **[Configure notifications](../guides/best-practices)** - Optimize your notification settings
+
+- [**Explore components**](../components/components-overview) - Learn about advanced features
+
+- [**Set up automation**](../guides/configuration) - Automate repetitive tasks
+
+- [**Configure notifications**](../guides/best-practices) - Optimize your notification settings
 
 #### This week
+
 - **Create project templates** for recurring work types
-- **Set up reporting** to track team performance  
+
+- **Set up reporting** to track team performance
+
 - **Train team members** on advanced features
+
 - **Connect additional tools** your team uses
 
-#### This month  
+#### This month
+
 - **Review usage analytics** to optimize workflows
+
 - **Gather team feedback** and adjust processes
+
 - **Explore API integration** for custom workflows
+
 - **Consider upgrading** to unlock advanced features
 
 ## Get help
@@ -256,47 +326,58 @@ Navigate to your **Dashboard** to see:
 Need assistance? We're here to help:
 
 - **💬 Live chat**: Click the chat bubble in the bottom right
+
 - **📧 Email support**: [support@acme.com](mailto:support@acme.com)
+
 - **📚 Documentation**: Browse our complete guides
+
 - **🎥 Video tutorials**: [Watch quickstart videos](https://acme.com/tutorials)
+
 - **📞 Schedule call**: [Book time with our success team](https://acme.com/demo)
 
 ## Troubleshooting
 
-<ExpandableGroup>
-<Expandable title="Team members can't access the workspace" default-open="false">
+<ExpandableGroup uid="59cf22cb-7704-41e2-a41d-495fc60e14cf">
+  <Expandable title="Team members can't access the workspace" default-open="false">
+    **Common solutions**:
 
-**Common solutions**:
-1. Check that invitations were sent to correct email addresses
-2. Ask them to check spam/junk folders
-3. Verify they're using the correct workspace URL
-4. Resend invitations from the team management page
+    1. Check that invitations were sent to correct email addresses
 
-**Still having issues?** Contact support with the team member's email address.
+    2. Ask them to check spam/junk folders
 
-</Expandable>
+    3. Verify they're using the correct workspace URL
 
-<Expandable title="Integrations aren't working" default-open="false">
+    4. Resend invitations from the team management page
 
-**Troubleshooting steps**:
-1. **Verify permissions**: Ensure you have admin access to both platforms
-2. **Check webhook URLs**: Make sure they're configured correctly
-3. **Test the connection**: Use the "Test Integration" button
-4. **Review logs**: Check the integration logs for error messages
+    **Still having issues?** Contact support with the team member's email address.
+  </Expandable>
 
-**Need help?** Our support team can check integration logs on our end.
+  <Expandable title="Integrations aren't working" default-open="false">
+    **Troubleshooting steps**:
 
-</Expandable>
+    1. **Verify permissions**: Ensure you have admin access to both platforms
 
-<Expandable title="Performance is slow" default-open="false">
+    2. **Check webhook URLs**: Make sure they're configured correctly
 
-**Quick fixes**:
-1. **Clear browser cache** and refresh the page
-2. **Check internet connection** - try loading other websites
-3. **Close unused browser tabs** to free up memory
-4. **Update your browser** to the latest version
+    3. **Test the connection**: Use the "Test Integration" button
 
-**Enterprise users**: Contact support for dedicated performance optimization.
+    4. **Review logs**: Check the integration logs for error messages
 
-</Expandable>
+    **Need help?** Our support team can check integration logs on our end.
+  </Expandable>
+
+  <Expandable title="Performance is slow" default-open="false">
+    **Quick fixes**:
+
+    1. **Clear browser cache** and refresh the page
+
+    2. **Check internet connection** - try loading other websites
+
+    3. **Close unused browser tabs** to free up memory
+
+    4. **Update your browser** to the latest version
+
+    **Enterprise users**: Contact support for dedicated performance optimization.
+  </Expandable>
 </ExpandableGroup>
+

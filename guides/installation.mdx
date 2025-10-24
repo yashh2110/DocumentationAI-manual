@@ -1,15 +1,18 @@
 ---
 title: Installation & Setup
-description: "Complete installation guide for ACME Company including workspace setup, team onboarding, and initial configuration."
+description: >-
+  Complete installation guide for ACME Company including workspace setup, team
+  onboarding, and initial configuration.
 ---
-
 Get ACME Company properly installed and configured for your team. This guide covers everything from account creation to advanced setup options.
 
 ## Overview
 
+asdsd
+
 ACME Company is a cloud-based platform that requires no software installation on individual devices. However, there are several setup steps to ensure optimal performance and security for your team.
 
-<Callout kind="info">
+<Callout uid="5b6a8c50-9364-4bc9-8ff7-e1d4e7d781a1" kind="info" collapsed="false">
   **Setup time**: 15-30 minutes for basic setup, up to 2 hours for enterprise configuration
 </Callout>
 
@@ -17,21 +20,30 @@ ACME Company is a cloud-based platform that requires no software installation on
 
 Before starting, ensure you have:
 
-- [ ] **Administrator access** to create accounts and manage billing
-- [ ] **Team email addresses** for all users you want to invite
-- [ ] **Integration credentials** for tools you want to connect (optional)
-- [ ] **Company branding assets** like logos and color codes (optional)
+- **Administrator access** to create accounts and manage billing
+
+- **Team email addresses** for all users you want to invite
+
+- **Integration credentials** for tools you want to connect (optional)
+
+- **Company branding assets** like logos and color codes (optional)
 
 ## Step 1: Account Creation
 
 ### Individual account
 
 1. **Visit the signup page**: [acme.com/signup](https://acme.com/signup)
+
 2. **Enter your details**:
+
    - Work email address (personal emails are accepted but not recommended)
+
    - Strong password (minimum 8 characters with mixed case and numbers)
+
    - Company name
+
 3. **Verify your email** by clicking the link sent to your inbox
+
 4. **Complete your profile** with additional details
 
 ### Enterprise account
@@ -39,11 +51,14 @@ Before starting, ensure you have:
 For teams larger than 50 users or requiring advanced security:
 
 1. **Contact our sales team**: [acme.com/enterprise](https://acme.com/enterprise)
+
 2. **Schedule a demo** to discuss your requirements
+
 3. **Receive custom setup** with dedicated onboarding support
+
 4. **Complete security review** if required by your organization
 
-<Callout kind="tip">
+<Callout uid="57f6fa8d-4cda-47b2-b891-4395247c86d6" kind="tip" collapsed="false">
   Enterprise customers get priority support, custom integrations, and dedicated infrastructure. Contact sales even if you're not sure you need enterprise features.
 </Callout>
 
@@ -51,29 +66,29 @@ For teams larger than 50 users or requiring advanced security:
 
 ### Basic workspace setup
 
-<CodeGroup tabs="Workspace Settings,Branding Options">
-```json
-{
-  "workspace": {
-    "name": "Acme Corporation",
-    "subdomain": "acme",
-    "timezone": "America/New_York",
-    "language": "en-US",
-    "date_format": "MM/DD/YYYY"
+<CodeGroup uid="9a7d759f-39aa-4d11-8fa3-687be4ca7563" show-lines="true" tabs={[]}>
+  ```json
+  {
+    "workspace": {
+      "name": "Acme Corporation",
+      "subdomain": "acme",
+      "timezone": "America/New_York",
+      "language": "en-US",
+      "date_format": "MM/DD/YYYY"
+    }
   }
-}
-```
+  ```
 
-```json
-{
-  "branding": {
-    "logo_url": "https://acme.com/logo.png",
-    "primary_color": "#1a365d",
-    "accent_color": "#3182ce",
-    "custom_domain": "docs.acme.com"
+  ```json
+  {
+    "branding": {
+      "logo_url": "https://acme.com/logo.png",
+      "primary_color": "#1a365d",
+      "accent_color": "#3182ce",
+      "custom_domain": "docs.acme.com"
+    }
   }
-}
-```
+  ```
 </CodeGroup>
 
 ### Advanced configuration
@@ -81,88 +96,117 @@ For teams larger than 50 users or requiring advanced security:
 1. **Navigate to Workspace Settings** (⚙️ → Workspace → General)
 
 2. **Configure basic information**:
+
    - **Workspace name**: This appears in emails and browser titles
+
    - **Subdomain**: Your unique URL (e.g., `workspace.acme.com`)
+
    - **Timezone**: Default timezone for all workspace members
+
    - **Language**: Interface language preference
 
 3. **Set up branding** (optional):
+
    - **Upload logo**: PNG or SVG format, recommended size 200x50px
+
    - **Choose colors**: Primary brand color and optional accent color
+
    - **Custom domain**: Use your own domain like `workspace.yourcompany.com`
 
-<Callout kind="warning">
+<Callout uid="c968c42c-5e19-4df2-8ddd-967327c2796b" kind="warning" collapsed="false">
   Subdomain changes affect all existing links and bookmarks. Choose carefully and avoid changing after team adoption.
 </Callout>
 
 ### Security configuration
 
-<ExpandableGroup>
-<Expandable title="Single Sign-On (SSO)" default-open="false">
+<ExpandableGroup uid="a2d601f9-e1df-4225-aa0b-a6595494c032">
+  <Expandable title="Single Sign-On (SSO)" default-open="false">
+    Configure SSO for seamless team access:
 
-Configure SSO for seamless team access:
+    **Supported providers**:
 
-**Supported providers**:
-- Google Workspace / Gmail
-- Microsoft Active Directory / Office 365
-- Okta, Auth0, OneLogin
-- SAML 2.0 compatible providers
+    - Google Workspace / Gmail
 
-**Setup steps**:
-1. Go to **Security → Single Sign-On**
-2. Choose your identity provider
-3. Enter configuration details (provided by your IT team)
-4. Test the connection with a test user
-5. Enable SSO for all workspace members
+    - Microsoft Active Directory / Office 365
 
-**Benefits**:
-- One-click login for team members
-- Centralized user management
-- Enhanced security with your existing policies
+    - Okta, Auth0, OneLogin
 
-</Expandable>
+    - SAML 2.0 compatible providers
 
-<Expandable title="Two-Factor Authentication (2FA)" default-open="false">
+    **Setup steps**:
 
-Enable 2FA for additional account security:
+    1. Go to **Security → Single Sign-On**
 
-**Setup for administrators**:
-1. **Personal Settings → Security → Two-Factor Authentication**
-2. **Scan QR code** with authenticator app (Google Authenticator, Authy, etc.)
-3. **Enter verification code** to confirm setup
-4. **Save backup codes** in a secure location
+    2. Choose your identity provider
 
-**Enforce for workspace**:
-1. **Workspace Settings → Security → Authentication**
-2. **Enable "Require 2FA for all members"**
-3. **Set grace period** for existing users to set up 2FA
-4. **Configure backup options** for account recovery
+    3. Enter configuration details (provided by your IT team)
 
-</Expandable>
+    4. Test the connection with a test user
 
-<Expandable title="IP Allowlisting" default-open="false">
+    5. Enable SSO for all workspace members
 
-Restrict access to specific IP addresses or ranges:
+    **Benefits**:
 
-**When to use**:
-- Corporate networks with strict security policies
-- Remote work policies requiring VPN access
-- Compliance requirements for data access
+    - One-click login for team members
 
-**Configuration**:
-1. **Security → Network Access → IP Allowlisting**
-2. **Add IP addresses or CIDR ranges**:
-   ```
-   192.168.1.0/24    # Office network
-   203.0.113.42      # Specific remote user
-   198.51.100.0/22   # VPN exit points
-   ```
-3. **Test access** from allowed and blocked IPs
-4. **Enable enforcement** after testing
+    - Centralized user management
 
-**Important**: Always test thoroughly before enabling to avoid locking out team members.
+    - Enhanced security with your existing policies
+  </Expandable>
 
-</Expandable>
+  <Expandable title="Two-Factor Authentication (2FA)" default-open="false">
+    Enable 2FA for additional account security:
+
+    **Setup for administrators**:
+
+    1. **Personal Settings → Security → Two-Factor Authentication**
+
+    2. **Scan QR code** with authenticator app (Google Authenticator, Authy, etc.)
+
+    3. **Enter verification code** to confirm setup
+
+    4. **Save backup codes** in a secure location
+
+    **Enforce for workspace**:
+
+    1. **Workspace Settings → Security → Authentication**
+
+    2. **Enable "Require 2FA for all members"**
+
+    3. **Set grace period** for existing users to set up 2FA
+
+    4. **Configure backup options** for account recovery
+  </Expandable>
+
+  <Expandable title="IP Allowlisting" default-open="false">
+    Restrict access to specific IP addresses or ranges:
+
+    **When to use**:
+
+    - Corporate networks with strict security policies
+
+    - Remote work policies requiring VPN access
+
+    - Compliance requirements for data access
+
+    **Configuration**:
+
+    1. **Security → Network Access → IP Allowlisting**
+
+    2. **Add IP addresses or CIDR ranges**:
+
+       ```
+       192.168.1.0/24    # Office network
+       203.0.113.42      # Specific remote user
+       198.51.100.0/22   # VPN exit points
+       ```
+
+    3. **Test access** from allowed and blocked IPs
+
+    4. **Enable enforcement** after testing
+
+    **Important**: Always test thoroughly before enabling to avoid locking out team members.
+  </Expandable>
 </ExpandableGroup>
 
 ## Step 3: Team Setup
@@ -171,49 +215,49 @@ Restrict access to specific IP addresses or ranges:
 
 There are several ways to add people to your workspace:
 
-<CodeGroup tabs="Individual Invites,Bulk Import,SSO Provisioning">
-```javascript
-// Individual email invites
-const inviteUsers = [
-  {
-    email: "john@acme.com",
-    role: "member",
-    projects: ["proj_123", "proj_456"]
-  },
-  {
-    email: "admin@acme.com", 
-    role: "admin",
-    projects: "all"
-  }
-];
+<CodeGroup uid="7509e359-5bf9-4a8a-bf7f-2f56cf3aa3a6" show-lines="true" tabs={[]}>
+  ```javascript
+  // Individual email invites
+  const inviteUsers = [
+    {
+      email: "john@acme.com",
+      role: "member",
+      projects: ["proj_123", "proj_456"]
+    },
+    {
+      email: "admin@acme.com", 
+      role: "admin",
+      projects: "all"
+    }
+  ];
 
-// Send invitations
-inviteUsers.forEach(user => {
-  sendInvitation(user);
-});
-```
+  // Send invitations
+  inviteUsers.forEach(user => {
+    sendInvitation(user);
+  });
+  ```
 
-```csv
-# CSV bulk import format
-email,role,department,projects
-john.doe@acme.com,member,engineering,proj_123
-jane.smith@acme.com,admin,product,all
-bob.wilson@acme.com,viewer,marketing,proj_456
-```
+  ```csv
+  # CSV bulk import format
+  email,role,department,projects
+  john.doe@acme.com,member,engineering,proj_123
+  jane.smith@acme.com,admin,product,all
+  bob.wilson@acme.com,viewer,marketing,proj_456
+  ```
 
-```xml
-<!-- SCIM provisioning for enterprise -->
-<scim:User>
-  <scim:userName>john.doe@acme.com</scim:userName>
-  <scim:name>
-    <scim:givenName>John</scim:givenName>
-    <scim:familyName>Doe</scim:familyName>
-  </scim:name>
-  <scim:emails>
-    <scim:email primary="true">john.doe@acme.com</scim:email>
-  </scim:emails>
-</scim:User>
-```
+  ```xml
+  <!-- SCIM provisioning for enterprise -->
+  <scim:User>
+    <scim:userName>john.doe@acme.com</scim:userName>
+    <scim:name>
+      <scim:givenName>John</scim:givenName>
+      <scim:familyName>Doe</scim:familyName>
+    </scim:name>
+    <scim:emails>
+      <scim:email primary="true">john.doe@acme.com</scim:email>
+    </scim:emails>
+  </scim:User>
+  ```
 </CodeGroup>
 
 ### Role assignment strategy
@@ -222,25 +266,32 @@ Plan your role structure before adding team members:
 
 **Recommended approach for most teams**:
 
-| Team Size | Admins | Members | Viewers |
-|-----------|--------|---------|---------|
-| 2-10 people | 1-2 | Everyone else | External stakeholders |
-| 10-50 people | 2-3 | Team leads + ICs | Contractors, clients |
-| 50+ people | 3-5 | Department leads | Read-only stakeholders |
+| Team Size    | Admins | Members          | Viewers                |
+| ------------ | ------ | ---------------- | ---------------------- |
+| 2-10 people  | 1-2    | Everyone else    | External stakeholders  |
+| 10-50 people | 2-3    | Team leads + ICs | Contractors, clients   |
+| 50+ people   | 3-5    | Department leads | Read-only stakeholders |
 
 ### Department and project organization
 
 Organize team members by department and assign to relevant projects:
 
 1. **Create departments** (Settings → Team → Departments):
+
    - Engineering
-   - Product  
+
+   - Product
+
    - Marketing
+
    - Sales
+
    - Customer Success
 
 2. **Assign default projects** for each department
+
 3. **Set up project templates** for recurring work types
+
 4. **Configure notification defaults** by role and department
 
 ## Step 4: Essential Integrations
@@ -249,104 +300,133 @@ Connect the tools your team already uses:
 
 ### Communication tools
 
-<ExpandableGroup>
-<Expandable title="Slack Integration" default-open="true">
+<ExpandableGroup uid="1a4127e5-ac7d-454e-baca-432187698511">
+  <Expandable title="Slack Integration" default-open="true">
+    **Setup steps**:
 
-**Setup steps**:
-1. **Integrations → Communication → Slack**
-2. **Connect your Slack workspace**
-3. **Configure notification channels**:
-   ```
-   #general - Major project updates
-   #dev-team - Development project notifications  
-   #marketing - Marketing campaign updates
-   ```
-4. **Set notification preferences** for different event types
-5. **Test integration** with a sample notification
+    1. **Integrations → Communication → Slack**
 
-**Notification types**:
-- New tasks assigned to you
-- Tasks completed in your projects
-- Comments on tasks you're following
-- Project deadline reminders
-- Daily/weekly digest summaries
+    2. **Connect your Slack workspace**
 
-</Expandable>
+    3. **Configure notification channels**:
 
-<Expandable title="Microsoft Teams" default-open="false">
+       ```
+       #general - Major project updates
+       #dev-team - Development project notifications  
+       #marketing - Marketing campaign updates
+       ```
 
-**Setup process**:
-1. **Install the ACME Company app** from Teams App Store
-2. **Connect to your workspace** with admin credentials
-3. **Add bot to relevant channels** for notifications
-4. **Configure webhook URLs** in workspace settings
+    4. **Set notification preferences** for different event types
 
-**Teams-specific features**:
-- Task creation directly from Teams messages
-- Meeting integration with project tasks
-- File sharing between Teams and projects
-- Calendar sync for project deadlines
+    5. **Test integration** with a sample notification
 
-</Expandable>
+    **Notification types**:
+
+    - New tasks assigned to you
+
+    - Tasks completed in your projects
+
+    - Comments on tasks you're following
+
+    - Project deadline reminders
+
+    - Daily/weekly digest summaries
+  </Expandable>
+
+  <Expandable title="Microsoft Teams" default-open="false">
+    **Setup process**:
+
+    1. **Install the ACME Company app** from Teams App Store
+
+    2. **Connect to your workspace** with admin credentials
+
+    3. **Add bot to relevant channels** for notifications
+
+    4. **Configure webhook URLs** in workspace settings
+
+    **Teams-specific features**:
+
+    - Task creation directly from Teams messages
+
+    - Meeting integration with project tasks
+
+    - File sharing between Teams and projects
+
+    - Calendar sync for project deadlines
+  </Expandable>
 </ExpandableGroup>
 
 ### Development tools
 
-<ExpandableGroup>
-<Expandable title="GitHub Integration" default-open="false">
+<ExpandableGroup uid="7086bfab-e41f-4e56-9424-69e36a3f57b8">
+  <Expandable title="GitHub Integration" default-open="false">
+    **Required permissions**:
 
-**Required permissions**:
-- Repository read access
-- Issues and pull requests management
-- Webhook creation permissions
+    - Repository read access
 
-**Setup**:
-1. **Install GitHub App**: Visit the integration page and install our GitHub app
-2. **Select repositories**: Choose which repos to sync with your workspace  
-3. **Configure sync settings**:
-   - Link pull requests to tasks automatically
-   - Create tasks from new issues
-   - Update task status when PRs are merged
-4. **Test the integration**: Create a PR and verify it appears in your project
+    - Issues and pull requests management
 
-**Automation examples**:
-```yaml
-# Example GitHub Action integration
-name: Update Task on PR Merge
-on:
-  pull_request:
-    types: [closed]
-    
-jobs:
-  update-task:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-      - name: Complete linked task
-        uses: yourapp/github-action@v1
-        with:
-          api-key: ${{ secrets.YOURAPP_API_KEY }}
-          pr-number: ${{ github.event.pull_request.number }}
-```
+    - Webhook creation permissions
 
-</Expandable>
+    **Setup**:
 
-<Expandable title="Jira Integration" default-open="false">
+    1. **Install GitHub App**: Visit the integration page and install our GitHub app
 
-**Bidirectional sync** between Jira issues and ACME Company tasks:
+    2. **Select repositories**: Choose which repos to sync with your workspace
 
-**Setup requirements**:
-- Jira administrator access for webhook setup
-- API token generation for authentication
-- Mapped field configuration between systems
+    3. **Configure sync settings**:
 
-**Sync configuration**:
-- **Issue types**: Bug, Story, Epic → Task types in your workspace
-- **Status mapping**: Jira status → Workflow stages in your projects  
-- **Priority levels**: Critical, High, Medium, Low (both directions)
-- **Assignee sync**: Automatic user matching by email address
+       - Link pull requests to tasks automatically
 
-</Expandable>
+       - Create tasks from new issues
+
+       - Update task status when PRs are merged
+
+    4. **Test the integration**: Create a PR and verify it appears in your project
+
+    **Automation examples**:
+
+    ```yaml
+    # Example GitHub Action integration
+    name: Update Task on PR Merge
+    on:
+      pull_request:
+        types: [closed]
+        
+    jobs:
+      update-task:
+        if: github.event.pull_request.merged == true
+        runs-on: ubuntu-latest
+        steps:
+          - name: Complete linked task
+            uses: yourapp/github-action@v1
+            with:
+              api-key: ${{ secrets.YOURAPP_API_KEY }}
+              pr-number: ${{ github.event.pull_request.number }}
+    ```
+  </Expandable>
+
+  <Expandable title="Jira Integration" default-open="false">
+    **Bidirectional sync** between Jira issues and ACME Company tasks:
+
+    **Setup requirements**:
+
+    - Jira administrator access for webhook setup
+
+    - API token generation for authentication
+
+    - Mapped field configuration between systems
+
+    **Sync configuration**:
+
+    - **Issue types**: Bug, Story, Epic → Task types in your workspace
+
+    - **Status mapping**: Jira status → Workflow stages in your projects
+
+    - **Priority levels**: Critical, High, Medium, Low (both directions)
+
+    - **Assignee sync**: Automatic user matching by email address
+  </Expandable>
 </ExpandableGroup>
 
 ## Step 5: Workspace Optimization
@@ -354,34 +434,49 @@ jobs:
 ### Performance optimization
 
 1. **Enable browser notifications** for real-time updates
+
 2. **Install mobile apps** for iOS and Android
+
 3. **Set up email digest preferences** to avoid notification overload
+
 4. **Configure keyboard shortcuts** for power users
 
 ### Data and privacy settings
 
-<Callout kind="info">
+<Callout uid="ed7e3cad-fc6e-4143-a919-cb7569bd2e1e" kind="info" collapsed="false">
   Your data is encrypted at rest and in transit. Configure additional privacy settings based on your organization's requirements.
 </Callout>
 
 **Privacy configuration**:
+
 - **Data retention policy**: How long to keep deleted items
-- **Export settings**: Who can export workspace data  
+
+- **Export settings**: Who can export workspace data
+
 - **Guest access**: Whether external collaborators can join projects
+
 - **Public sharing**: Allow sharing of public project links
 
 ### Backup and compliance
 
 **Automatic backups**:
+
 - Daily incremental backups of all workspace data
+
 - Weekly full system backups
+
 - 90-day backup retention (customizable for enterprise)
+
 - Point-in-time recovery available
 
 **Compliance features** (Enterprise):
+
 - **Audit logs**: Complete activity tracking
+
 - **Data residency**: Choose geographic data storage location
+
 - **GDPR compliance**: Data subject rights and deletion capabilities
+
 - **SOC 2 Type II**: Security compliance certification
 
 ## Verification Checklist
@@ -389,85 +484,114 @@ jobs:
 Confirm your installation is complete:
 
 ### ✅ Basic setup
-- [ ] Workspace created and configured
-- [ ] Team members invited and accepted
-- [ ] Roles and permissions assigned correctly
-- [ ] Basic branding applied (logo, colors)
 
-### ✅ Security configuration  
-- [ ] Two-factor authentication enabled
-- [ ] SSO configured (if applicable)
-- [ ] IP allowlisting configured (if required)
-- [ ] Password policies enforced
+- Workspace created and configured
+
+- Team members invited and accepted
+
+- Roles and permissions assigned correctly
+
+- Basic branding applied (logo, colors)
+
+### ✅ Security configuration
+
+- Two-factor authentication enabled
+
+- SSO configured (if applicable)
+
+- IP allowlisting configured (if required)
+
+- Password policies enforced
 
 ### ✅ Integrations
-- [ ] Primary communication tool connected (Slack/Teams)
-- [ ] Development tools integrated (GitHub/Jira)
-- [ ] Calendar sync enabled
-- [ ] Notification preferences configured
+
+- Primary communication tool connected (Slack/Teams)
+
+- Development tools integrated (GitHub/Jira)
+
+- Calendar sync enabled
+
+- Notification preferences configured
 
 ### ✅ Team readiness
-- [ ] All team members can log in successfully
-- [ ] Everyone can access their assigned projects
-- [ ] Notification systems working correctly
-- [ ] Mobile apps installed and working
 
-<Callout kind="success">
+- All team members can log in successfully
+
+- Everyone can access their assigned projects
+
+- Notification systems working correctly
+
+- Mobile apps installed and working
+
+<Callout uid="b69bd417-48c7-4312-a5e7-71a5c32a1626" kind="success" collapsed="false">
   **Installation complete!** Your team is now ready to start collaborating effectively with ACME Company.
 </Callout>
 
 ## Next Steps
 
-- **[Configure advanced settings](configuration)** - Fine-tune your workspace
-- **[Learn best practices](best-practices)** - Optimize your team's workflow
-- **[Explore components](../components/components-overview)** - Discover advanced features
-- **[Set up API access](../api-reference/getting-started)** - Build custom integrations
+- [**Configure advanced settings**](configuration) - Fine-tune your workspace
+
+- [**Learn best practices**](best-practices) - Optimize your team's workflow
+
+- [**Explore components**](../components/components-overview) - Discover advanced features
+
+- [**Set up API access**](../api-reference/getting-started) - Build custom integrations
 
 ## Troubleshooting
 
-<ExpandableGroup>
-<Expandable title="Can't access workspace after setup" default-open="false">
+<ExpandableGroup uid="8e642b6a-c2c8-4173-9ee9-a26aebafc984">
+  <Expandable title="Can't access workspace after setup" default-open="false">
+    **Common causes and solutions**:
 
-**Common causes and solutions**:
+    1. **Email verification pending**: Check spam folder for verification email
 
-1. **Email verification pending**: Check spam folder for verification email
-2. **Wrong login URL**: Ensure you're using the correct subdomain
-3. **SSO configuration issue**: Contact your IT admin to verify SSO setup
-4. **Browser cookies disabled**: Enable cookies for acme.com domain
+    2. **Wrong login URL**: Ensure you're using the correct subdomain
 
-**Still having issues?** Contact support with your workspace subdomain and email address.
+    3. **SSO configuration issue**: Contact your IT admin to verify SSO setup
 
-</Expandable>
+    4. **Browser cookies disabled**: Enable cookies for acme.com domain
 
-<Expandable title="Team members not receiving invitations" default-open="false">
+    **Still having issues?** Contact support with your workspace subdomain and email address.
+  </Expandable>
 
-**Troubleshooting steps**:
+  <Expandable title="Team members not receiving invitations" default-open="false">
+    **Troubleshooting steps**:
 
-1. **Verify email addresses**: Double-check for typos in email addresses
-2. **Check spam filters**: Ask team members to check junk/spam folders
-3. **Corporate email security**: Some companies block external emails by default
-4. **Resend invitations**: Try sending invitations again from the team management page
+    1. **Verify email addresses**: Double-check for typos in email addresses
 
-**Corporate firewalls**: Share these domains with your IT team to allowlist:
-- `acme.com`
-- `*.acme.com` 
-- `api.acme.com`
+    2. **Check spam filters**: Ask team members to check junk/spam folders
 
-</Expandable>
+    3. **Corporate email security**: Some companies block external emails by default
 
-<Expandable title="Integrations not syncing properly" default-open="false">
+    4. **Resend invitations**: Try sending invitations again from the team management page
 
-**Debugging integration issues**:
+    **Corporate firewalls**: Share these domains with your IT team to allowlist:
 
-1. **Check permissions**: Verify you have admin access to both platforms
-2. **Test webhook endpoints**: Use the integration test tools in settings
-3. **Review error logs**: Check the integration logs for specific error messages
-4. **Verify API tokens**: Ensure tokens haven't expired and have correct scope
+    - `acme.com`
 
-**Integration status indicators**:
-- 🟢 **Connected**: Integration working normally
-- 🟡 **Warning**: Some features may not work correctly  
-- 🔴 **Error**: Integration needs immediate attention
+    - `*.acme.com`
 
-</Expandable>
+    - `api.acme.com`
+  </Expandable>
+
+  <Expandable title="Integrations not syncing properly" default-open="false">
+    **Debugging integration issues**:
+
+    1. **Check permissions**: Verify you have admin access to both platforms
+
+    2. **Test webhook endpoints**: Use the integration test tools in settings
+
+    3. **Review error logs**: Check the integration logs for specific error messages
+
+    4. **Verify API tokens**: Ensure tokens haven't expired and have correct scope
+
+    **Integration status indicators**:
+
+    - 🟢 **Connected**: Integration working normally
+
+    - 🟡 **Warning**: Some features may not work correctly
+
+    - 🔴 **Error**: Integration needs immediate attention
+  </Expandable>
 </ExpandableGroup>
+

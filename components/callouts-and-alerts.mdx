@@ -1,9 +1,14 @@
 ---
 title: Callouts & Alerts
-description: "Create attention-grabbing callouts, alerts, and highlighted information boxes using Documentation.AI's callout components for ACME Company."
+description: >-
+  Create attention-grabbing callouts, alerts, and highlighted information boxes
+  using Documentation.AI's callout components for ACME Company.
 ---
-
 Draw attention to important information with visually distinct callout boxes. Documentation.AI's callout components help you highlight tips, warnings, errors, and other critical information.
+
+
+
+asdasdasd
 
 ## Basic Callout Types
 
@@ -11,11 +16,11 @@ Draw attention to important information with visually distinct callout boxes. Do
 
 Use info callouts for helpful context, explanations, or additional details:
 
-<Callout kind="info">
+<Callout uid="e596195a-2e52-40ed-94fd-70eb8e8b75c6" kind="info" collapsed="false">
   **Getting started**: New to our platform? Check out our [quickstart guide](../getting-started/quickstart) to set up your account in under 10 minutes.
 </Callout>
 
-<Callout kind="info">
+<Callout uid="83f3f44d-7fd4-4289-b0a9-4ea7acf9cdc2" kind="info" collapsed="false">
   The API rate limit is 1000 requests per hour per API key. Contact support if you need higher limits for production use.
 </Callout>
 
@@ -33,11 +38,11 @@ Use info callouts for helpful context, explanations, or additional details:
 
 Share helpful tips, best practices, and recommendations:
 
-<Callout kind="tip">
+<Callout uid="d23260f6-b0a8-4923-9af2-f2967128fb02" kind="tip" collapsed="false">
   **Pro tip**: Use environment variables to store API keys instead of hardcoding them in your application. This keeps your credentials secure and makes deployment easier.
 </Callout>
 
-<Callout kind="tip">
+<Callout uid="ce4e1d99-91bf-4c25-988f-2010b5988407" kind="tip" collapsed="false">
   Enable browser notifications to get real-time updates when team members comment on your tasks or when deadlines are approaching.
 </Callout>
 
@@ -55,11 +60,11 @@ Share helpful tips, best practices, and recommendations:
 
 Celebrate achievements, confirm successful operations, or highlight positive outcomes:
 
-<Callout kind="success">
+<Callout uid="f463d840-3a3c-47a0-a804-44372b8a06c6" kind="success" collapsed="false">
   **Congratulations!** Your workspace has been successfully created. You can now invite team members and start your first project.
 </Callout>
 
-<Callout kind="success">
+<Callout uid="5385e97c-9789-40c9-bfac-5b942df03a44" kind="success" collapsed="false">
   **Integration complete**: Your GitHub repository is now connected. Pull requests will automatically create tasks in your project.
 </Callout>
 
@@ -77,11 +82,11 @@ Celebrate achievements, confirm successful operations, or highlight positive out
 
 Use alert callouts for important warnings, cautions, or things users should pay attention to:
 
-<Callout kind="alert">
+<Callout uid="b79fc321-3d39-4e38-85ee-d1b5b2829e6a" kind="alert" collapsed="false">
   **Important**: Changing your workspace subdomain will affect all existing bookmarks and shared links. Make sure to update any saved URLs.
 </Callout>
 
-<Callout kind="alert">
+<Callout uid="f2a95cb5-17d6-4f40-9f1a-ac884b609afa" kind="alert" collapsed="false">
   **Breaking change in v2.0**: The `createUser()` function now requires an email parameter. Update your code before upgrading.
 </Callout>
 
@@ -99,11 +104,11 @@ Use alert callouts for important warnings, cautions, or things users should pay 
 
 Reserve danger callouts for critical warnings about destructive actions or serious issues:
 
-<Callout kind="danger">
+<Callout uid="d86c743d-c061-4eb3-9160-55af67232da4" kind="danger" collapsed="false">
   **Warning**: Deleting your workspace is permanent and cannot be undone. All projects, tasks, and data will be lost forever.
 </Callout>
 
-<Callout kind="danger">
+<Callout uid="36e682c5-7234-42f8-8c36-97eace075198" kind="danger" collapsed="false">
   **Security alert**: Never commit API keys or passwords to version control. Use environment variables or secure key management systems instead.
 </Callout>
 
@@ -123,24 +128,30 @@ Reserve danger callouts for critical warnings about destructive actions or serio
 
 Callouts can contain any markdown content including lists, code, and links:
 
-<Callout kind="info">
+<Callout uid="f19d6423-f88c-4805-bc43-23af5538dc33" kind="info" collapsed="false">
   **Setting up your development environment**:
-  
+
   1. **Install Node.js 16+** from [nodejs.org](https://nodejs.org)
+
   2. **Clone the repository**:
+
      ```bash
      git clone https://github.com/yourcompany/your-project.git
      cd your-project
      ```
+
   3. **Install dependencies**:
+
      ```bash
      npm install
      ```
+
   4. **Start the development server**:
+
      ```bash
      npm run dev
      ```
-  
+
   The application will be available at `http://localhost:3000`
 </Callout>
 
@@ -161,18 +172,21 @@ Callouts can contain any markdown content including lists, code, and links:
 
 Use callouts for longer explanations that span multiple paragraphs:
 
-<Callout kind="tip">
+<Callout uid="d2f5f518-327d-40c4-8e41-e8b72d1e52ad" kind="tip" collapsed="false">
   **Understanding API versioning**
 
   Our API uses semantic versioning to ensure backward compatibility while allowing for new features and improvements.
 
   **Version format**: `v{major}.{minor}.{patch}`
+
   - **Major version** changes include breaking changes to existing endpoints
-  - **Minor version** changes add new features without breaking existing functionality  
+
+  - **Minor version** changes add new features without breaking existing functionality
+
   - **Patch version** changes include bug fixes and small improvements
 
-  **Current version**: v2.1.3  
-  **Supported versions**: v2.x.x (all minor and patch versions)  
+  **Current version**: v2.1.3\
+  **Supported versions**: v2.x.x (all minor and patch versions)\
   **Deprecated versions**: v1.x.x (support ends December 2024)
 
   We recommend always using the latest minor version to get the newest features and security updates.
@@ -182,25 +196,27 @@ Use callouts for longer explanations that span multiple paragraphs:
 
 In rare cases, you might need to nest callouts for complex information hierarchies:
 
-<Callout kind="info">
+<Callout uid="d4a428ec-9aee-478a-b9bc-1c562ebf5352" kind="info" collapsed="false">
   **Database migration guide**
 
   Follow these steps carefully when migrating to the new database schema:
 
-  <Callout kind="alert">
+  <Callout kind="alert" collapsed="false">
     **Before you start**: Create a complete backup of your database. This process modifies existing data and cannot be easily reversed.
   </Callout>
 
   1. Run the migration script
+
   2. Verify data integrity
+
   3. Update your application configuration
 
-  <Callout kind="success">
+  <Callout kind="success" collapsed="false">
     **Migration complete**: Your database is now using the new schema. Performance should improve by approximately 30%.
   </Callout>
 </Callout>
 
-<Callout kind="warning">
+<Callout uid="8b4c0ba2-6bd7-426d-a8b6-c442b4c22c43" kind="warning" collapsed="false">
   **Best practice**: Avoid nesting callouts more than one level deep, as it can create visual confusion and reduce readability.
 </Callout>
 
@@ -208,68 +224,83 @@ In rare cases, you might need to nest callouts for complex information hierarchi
 
 ### Version and compatibility information
 
-<Callout kind="info">
+<Callout uid="ebbb44ad-090c-4694-8d95-be090566bb99" kind="info" collapsed="false">
   **Compatibility**: This feature requires API version 2.1 or higher. It's available in all paid plans and supports the following programming languages:
-  
+
   - JavaScript/TypeScript ✅
-  - Python ✅  
+
+  - Python ✅
+
   - Go ✅
+
   - PHP ✅
+
   - Ruby ✅
+
   - Java (coming soon)
 </Callout>
 
 ### Prerequisites and requirements
 
-<Callout kind="alert">
+<Callout uid="c3c94b91-eb8a-458b-9df2-ab3fef6b1717" kind="alert" collapsed="false">
   **Prerequisites**: Before following this guide, make sure you have:
-  
-  - [ ] A verified account with appropriate permissions
-  - [ ] API credentials configured in your environment
-  - [ ] Basic familiarity with REST APIs
-  - [ ] A development environment set up
+
+  - A verified account with appropriate permissions
+
+  - API credentials configured in your environment
+
+  - Basic familiarity with REST APIs
+
+  - A development environment set up
 </Callout>
 
 ### Error troubleshooting
 
-<Callout kind="danger">
+<Callout uid="b98e140e-05b3-4d9e-b38e-28b3b9e13099" kind="danger" collapsed="false">
   **Common error**: `Authentication failed (401)`
-  
+
   **Cause**: Invalid or expired API token
-  
-  **Solution**: 
+
+  **Solution**:
+
   1. Check that your API key is correct
+
   2. Verify the token hasn't expired
+
   3. Ensure you're using the correct authentication header format:
+
      ```
      Authorization: Bearer YOUR_API_TOKEN
      ```
-  
+
   **Still having issues?** Contact support with your request ID.
 </Callout>
 
 ### Migration and upgrade notices
 
-<Callout kind="alert">
+<Callout uid="82947061-78d0-4265-8146-49d81127c551" kind="alert" collapsed="false">
   **Upcoming change**: The `/v1/users` endpoint will be deprecated on January 1, 2025.
-  
+
   **Action required**: Update your code to use `/v2/users` before the deadline.
-  
+
   **What's different in v2**:
+
   - Improved response format with consistent error handling
+
   - New pagination parameters (`limit` and `offset`)
+
   - Enhanced filtering options
-  
+
   [View migration guide →](../guides/api-migration)
 </Callout>
 
 ### Feature announcements
 
-<Callout kind="success">
-  **New feature**: Real-time collaboration is now available! 
-  
+<Callout uid="b51044e2-12a2-4e71-be6d-5a99b3b4de7d" kind="success" collapsed="false">
+  **New feature**: Real-time collaboration is now available!
+
   See changes from your team members instantly as they edit projects. This feature is included in all paid plans and can be enabled in your workspace settings.
-  
+
   [Learn more about real-time collaboration →](../features/real-time-collaboration)
 </Callout>
 
@@ -277,41 +308,58 @@ In rare cases, you might need to nest callouts for complex information hierarchi
 
 ### When to use each type
 
-| Callout Type | Use For | Examples |
-|--------------|---------|----------|
-| **Info** | Context, explanations, additional details | API limits, feature availability, related resources |
-| **Tip** | Best practices, recommendations, helpful hints | Performance optimizations, workflow suggestions |
-| **Success** | Positive confirmation, achievements, completions | Successful setup, feature enabled, task completed |
-| **Alert** | Important warnings, attention-required items | Breaking changes, important updates, cautions |  
-| **Danger** | Critical warnings, destructive actions | Data loss warnings, security issues, permanent actions |
+| Callout Type | Use For                                          | Examples                                               |
+| ------------ | ------------------------------------------------ | ------------------------------------------------------ |
+| **Info**     | Context, explanations, additional details        | API limits, feature availability, related resources    |
+| **Tip**      | Best practices, recommendations, helpful hints   | Performance optimizations, workflow suggestions        |
+| **Success**  | Positive confirmation, achievements, completions | Successful setup, feature enabled, task completed      |
+| **Alert**    | Important warnings, attention-required items     | Breaking changes, important updates, cautions          |
+| **Danger**   | Critical warnings, destructive actions           | Data loss warnings, security issues, permanent actions |
 
 ### Writing effective callout content
 
 **Do's**:
+
 - ✅ **Start with a clear heading** that summarizes the main point
+
 - ✅ **Use action-oriented language** for things users need to do
+
 - ✅ **Include specific examples** when explaining concepts
+
 - ✅ **Provide next steps or links** for users who want more information
+
 - ✅ **Keep content scannable** with bullets, short paragraphs, and formatting
 
 **Don'ts**:
+
 - ❌ **Overuse callouts** - too many reduces their impact
-- ❌ **Use danger callouts for minor issues** - save them for truly critical warnings  
+
+- ❌ **Use danger callouts for minor issues** - save them for truly critical warnings
+
 - ❌ **Bury important information** in long callout text
+
 - ❌ **Use vague language** like "be careful" without explaining why
+
 - ❌ **Skip the heading** - readers scan callouts quickly and need context
 
 ### Callout placement strategy
 
 **Strategic placement**:
+
 - **Beginning of sections** - Set expectations or provide context
+
 - **Before code examples** - Explain what the code does or prerequisites
+
 - **After instructions** - Confirm success or provide troubleshooting
+
 - **End of sections** - Summarize key points or provide next steps
 
 **Avoid placing callouts**:
+
 - In the middle of step-by-step instructions (breaks flow)
+
 - Too close together (creates visual noise)
+
 - For information better suited to regular text
 
 ## Callout Accessibility
@@ -321,23 +369,30 @@ In rare cases, you might need to nest callouts for complex information hierarchi
 Callouts are marked up with proper ARIA labels to ensure they're accessible:
 
 - **Info callouts**: Marked as informational content
-- **Tip callouts**: Marked as helpful hints  
+
+- **Tip callouts**: Marked as helpful hints
+
 - **Success callouts**: Marked as positive status messages
+
 - **Alert callouts**: Marked as important warnings
+
 - **Danger callouts**: Marked as critical alerts that demand attention
 
 ### Visual accessibility
 
 - **Color coding**: Each callout type uses distinct colors that meet WCAG contrast requirements
+
 - **Icons**: Visual icons supplement color coding for users with color blindness
+
 - **Typography**: Clear hierarchy and readable font sizes
+
 - **Focus states**: Keyboard navigation support with visible focus indicators
 
 ## Integration with Other Components
 
 ### Callouts with code examples
 
-<Callout kind="tip">
+<Callout uid="23290916-9590-4f90-aa55-f6e39a50265c" kind="tip" collapsed="false">
   **Performance optimization**: Use connection pooling to improve database performance:
 
   ```javascript
@@ -354,37 +409,36 @@ Callouts are marked up with proper ARIA labels to ensure they're accessible:
 
 ### Callouts with expandable content
 
-<Callout kind="info">
+<Callout uid="babc8223-aa6c-4b72-85fd-e1dd5206cdc7" kind="info" collapsed="false">
   **Advanced configuration options**:
 
   <Expandable title="Environment-specific settings" default-open="false">
-  
-  Configure different settings for development, staging, and production:
+    Configure different settings for development, staging, and production:
 
-  ```yaml
-  # config/development.yml
-  database:
-    pool_size: 5
-    timeout: 5000
-    
-  # config/production.yml  
-  database:
-    pool_size: 25
-    timeout: 10000
-    ssl: true
-  ```
-
+    ```yaml
+    # config/development.yml
+    database:
+      pool_size: 5
+      timeout: 5000
+      
+    # config/production.yml  
+    database:
+      pool_size: 25
+      timeout: 10000
+      ssl: true
+    ```
   </Expandable>
 
   <Expandable title="Custom authentication providers" default-open="false">
-  
-  Set up custom SSO providers for enterprise customers:
+    Set up custom SSO providers for enterprise customers:
 
-  1. Configure your identity provider
-  2. Add SAML metadata to your workspace settings
-  3. Test the authentication flow
-  4. Enable for all team members
+    1. Configure your identity provider
 
+    2. Add SAML metadata to your workspace settings
+
+    3. Test the authentication flow
+
+    4. Enable for all team members
   </Expandable>
 </Callout>
 
@@ -394,7 +448,11 @@ Callouts are marked up with proper ARIA labels to ensure they're accessible:
 
 Master more component types:
 
-- **[Images & Media](images-and-media)** - Add visual elements to enhance callouts
-- **[Tables & Lists](tables-and-lists)** - Organize information within callouts  
-- **[Expandables & Tabs](expandables-and-tabs)** - Create interactive callout content
-- **[Code Examples](code-examples)** - Combine callouts with code for better documentation
+- [**Images & Media**](images-and-media) - Add visual elements to enhance callouts
+
+- [**Tables & Lists**](tables-and-lists) - Organize information within callouts
+
+- [**Expandables & Tabs**](expandables-and-tabs) - Create interactive callout content
+
+- [**Code Examples**](code-examples) - Combine callouts with code for better documentation
+

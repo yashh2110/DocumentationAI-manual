@@ -1,101 +1,104 @@
 ---
 title: Best Practices
-description: "Proven strategies and best practices for maximizing productivity and collaboration with ACME Company."
+description: >-
+  Proven strategies and best practices for maximizing productivity and
+  collaboration with ACME Company.
 ---
-
 Learn from successful teams and implement proven strategies to get the most out of ACME Company. These practices are based on real-world usage patterns and team feedback.
 
 ## Team Organization
+
+asdsa
 
 ### Project structure strategy
 
 Organize your workspace for maximum clarity and efficiency:
 
-<CodeGroup tabs="Team Structure,Project Hierarchy,Naming Conventions">
-```yaml
-# Recommended team organization
-Organization:
-  Departments:
-    - Engineering:
-        - Frontend Team
-        - Backend Team  
-        - DevOps Team
-        - QA Team
-    - Product:
-        - Product Managers
-        - UX Designers
-        - Product Analysts
-    - Marketing:
-        - Content Team
-        - Growth Team
-        - Brand Team
-    - Operations:
-        - Customer Success
-        - Sales Team
-        - Support Team
-```
+<CodeGroup uid="d73ef784-c213-4ce2-971f-51254727519c" show-lines="true" tabs={[]}>
+  ```yaml
+  # Recommended team organization
+  Organization:
+    Departments:
+      - Engineering:
+          - Frontend Team
+          - Backend Team  
+          - DevOps Team
+          - QA Team
+      - Product:
+          - Product Managers
+          - UX Designers
+          - Product Analysts
+      - Marketing:
+          - Content Team
+          - Growth Team
+          - Brand Team
+      - Operations:
+          - Customer Success
+          - Sales Team
+          - Support Team
+  ```
 
-```yaml
-# Project hierarchy best practices
-Workspace:
-  Active Projects:
-    - Product Development:
-        - "Q1 Feature Release"
-        - "Mobile App v2.0"
-        - "API Platform"
-    - Marketing Initiatives:
-        - "Brand Refresh 2024"
-        - "Content Marketing Q1"
-        - "Lead Gen Campaign"
-    - Operations:
-        - "Customer Onboarding"
-        - "Support Process Optimization"
-        
-  Templates:
-    - "Feature Development Template"
-    - "Marketing Campaign Template"  
-    - "Bug Fix Template"
-    
-  Archived:
-    - Completed projects (auto-archived after 90 days)
-```
+  ```yaml
+  # Project hierarchy best practices
+  Workspace:
+    Active Projects:
+      - Product Development:
+          - "Q1 Feature Release"
+          - "Mobile App v2.0"
+          - "API Platform"
+      - Marketing Initiatives:
+          - "Brand Refresh 2024"
+          - "Content Marketing Q1"
+          - "Lead Gen Campaign"
+      - Operations:
+          - "Customer Onboarding"
+          - "Support Process Optimization"
+          
+    Templates:
+      - "Feature Development Template"
+      - "Marketing Campaign Template"  
+      - "Bug Fix Template"
+      
+    Archived:
+      - Completed projects (auto-archived after 90 days)
+  ```
 
-```yaml
-# Naming conventions that work
-Projects:
-  format: "[Department] [Initiative] [Year/Quarter]"
-  examples:
-    - "ENG Mobile App Redesign Q1"
-    - "MKT Brand Campaign 2024"  
-    - "OPS Onboarding Improvement Q2"
+  ```yaml
+  # Naming conventions that work
+  Projects:
+    format: "[Department] [Initiative] [Year/Quarter]"
+    examples:
+      - "ENG Mobile App Redesign Q1"
+      - "MKT Brand Campaign 2024"  
+      - "OPS Onboarding Improvement Q2"
 
-Tasks:
-  format: "[Priority] [Action] [Subject]"
-  examples:
-    - "HIGH Fix login bug on mobile"
-    - "MED Create API documentation"
-    - "LOW Update team photos"
+  Tasks:
+    format: "[Priority] [Action] [Subject]"
+    examples:
+      - "HIGH Fix login bug on mobile"
+      - "MED Create API documentation"
+      - "LOW Update team photos"
 
-Labels:
-  categories:
-    - Priority: "urgent", "high", "medium", "low"
-    - Type: "feature", "bug", "improvement", "research"  
-    - Department: "eng", "product", "marketing", "ops"
-    - Status: "blocked", "waiting", "in-review"
-```
+  Labels:
+    categories:
+      - Priority: "urgent", "high", "medium", "low"
+      - Type: "feature", "bug", "improvement", "research"  
+      - Department: "eng", "product", "marketing", "ops"
+      - Status: "blocked", "waiting", "in-review"
+  ```
 </CodeGroup>
 
 ### Role and permission strategy
 
 **Recommended role distribution**:
 
-| Team Size | Owners | Admins | Members | Viewers |
-|-----------|--------|--------|---------|---------|
-| **2-10** | 1 | 1-2 | Everyone else | External only |
-| **11-50** | 1-2 | 3-5 | Team leads + ICs | Contractors |
-| **50+** | 2-3 | 5-10 | Department leads | Stakeholders |
+| Team Size | Owners | Admins | Members          | Viewers       |
+| --------- | ------ | ------ | ---------------- | ------------- |
+| **2-10**  | 1      | 1-2    | Everyone else    | External only |
+| **11-50** | 1-2    | 3-5    | Team leads + ICs | Contractors   |
+| **50+**   | 2-3    | 5-10   | Department leads | Stakeholders  |
 
-<Callout kind="tip">
+<Callout uid="f23e992e-3afa-468e-b133-3b5ae08953f2" kind="tip" collapsed="false">
   **The 80/20 rule**: 80% of your team should be Members with standard access. Reserve Admin roles for people who actively manage workspace settings.
 </Callout>
 
@@ -103,76 +106,101 @@ Labels:
 
 **Establish clear handoff processes**:
 
-<ExpandableGroup>
-<Expandable title="Design to Engineering Handoff" default-open="true">
+<ExpandableGroup uid="ca24ef72-5d92-42f9-9f25-fe44a677768a">
+  <Expandable title="Design to Engineering Handoff" default-open="true">
+    **Before handoff checklist**:
 
-**Before handoff checklist**:
-- [ ] Design specs finalized and approved
-- [ ] Assets exported in required formats
-- [ ] Interactive prototypes shared
-- [ ] Edge cases and error states documented
-- [ ] Accessibility requirements specified
+    - Design specs finalized and approved
 
-**Handoff process**:
-1. **Designer creates task** with all specifications
-2. **Engineering lead reviews** feasibility and estimates effort
-3. **Product manager approves** scope and timeline  
-4. **Task assigned to developer** with clear acceptance criteria
-5. **Regular check-ins** during development for clarifications
+    - Assets exported in required formats
 
-**Tools integration**:
-```javascript
-// Auto-create engineering tasks from design completion
-{
-  "trigger": "design_approved",
-  "action": {
-    "create_task": {
-      "project": "engineering_backlog",
-      "template": "design_implementation",
-      "assign_to": "frontend_lead",
-      "inherit_details": true
+    - Interactive prototypes shared
+
+    - Edge cases and error states documented
+
+    - Accessibility requirements specified
+
+    **Handoff process**:
+
+    1. **Designer creates task** with all specifications
+
+    2. **Engineering lead reviews** feasibility and estimates effort
+
+    3. **Product manager approves** scope and timeline
+
+    4. **Task assigned to developer** with clear acceptance criteria
+
+    5. **Regular check-ins** during development for clarifications
+
+    **Tools integration**:
+
+    ```javascript
+    // Auto-create engineering tasks from design completion
+    {
+      "trigger": "design_approved",
+      "action": {
+        "create_task": {
+          "project": "engineering_backlog",
+          "template": "design_implementation",
+          "assign_to": "frontend_lead",
+          "inherit_details": true
+        }
+      }
     }
-  }
-}
-```
+    ```
+  </Expandable>
 
-</Expandable>
+  <Expandable title="Development to QA Handoff" default-open="false">
+    **Development completion criteria**:
 
-<Expandable title="Development to QA Handoff" default-open="false">
+    - All acceptance criteria met
 
-**Development completion criteria**:
-- [ ] All acceptance criteria met
-- [ ] Code reviewed and approved
-- [ ] Unit tests written and passing
-- [ ] Documentation updated
-- [ ] Deployed to staging environment
+    - Code reviewed and approved
 
-**QA process**:
-1. **Automated testing** runs on staging deployment
-2. **Manual testing** covers user scenarios and edge cases
-3. **Bug reports** link back to original development task
-4. **Approval or feedback** provided within agreed SLA
-5. **Production deployment** coordinated between teams
+    - Unit tests written and passing
 
-</Expandable>
+    - Documentation updated
 
-<Expandable title="Product to Marketing Handoff" default-open="false">
+    - Deployed to staging environment
 
-**Feature launch preparation**:
-- [ ] Feature functionality documented
-- [ ] Target audience and use cases defined
-- [ ] Key benefits and differentiators identified
-- [ ] Screenshots and demo materials prepared
-- [ ] Pricing and packaging decisions finalized
+    **QA process**:
 
-**Marketing campaign workflow**:
-1. **Product team creates** launch brief and timeline
-2. **Marketing develops** positioning and messaging
-3. **Content creation** coordinated across channels
-4. **Cross-team review** ensures technical accuracy
-5. **Launch execution** with coordinated communications
+    1. **Automated testing** runs on staging deployment
 
-</Expandable>
+    2. **Manual testing** covers user scenarios and edge cases
+
+    3. **Bug reports** link back to original development task
+
+    4. **Approval or feedback** provided within agreed SLA
+
+    5. **Production deployment** coordinated between teams
+  </Expandable>
+
+  <Expandable title="Product to Marketing Handoff" default-open="false">
+    **Feature launch preparation**:
+
+    - Feature functionality documented
+
+    - Target audience and use cases defined
+
+    - Key benefits and differentiators identified
+
+    - Screenshots and demo materials prepared
+
+    - Pricing and packaging decisions finalized
+
+    **Marketing campaign workflow**:
+
+    1. **Product team creates** launch brief and timeline
+
+    2. **Marketing develops** positioning and messaging
+
+    3. **Content creation** coordinated across channels
+
+    4. **Cross-team review** ensures technical accuracy
+
+    5. **Launch execution** with coordinated communications
+  </Expandable>
 </ExpandableGroup>
 
 ## Workflow Optimization
@@ -181,84 +209,84 @@ Labels:
 
 **Write effective task descriptions**:
 
-<CodeGroup tabs="Good Examples,Bad Examples,Templates">
-```markdown
-# GOOD: Clear, actionable task descriptions
+<CodeGroup uid="2963b6b1-a171-4f9f-9b4e-13db5c88d41e" show-lines="true" tabs={[]}>
+  ```markdown
+  # GOOD: Clear, actionable task descriptions
 
-## Task: Implement user profile image upload
+  ## Task: Implement user profile image upload
 
-**Objective**: Allow users to upload and display custom profile pictures
+  **Objective**: Allow users to upload and display custom profile pictures
 
-**Acceptance Criteria**:
-- [ ] Users can click profile area to upload image
-- [ ] Supports JPEG, PNG, GIF formats up to 5MB
-- [ ] Automatically resizes to 200x200px
-- [ ] Updates across all user interface locations
-- [ ] Includes loading state and error handling
+  **Acceptance Criteria**:
+  - [ ] Users can click profile area to upload image
+  - [ ] Supports JPEG, PNG, GIF formats up to 5MB
+  - [ ] Automatically resizes to 200x200px
+  - [ ] Updates across all user interface locations
+  - [ ] Includes loading state and error handling
 
-**Technical Notes**:
-- Use existing file upload service API
-- Add image validation on frontend and backend
-- Update user model to include profile_image_url field
+  **Technical Notes**:
+  - Use existing file upload service API
+  - Add image validation on frontend and backend
+  - Update user model to include profile_image_url field
 
-**Resources**:
-- Design mockups: [link]
-- API documentation: [link]
-- Similar implementation in admin panel: [link]
-```
+  **Resources**:
+  - Design mockups: [link]
+  - API documentation: [link]
+  - Similar implementation in admin panel: [link]
+  ```
 
-```markdown
-# BAD: Vague, unclear descriptions
+  ```markdown
+  # BAD: Vague, unclear descriptions
 
-## Task: Fix the thing
+  ## Task: Fix the thing
 
-**Description**: The profile thing is broken and needs to be fixed
+  **Description**: The profile thing is broken and needs to be fixed
 
-**Notes**: Sarah said it's not working right
+  **Notes**: Sarah said it's not working right
 
----
+  ---
 
-## Task: Update the website  
+  ## Task: Update the website  
 
-**Description**: Make the website better
+  **Description**: Make the website better
 
-**Todo**: 
-- Fix stuff
-- Make it faster
-- Add new things
-```
+  **Todo**: 
+  - Fix stuff
+  - Make it faster
+  - Add new things
+  ```
 
-```markdown
-# TEMPLATES: Reusable task formats
+  ```markdown
+  # TEMPLATES: Reusable task formats
 
-## Bug Report Template
-**Summary**: [One line description]
-**Steps to Reproduce**: 
-1. [Step one]
-2. [Step two]
-**Expected Result**: [What should happen]
-**Actual Result**: [What actually happens] 
-**Environment**: [Browser, device, etc.]
+  ## Bug Report Template
+  **Summary**: [One line description]
+  **Steps to Reproduce**: 
+  1. [Step one]
+  2. [Step two]
+  **Expected Result**: [What should happen]
+  **Actual Result**: [What actually happens] 
+  **Environment**: [Browser, device, etc.]
 
-## Feature Request Template
-**User Story**: As a [user type], I want [goal] so that [benefit]
-**Acceptance Criteria**: [Specific requirements]
-**Priority**: [High/Medium/Low with justification]
-**Effort Estimate**: [T-shirt size or hours]
-```
+  ## Feature Request Template
+  **User Story**: As a [user type], I want [goal] so that [benefit]
+  **Acceptance Criteria**: [Specific requirements]
+  **Priority**: [High/Medium/Low with justification]
+  **Effort Estimate**: [T-shirt size or hours]
+  ```
 </CodeGroup>
 
 **Task sizing and estimation**:
 
-| Size | Description | Time Range | Examples |
-|------|-------------|------------|----------|
-| **XS** | Simple, obvious changes | < 2 hours | Fix typo, update copy, small CSS change |
-| **S** | Straightforward implementation | 2-8 hours | Add form field, simple API integration |
-| **M** | Moderate complexity | 1-3 days | New feature component, complex form |
-| **L** | Complex implementation | 3-7 days | Major feature, integration with multiple systems |
-| **XL** | Large initiative | 1-2 weeks | Complete new workflow, major refactoring |
+| Size   | Description                    | Time Range | Examples                                         |
+| ------ | ------------------------------ | ---------- | ------------------------------------------------ |
+| **XS** | Simple, obvious changes        | \< 2 hours | Fix typo, update copy, small CSS change          |
+| **S**  | Straightforward implementation | 2-8 hours  | Add form field, simple API integration           |
+| **M**  | Moderate complexity            | 1-3 days   | New feature component, complex form              |
+| **L**  | Complex implementation         | 3-7 days   | Major feature, integration with multiple systems |
+| **XL** | Large initiative               | 1-2 weeks  | Complete new workflow, major refactoring         |
 
-<Callout kind="warning">
+<Callout uid="451773b8-f534-4ea8-892b-9da2eff9e3f0" kind="warning" collapsed="false">
   **Break down XL tasks**: Any task larger than 2 weeks should be broken into smaller, manageable pieces. This improves tracking and reduces risk.
 </Callout>
 
@@ -267,9 +295,13 @@ Labels:
 **Setting realistic deadlines**:
 
 1. **Add buffer time**: Include 20-30% buffer for unexpected issues
+
 2. **Consider dependencies**: Map out prerequisite tasks and potential blockers
+
 3. **Account for reviews**: Include time for stakeholder feedback and revisions
+
 4. **Plan for testing**: Allocate adequate time for QA and bug fixes
+
 5. **Communicate early**: Alert team if deadlines look at risk
 
 **Timeline visualization**:
@@ -298,93 +330,94 @@ gantt
 
 **Comment guidelines that improve collaboration**:
 
-<ExpandableGroup>
-<Expandable title="Constructive Feedback" default-open="true">
+<ExpandableGroup uid="e87f4615-5b3b-49df-9e7a-b2f9f1f85a7a">
+  <Expandable title="Constructive Feedback" default-open="true">
+    **Use specific, actionable language**:
 
-**Use specific, actionable language**:
+    ✅ **Good comments**:
 
-✅ **Good comments**:
-```text
-The login form validation looks good! Two suggestions:
-1. Could we add an email format validator before submission?
-2. The error message for weak passwords should include requirements
+    ```text
+    The login form validation looks good! Two suggestions:
+    1. Could we add an email format validator before submission?
+    2. The error message for weak passwords should include requirements
 
-These changes would reduce support tickets and improve UX.
-```
+    These changes would reduce support tickets and improve UX.
+    ```
 
-❌ **Poor comments**:
-```text
-This doesn't look right. Please fix.
-```
+    ❌ **Poor comments**:
 
-**Feedback framework** (SBI model):
-- **Situation**: Describe the context
-- **Behavior**: Explain what you observed  
-- **Impact**: Share the effect or outcome
+    ```text
+    This doesn't look right. Please fix.
+    ```
 
-</Expandable>
+    **Feedback framework** (SBI model):
 
-<Expandable title="Status Updates" default-open="false">
+    - **Situation**: Describe the context
 
-**Regular progress updates**:
-```text
-📊 Weekly Progress Update - Mobile App Feature
+    - **Behavior**: Explain what you observed
 
-✅ Completed this week:
-- User authentication flow implemented
-- Profile management UI completed
-- Initial API integration working
+    - **Impact**: Share the effect or outcome
+  </Expandable>
 
-🔄 In progress:
-- Push notification setup (70% complete)
-- App store submission preparation
+  <Expandable title="Status Updates" default-open="false">
+    **Regular progress updates**:
 
-⚠️ Blockers/Issues:
-- Waiting for Apple Developer account approval
-- Need design approval on notification templates
+    ```text
+    📊 Weekly Progress Update - Mobile App Feature
 
-🎯 Next week goals:
-- Complete notification system
-- Submit to app stores for review
-- Begin user acceptance testing
+    ✅ Completed this week:
+    - User authentication flow implemented
+    - Profile management UI completed
+    - Initial API integration working
 
-cc: @project-team @stakeholders
-```
+    🔄 In progress:
+    - Push notification setup (70% complete)
+    - App store submission preparation
 
-</Expandable>
+    ⚠️ Blockers/Issues:
+    - Waiting for Apple Developer account approval
+    - Need design approval on notification templates
 
-<Expandable title="Decision Documentation" default-open="false">
+    🎯 Next week goals:
+    - Complete notification system
+    - Submit to app stores for review
+    - Begin user acceptance testing
 
-**Document important decisions**:
-```text
-🔍 Architecture Decision: Database Choice
+    cc: @project-team @stakeholders
+    ```
+  </Expandable>
 
-**Context**: Need to choose database for user analytics feature
+  <Expandable title="Decision Documentation" default-open="false">
+    **Document important decisions**:
 
-**Options considered**:
-1. PostgreSQL (current database)
-   - Pros: Consistent with existing stack, good performance
-   - Cons: May not scale for analytics workload
+    ```text
+    🔍 Architecture Decision: Database Choice
 
-2. ClickHouse (specialized analytics DB)  
-   - Pros: Optimized for analytics queries, better performance
-   - Cons: Additional infrastructure, team learning curve
+    **Context**: Need to choose database for user analytics feature
 
-**Decision**: Going with ClickHouse
-- Performance requirements justify the complexity
-- Team has capacity to learn new technology
-- Long-term benefits outweigh short-term costs
+    **Options considered**:
+    1. PostgreSQL (current database)
+       - Pros: Consistent with existing stack, good performance
+       - Cons: May not scale for analytics workload
 
-**Action items**:
-- @devops: Set up ClickHouse instance
-- @backend: Create migration scripts  
-- @team: Schedule training session
+    2. ClickHouse (specialized analytics DB)  
+       - Pros: Optimized for analytics queries, better performance
+       - Cons: Additional infrastructure, team learning curve
 
-Decision date: 2024-01-15
-Review date: 2024-03-15
-```
+    **Decision**: Going with ClickHouse
+    - Performance requirements justify the complexity
+    - Team has capacity to learn new technology
+    - Long-term benefits outweigh short-term costs
 
-</Expandable>
+    **Action items**:
+    - @devops: Set up ClickHouse instance
+    - @backend: Create migration scripts  
+    - @team: Schedule training session
+
+    Decision date: 2024-01-15
+    Review date: 2024-03-15
+    ```
+  </Expandable>
 </ExpandableGroup>
 
 ### Notification management
@@ -392,6 +425,7 @@ Review date: 2024-03-15
 **Reduce notification fatigue**:
 
 **Smart notification settings**:
+
 ```javascript
 // Recommended notification configuration
 {
@@ -419,9 +453,13 @@ Review date: 2024-03-15
 ```
 
 **Communication escalation ladder**:
+
 1. **Comment on task** - For normal project updates
-2. **@mention specific person** - When you need someone's attention  
+
+2. **@mention specific person** - When you need someone's attention
+
 3. **Slack/Teams message** - For urgent issues during work hours
+
 4. **Phone call** - For critical blockers or emergencies only
 
 ## Performance Monitoring
@@ -430,69 +468,69 @@ Review date: 2024-03-15
 
 **Team productivity metrics**:
 
-<CodeGroup tabs="Velocity Tracking,Quality Metrics,Collaboration Health">
-```javascript
-// Velocity and throughput metrics
-{
-  "sprint_metrics": {
-    "planned_vs_completed": {
-      "target": "> 85%",
-      "current": "89%"
+<CodeGroup uid="173ba577-b1e5-4e83-a691-31f55a2541e7" show-lines="true" tabs={[]}>
+  ```javascript
+  // Velocity and throughput metrics
+  {
+    "sprint_metrics": {
+      "planned_vs_completed": {
+        "target": "> 85%",
+        "current": "89%"
+      },
+      "cycle_time": {
+        "target": "< 5 days", 
+        "current": "4.2 days"
+      },
+      "throughput": {
+        "tasks_per_week": 23,
+        "story_points_per_sprint": 84
+      }
     },
-    "cycle_time": {
-      "target": "< 5 days", 
-      "current": "4.2 days"
-    },
-    "throughput": {
-      "tasks_per_week": 23,
-      "story_points_per_sprint": 84
+    "trend_analysis": {
+      "velocity_trend": "stable",
+      "quality_trend": "improving", 
+      "team_satisfaction": "high"
     }
-  },
-  "trend_analysis": {
-    "velocity_trend": "stable",
-    "quality_trend": "improving", 
-    "team_satisfaction": "high"
   }
-}
-```
+  ```
 
-```javascript
-// Quality and reliability metrics  
-{
-  "quality_metrics": {
-    "bug_rate": {
-      "bugs_per_feature": 0.3,
-      "post_release_bugs": 2,
-      "regression_rate": "< 5%"
-    },
-    "review_effectiveness": {
-      "review_coverage": "98%",
-      "avg_review_time": "6 hours",
-      "issues_caught_in_review": 15
+  ```javascript
+  // Quality and reliability metrics  
+  {
+    "quality_metrics": {
+      "bug_rate": {
+        "bugs_per_feature": 0.3,
+        "post_release_bugs": 2,
+        "regression_rate": "< 5%"
+      },
+      "review_effectiveness": {
+        "review_coverage": "98%",
+        "avg_review_time": "6 hours",
+        "issues_caught_in_review": 15
+      }
     }
   }
-}
-```
+  ```
 
-```javascript
-// Team collaboration health
-{
-  "collaboration_metrics": {
-    "response_times": {
-      "avg_comment_response": "2.1 hours",
-      "code_review_response": "4.3 hours"
-    },
-    "knowledge_sharing": {
-      "cross_team_collaboration": "high",
-      "documentation_coverage": "87%"
-    },
-    "team_engagement": {
-      "active_contributors": "100%",
-      "meeting_participation": "94%"
+  ```javascript
+  // Team collaboration health
+  {
+    "collaboration_metrics": {
+      "response_times": {
+        "avg_comment_response": "2.1 hours",
+        "code_review_response": "4.3 hours"
+      },
+      "knowledge_sharing": {
+        "cross_team_collaboration": "high",
+        "documentation_coverage": "87%"
+      },
+      "team_engagement": {
+        "active_contributors": "100%",
+        "meeting_participation": "94%"
+      }
     }
   }
-}
-```
+  ```
 </CodeGroup>
 
 ### Continuous improvement
@@ -501,38 +539,52 @@ Review date: 2024-03-15
 
 **Monthly team retrospectives** using the Start/Stop/Continue format:
 
-<ExpandableGroup>
-<Expandable title="January Retrospective Example" default-open="false">
+<ExpandableGroup uid="e0908499-b02e-4dc8-8a3c-fa759903b0bb">
+  <Expandable title="January Retrospective Example" default-open="false">
+    **What should we START doing?**
 
-**What should we START doing?**
-- Daily standup meetings for better sync
-- Using task templates for consistency  
-- Peer code reviews before QA handoff
+    - Daily standup meetings for better sync
 
-**What should we STOP doing?**
-- Having meetings without clear agendas
-- Working on tasks without clear acceptance criteria
-- Skipping documentation updates
+    - Using task templates for consistency
 
-**What should we CONTINUE doing?**
-- Weekly team demos are valuable
-- Slack integration keeps everyone informed
-- Cross-training is improving team flexibility
+    - Peer code reviews before QA handoff
 
-**Action items**:
-- [ ] @team-lead: Schedule daily standups starting next week
-- [ ] @product: Create task templates for common work types
-- [ ] @everyone: Commit to documentation-first approach
+    **What should we STOP doing?**
 
-</Expandable>
+    - Having meetings without clear agendas
+
+    - Working on tasks without clear acceptance criteria
+
+    - Skipping documentation updates
+
+    **What should we CONTINUE doing?**
+
+    - Weekly team demos are valuable
+
+    - Slack integration keeps everyone informed
+
+    - Cross-training is improving team flexibility
+
+    **Action items**:
+
+    - @team-lead: Schedule daily standups starting next week
+
+    - @product: Create task templates for common work types
+
+    - @everyone: Commit to documentation-first approach
+  </Expandable>
 </ExpandableGroup>
 
 **Process optimization cycle**:
 
 1. **Measure**: Track key metrics over 2-4 week periods
-2. **Analyze**: Identify bottlenecks and improvement opportunities  
+
+2. **Analyze**: Identify bottlenecks and improvement opportunities
+
 3. **Experiment**: Try small process changes with specific goals
+
 4. **Review**: Assess impact and decide whether to adopt permanently
+
 5. **Iterate**: Continuous small improvements over time
 
 ## Scaling Your Usage
@@ -541,87 +593,116 @@ Review date: 2024-03-15
 
 **Onboarding new team members**:
 
-<Callout kind="success">
+<Callout uid="59365b50-5eb0-4701-bd0a-9471b9cbbc4e" kind="success" collapsed="false">
   **Pro tip**: Create a "New Team Member" project template with standard onboarding tasks. This ensures consistent experience and nothing gets missed.
 </Callout>
 
 **New member onboarding checklist**:
-- [ ] Account created with appropriate role
-- [ ] Added to relevant projects and teams
-- [ ] Completed platform training (internal or Documentation.AI resources)
-- [ ] Integrated with personal workflow tools (calendar, notifications)
-- [ ] Paired with buddy/mentor for first two weeks
-- [ ] First real task assigned with support available
+
+- Account created with appropriate role
+
+- Added to relevant projects and teams
+
+- Completed platform training (internal or Documentation.AI resources)
+
+- Integrated with personal workflow tools (calendar, notifications)
+
+- Paired with buddy/mentor for first two weeks
+
+- First real task assigned with support available
 
 ### Enterprise considerations
 
 **Advanced features for larger teams**:
 
 - **Single Sign-On (SSO)**: Streamline access management
-- **Advanced reporting**: Track metrics across departments  
+
+- **Advanced reporting**: Track metrics across departments
+
 - **API integrations**: Connect with enterprise tools
+
 - **Custom workflows**: Match complex organizational processes
+
 - **Audit logs**: Meet compliance and security requirements
+
 - **Dedicated support**: Priority assistance for critical issues
 
 ## Common Pitfalls to Avoid
 
 ### Anti-patterns that hurt productivity
 
-<ExpandableGroup>
-<Expandable title="Over-organizing" default-open="true">
+<ExpandableGroup uid="c35beb2f-bc5f-4cf9-8e3c-60a85280a0f1">
+  <Expandable title="Over-organizing" default-open="true">
+    **The problem**: Creating too many projects, categories, and tags
 
-**The problem**: Creating too many projects, categories, and tags
+    **What it looks like**:
 
-**What it looks like**:
-- 20+ active projects for a 10-person team
-- Complex tagging systems nobody uses consistently  
-- Multiple projects for the same initiative
-- Endless reorganization without clear benefit
+    - 20+ active projects for a 10-person team
 
-**Better approach**:
-- Start simple and add complexity only when needed
-- Focus on 3-5 active projects per team at most
-- Use consistent naming conventions
-- Regular cleanup of unused categories
+    - Complex tagging systems nobody uses consistently
 
-</Expandable>
+    - Multiple projects for the same initiative
 
-<Expandable title="Notification overload" default-open="false">
+    - Endless reorganization without clear benefit
 
-**The problem**: Too many notifications leading to notification blindness
+    **Better approach**:
 
-**What it looks like**:
-- Team members ignoring all notifications
-- Important updates getting lost in the noise
-- People checking the app less frequently
-- Decreased responsiveness to urgent issues
+    - Start simple and add complexity only when needed
 
-**Better approach**:
-- Configure notifications thoughtfully for each role
-- Use @mentions sparingly and purposefully
-- Set up digest emails instead of real-time notifications
-- Regular review and adjustment of notification preferences
+    - Focus on 3-5 active projects per team at most
 
-</Expandable>
+    - Use consistent naming conventions
 
-<Expandable title="Status update theater" default-open="false">
+    - Regular cleanup of unused categories
+  </Expandable>
 
-**The problem**: Updating status without meaningful progress
+  <Expandable title="Notification overload" default-open="false">
+    **The problem**: Too many notifications leading to notification blindness
 
-**What it looks like**:
-- Tasks moved between stages without real changes
-- Comments like "still working on this" without details
-- Artificial progress to meet reporting requirements
-- Lack of transparency about actual blockers
+    **What it looks like**:
 
-**Better approach**:
-- Focus on outcome-based status updates
-- Include specific progress and next steps
-- Be honest about blockers and challenges
-- Use automation to reduce manual status management
+    - Team members ignoring all notifications
 
-</Expandable>
+    - Important updates getting lost in the noise
+
+    - People checking the app less frequently
+
+    - Decreased responsiveness to urgent issues
+
+    **Better approach**:
+
+    - Configure notifications thoughtfully for each role
+
+    - Use @mentions sparingly and purposefully
+
+    - Set up digest emails instead of real-time notifications
+
+    - Regular review and adjustment of notification preferences
+  </Expandable>
+
+  <Expandable title="Status update theater" default-open="false">
+    **The problem**: Updating status without meaningful progress
+
+    **What it looks like**:
+
+    - Tasks moved between stages without real changes
+
+    - Comments like "still working on this" without details
+
+    - Artificial progress to meet reporting requirements
+
+    - Lack of transparency about actual blockers
+
+    **Better approach**:
+
+    - Focus on outcome-based status updates
+
+    - Include specific progress and next steps
+
+    - Be honest about blockers and challenges
+
+    - Use automation to reduce manual status management
+  </Expandable>
 </ExpandableGroup>
 
 ## Success Stories
@@ -630,26 +711,26 @@ Review date: 2024-03-15
 
 **Case study: Engineering team cycle time**
 
-> "After implementing task templates and clearer acceptance criteria, our average cycle time dropped from 8 days to 4 days. More importantly, our bug rate decreased by 40% because requirements were clearer upfront."
-> 
-> — Sarah Chen, Engineering Manager at TechCorp
-
 **Key changes implemented**:
+
 - Standardized task descriptions with templates
+
 - Required acceptance criteria before development starts
+
 - Automated status updates from GitHub integration
+
 - Weekly retrospectives to identify process improvements
 
 **Case study: Marketing campaign coordination**
 
-> "Coordinating product launches across content, social, email, and PR used to be chaos. Now we have visibility into every deliverable and deadline. Our last launch had zero missed deadlines."
->
-> — Mike Rodriguez, Marketing Director at GrowthCo
-
 **Key changes implemented**:
+
 - Created campaign project template with all standard deliverables
+
 - Set up automated reminders for review cycles
+
 - Integrated with content calendar and social media tools
+
 - Established clear handoff processes between teams
 
 ---
@@ -658,7 +739,11 @@ Review date: 2024-03-15
 
 Ready to implement these best practices?
 
-- **[Start with quick wins](../components/components-overview)** - Pick 2-3 easy improvements to implement first
-- **[Explore advanced features](../api-reference/getting-started)** - Leverage integrations and automation
-- **[Get team training](https://acme.com/training)** - Ensure everyone knows how to use advanced features
-- **[Join our community](https://community.acme.com)** - Learn from other teams and share your own successes
+- [**Start with quick wins**](../components/components-overview) - Pick 2-3 easy improvements to implement first
+
+- [**Explore advanced features**](../api-reference/getting-started) - Leverage integrations and automation
+
+- [**Get team training**](https://acme.com/training) - Ensure everyone knows how to use advanced features
+
+- [**Join our community**](https://community.acme.com) - Learn from other teams and share your own successes
+

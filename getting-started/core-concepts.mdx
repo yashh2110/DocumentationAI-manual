@@ -1,17 +1,23 @@
 ---
 title: Core Concepts
-description: "Understand the fundamental concepts and architecture that power ACME Company."
+description: Understand the fundamental concepts and architecture that power ACME Company.
 ---
-
 Understanding these core concepts will help you make the most of ACME Company and use it effectively for your team's needs.
+
+
+
+asdasd
 
 ## Architecture Overview
 
 ACME Company is built around four main concepts that work together seamlessly:
 
 - **Workspaces** - Your team's central hub
-- **Projects** - Organized work containers  
+
+- **Projects** - Organized work containers
+
 - **Workflows** - Customizable process flows
+
 - **Integrations** - Connected ecosystem
 
 ## Workspaces
@@ -21,11 +27,14 @@ A **workspace** is your team's central hub where all collaboration happens. Thin
 ### Key characteristics
 
 - **Single source of truth** for all team activity
+
 - **Unified permissions** and security settings
+
 - **Shared integrations** across all projects
+
 - **Consolidated billing** and usage analytics
 
-<Callout kind="info">
+<Callout uid="a9d0e39a-194e-4098-b7c1-0ef90adaaef2" kind="info" collapsed="false">
   Most teams need only one workspace, but larger organizations often create separate workspaces for different departments or business units.
 </Callout>
 
@@ -57,59 +66,72 @@ Your Company Workspace
 
 ### Project types and use cases
 
-<ExpandableGroup>
-<Expandable title="Product Development" default-open="true">
+<ExpandableGroup uid="02f565e6-2dc6-412d-8f65-ae7d2bfcc9d2">
+  <Expandable title="Product Development" default-open="true">
+    **Use case**: Building and launching new features or products
 
-**Use case**: Building and launching new features or products
+    **Typical workflow**: Ideation → Design → Development → Testing → Launch
 
-**Typical workflow**: Ideation → Design → Development → Testing → Launch
+    **Common features**:
 
-**Common features**:
-- Feature specifications and requirements
-- Design mockups and prototypes  
-- Development tasks and bug tracking
-- Testing checklists and QA processes
-- Launch coordination and rollout plans
+    - Feature specifications and requirements
 
-</Expandable>
+    - Design mockups and prototypes
 
-<Expandable title="Marketing Campaigns" default-open="false">
+    - Development tasks and bug tracking
 
-**Use case**: Coordinating marketing initiatives and campaigns
+    - Testing checklists and QA processes
 
-**Typical workflow**: Strategy → Content Creation → Review → Publish → Analyze
+    - Launch coordination and rollout plans
+  </Expandable>
 
-**Common features**:
-- Campaign strategy and goals
-- Content calendar and asset management
-- Approval workflows for creative assets
-- Publishing schedules and coordination
-- Performance tracking and analysis
+  <Expandable title="Marketing Campaigns" default-open="false">
+    **Use case**: Coordinating marketing initiatives and campaigns
 
-</Expandable>
+    **Typical workflow**: Strategy → Content Creation → Review → Publish → Analyze
 
-<Expandable title="Customer Onboarding" default-open="false">
+    **Common features**:
 
-**Use case**: Streamlining new customer success processes
+    - Campaign strategy and goals
 
-**Typical workflow**: Welcome → Setup → Training → Success Check → Ongoing Support
+    - Content calendar and asset management
 
-**Common features**:
-- Customer information and contact details
-- Onboarding checklists and milestones
-- Training materials and resources
-- Progress tracking and success metrics
-- Escalation paths for issues
+    - Approval workflows for creative assets
 
-</Expandable>
+    - Publishing schedules and coordination
+
+    - Performance tracking and analysis
+  </Expandable>
+
+  <Expandable title="Customer Onboarding" default-open="false">
+    **Use case**: Streamlining new customer success processes
+
+    **Typical workflow**: Welcome → Setup → Training → Success Check → Ongoing Support
+
+    **Common features**:
+
+    - Customer information and contact details
+
+    - Onboarding checklists and milestones
+
+    - Training materials and resources
+
+    - Progress tracking and success metrics
+
+    - Escalation paths for issues
+  </Expandable>
 </ExpandableGroup>
 
 ### Project lifecycle
 
 1. **Planning phase**: Define goals, scope, and initial tasks
-2. **Active phase**: Team collaboration and task execution  
+
+2. **Active phase**: Team collaboration and task execution
+
 3. **Review phase**: Quality assurance and stakeholder approval
+
 4. **Completion phase**: Delivery and retrospective analysis
+
 5. **Archive phase**: Historical reference and learnings
 
 ## Workflows
@@ -118,36 +140,36 @@ Your Company Workspace
 
 ### Common workflow patterns
 
-<CodeGroup tabs="Kanban Board,Development Sprint,Content Review">
-```text
-Kanban Workflow:
-┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-│ Backlog │→│ To Do   │→│In Progress│→│  Done   │
-└─────────┘ └─────────┘ └─────────┘ └─────────┘
+<CodeGroup uid="1629416a-6edd-43e7-a665-08a311757a3d" show-lines="true" tabs={[]}>
+  ```text
+  Kanban Workflow:
+  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+  │ Backlog │→│ To Do   │→│In Progress│→│  Done   │
+  └─────────┘ └─────────┘ └─────────┘ └─────────┘
 
-Best for: Continuous flow work
-Examples: Support tickets, ongoing maintenance
-```
+  Best for: Continuous flow work
+  Examples: Support tickets, ongoing maintenance
+  ```
 
-```text
-Sprint Workflow:
-┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-│Planning │→│Development│→│ Testing │→│ Review  │→│Deployed │
-└─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
+  ```text
+  Sprint Workflow:
+  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+  │Planning │→│Development│→│ Testing │→│ Review  │→│Deployed │
+  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
 
-Best for: Software development cycles
-Examples: Feature development, bug fixes
-```
+  Best for: Software development cycles
+  Examples: Feature development, bug fixes
+  ```
 
-```text
-Content Review Workflow:
-┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-│ Draft   │→│ Review  │→│Revisions│→│Approved │→│Published│
-└─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
+  ```text
+  Content Review Workflow:
+  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+  │ Draft   │→│ Review  │→│Revisions│→│Approved │→│Published│
+  └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
 
-Best for: Content creation and approval
-Examples: Blog posts, marketing materials
-```
+  Best for: Content creation and approval
+  Examples: Blog posts, marketing materials
+  ```
 </CodeGroup>
 
 ### Workflow automation
@@ -155,9 +177,13 @@ Examples: Blog posts, marketing materials
 Set up automatic actions to reduce manual work:
 
 - **Auto-assign** tasks based on type or creator
+
 - **Send notifications** when tasks enter specific stages
+
 - **Update status** when related tasks are completed
+
 - **Create follow-up tasks** automatically
+
 - **Archive completed** work after a set time
 
 ## Team Collaboration
@@ -166,31 +192,39 @@ Set up automatic actions to reduce manual work:
 
 ACME Company uses a flexible role-based system:
 
-| Permission | Viewer | Member | Admin | Owner |
-|------------|--------|--------|-------|-------|
-| View projects | ✅ | ✅ | ✅ | ✅ |
-| Create tasks | ❌ | ✅ | ✅ | ✅ |
-| Edit any task | ❌ | ✅ | ✅ | ✅ |
-| Manage projects | ❌ | ❌ | ✅ | ✅ |
-| Workspace settings | ❌ | ❌ | ❌ | ✅ |
-| Billing & usage | ❌ | ❌ | ❌ | ✅ |
+| Permission         | Viewer | Member | Admin | Owner |
+| ------------------ | ------ | ------ | ----- | ----- |
+| View projects      | ✅      | ✅      | ✅     | ✅     |
+| Create tasks       | ❌      | ✅      | ✅     | ✅     |
+| Edit any task      | ❌      | ✅      | ✅     | ✅     |
+| Manage projects    | ❌      | ❌      | ✅     | ✅     |
+| Workspace settings | ❌      | ❌      | ❌     | ✅     |
+| Billing & usage    | ❌      | ❌      | ❌     | ✅     |
 
 ### Communication patterns
 
-<Callout kind="tip">
+<Callout uid="bd912f92-d1bd-42ff-b0b8-049de3d3ea38" kind="tip" collapsed="false">
   **@mention** team members in comments to ensure they see important updates. Use `@everyone` sparingly to avoid notification fatigue.
 </Callout>
 
 **Real-time collaboration**:
+
 - Live cursor tracking when multiple people edit
-- Instant comment notifications and responses  
+
+- Instant comment notifications and responses
+
 - Automatic conflict resolution for simultaneous edits
+
 - Activity feeds showing recent team actions
 
 **Asynchronous collaboration**:
+
 - Detailed comment threads on tasks and projects
+
 - File attachments and link sharing
+
 - Status updates and progress reports
+
 - Email summaries for offline team members
 
 ## Integrations Ecosystem
@@ -199,53 +233,56 @@ ACME Company uses a flexible role-based system:
 
 ACME Company connects with tools your team already uses:
 
-**Communication**: Slack, Microsoft Teams, Discord  
-**Development**: GitHub, GitLab, Bitbucket, Jira  
-**Design**: Figma, Adobe Creative Suite, InVision  
-**Productivity**: Google Workspace, Microsoft 365, Notion  
+**Communication**: Slack, Microsoft Teams, Discord\
+**Development**: GitHub, GitLab, Bitbucket, Jira\
+**Design**: Figma, Adobe Creative Suite, InVision\
+**Productivity**: Google Workspace, Microsoft 365, Notion\
 **Analytics**: Google Analytics, Mixpanel, Amplitude
 
 ### Integration patterns
 
-<ExpandableGroup>
-<Expandable title="Bidirectional Sync" default-open="true">
+<ExpandableGroup uid="fba0e9a7-1924-4beb-a0f7-c22f847b767d">
+  <Expandable title="Bidirectional Sync" default-open="true">
+    **How it works**: Changes in either platform automatically update the other
 
-**How it works**: Changes in either platform automatically update the other
+    **Example**: GitHub pull requests create tasks in your project, and completing tasks updates the PR status
 
-**Example**: GitHub pull requests create tasks in your project, and completing tasks updates the PR status
+    **Benefits**:
 
-**Benefits**:
-- No duplicate data entry
-- Single source of truth across tools
-- Automatic progress tracking
+    - No duplicate data entry
 
-</Expandable>
+    - Single source of truth across tools
 
-<Expandable title="Notification Hub" default-open="false">
+    - Automatic progress tracking
+  </Expandable>
 
-**How it works**: ACME Company sends updates to your communication tools
+  <Expandable title="Notification Hub" default-open="false">
+    **How it works**: ACME Company sends updates to your communication tools
 
-**Example**: Slack notifications when tasks are completed, deadlines approach, or teammates need input
+    **Example**: Slack notifications when tasks are completed, deadlines approach, or teammates need input
 
-**Benefits**:
-- Stay informed without checking multiple tools
-- Configurable notification preferences  
-- Reduced context switching
+    **Benefits**:
 
-</Expandable>
+    - Stay informed without checking multiple tools
 
-<Expandable title="Data Import/Export" default-open="false">
+    - Configurable notification preferences
 
-**How it works**: One-time or scheduled data transfers between platforms
+    - Reduced context switching
+  </Expandable>
 
-**Example**: Import customer data from your CRM, export project reports to spreadsheets
+  <Expandable title="Data Import/Export" default-open="false">
+    **How it works**: One-time or scheduled data transfers between platforms
 
-**Benefits**:
-- Migrate data from other tools
-- Create custom reports and analysis
-- Backup and compliance requirements
+    **Example**: Import customer data from your CRM, export project reports to spreadsheets
 
-</Expandable>
+    **Benefits**:
+
+    - Migrate data from other tools
+
+    - Create custom reports and analysis
+
+    - Backup and compliance requirements
+  </Expandable>
 </ExpandableGroup>
 
 ### API and webhooks
@@ -278,38 +315,53 @@ console.log('Task created:', task.id);
 ### Security and privacy
 
 - **Encryption**: All data encrypted at rest (AES-256) and in transit (TLS 1.3)
+
 - **Access controls**: Role-based permissions with granular settings
+
 - **Audit logs**: Complete activity tracking for compliance
+
 - **Data residency**: Choose where your data is stored geographically
 
 ### Backup and recovery
 
 - **Automatic backups**: Daily incremental, weekly full backups
+
 - **Point-in-time recovery**: Restore to any moment in the last 30 days
+
 - **Export options**: Download your data in standard formats anytime
+
 - **Disaster recovery**: 99.9% uptime SLA with automatic failover
 
 ## Performance and Scaling
 
 ### How it scales with your team
 
-<Callout kind="success">
+<Callout uid="33f64e43-3129-476f-9aab-33c03ea76364" kind="success" collapsed="false">
   ACME Company automatically scales from small teams to enterprise organizations without any configuration changes.
 </Callout>
 
 **Small teams (2-10 people)**:
+
 - Instant setup with no configuration required
+
 - Real-time collaboration without performance impact
+
 - All features available immediately
 
 **Growing teams (10-100 people)**:
+
 - Advanced permission management
+
 - Department-specific projects and workflows
+
 - Enhanced integration options and API access
 
 **Enterprise teams (100+ people)**:
+
 - Dedicated infrastructure and support
+
 - Advanced security and compliance features
+
 - Custom integrations and professional services
 
 ## Best Practices
@@ -317,17 +369,25 @@ console.log('Task created:', task.id);
 ### Organizing your workspace
 
 1. **Use clear naming conventions** for projects and tasks
+
 2. **Create project templates** for recurring work types
+
 3. **Set up automation rules** to reduce manual work
+
 4. **Regular cleanup** of completed projects and archived data
+
 5. **Train new team members** on your established workflows
 
 ### Optimizing collaboration
 
 1. **Define roles clearly** so everyone knows their responsibilities
+
 2. **Use @mentions strategically** to avoid notification overload
+
 3. **Keep tasks focused** - break large tasks into smaller, actionable items
+
 4. **Regular check-ins** to ensure projects stay on track
+
 5. **Celebrate wins** when projects are completed successfully
 
 ---
@@ -336,7 +396,11 @@ console.log('Task created:', task.id);
 
 Now that you understand the core concepts, you're ready to:
 
-- **[Set up your installation](../guides/installation)** - Get your workspace configured properly
-- **[Learn best practices](../guides/best-practices)** - Discover how successful teams use the platform
-- **[Explore components](../components/components-overview)** - See all available features and tools
-- **[Try the API](../api-reference/getting-started)** - Build custom integrations for your workflow
+- [**Set up your installation**](../guides/installation) - Get your workspace configured properly
+
+- [**Learn best practices**](../guides/best-practices) - Discover how successful teams use the platform
+
+- [**Explore components**](../components/components-overview) - See all available features and tools
+
+- [**Try the API**](../api-reference/getting-started) - Build custom integrations for your workflow
+
