@@ -34,7 +34,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
+        "tab": "Documentationaa",
         "icon": "book",
         "groups": [
           {
@@ -60,7 +60,7 @@
             ]
           },
           {
-            "group": "Guides",
+            "group": "Guidesaa",
             "icon": "map",
             "expandable": true,
             "pages": [
