@@ -96,6 +96,11 @@
                 "title": "Authentication",
                 "path": "api-reference/authentication",
                 "icon": "key"
+              },
+              {
+                "title": "Getting Started",
+                "path": "api-reference/getting-started",
+                "icon": "rocket"
               }
             ]
           },
