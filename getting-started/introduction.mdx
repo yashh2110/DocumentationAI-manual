@@ -3,145 +3,134 @@ title: Welcome to ACME Company
 description: "Get started with ACME Company's powerful platform that helps teams achieve more together. Learn about features, pricing, and how to get up and running quickly."
 ---
 
-ACME Company is a powerful platform designed to help teams collaborate, manage projects, and achieve their goals efficiently. Whether you're a small startup or a large enterprise, our tools scale with your needs.
+# List Async Chat Completions
 
-## What is ACME Company?
+> Lists all asynchronous chat completion requests for the authenticated user.
 
-ACME Company provides a comprehensive solution for modern teams that need to:
+## OpenAPI
 
-- **Collaborate effectively** with real-time editing and commenting
-- **Manage projects** with intuitive dashboards and tracking
-- **Integrate seamlessly** with your existing workflow tools
-- **Scale confidently** with enterprise-grade security and performance
-- **Analyze performance** with detailed insights and reporting
-
-## Who uses ACME Company?
-
-Our platform serves diverse teams across industries:
-
-- **Product teams** building and launching new features
-- **Engineering teams** collaborating on complex projects
-- **Marketing teams** coordinating campaigns and content
-- **Sales teams** tracking prospects and managing relationships
-- **Customer success teams** ensuring client satisfaction
-
-## Key features
-
-### Team Collaboration
-
-- **Real-time collaboration** - Work together seamlessly with live editing and instant updates
-- **Smart notifications** - Stay informed without being overwhelmed
-- **Comments and reviews** - Provide feedback directly in context
-- **Version history** - Track changes and revert when needed
-
-<Callout kind="tip">
-  Enable desktop notifications to stay updated on important changes without constantly checking the app.
-</Callout>
-
-### Project Management
-
-- **Visual project boards** - Organize work with customizable Kanban boards
-- **Advanced filtering** - Find exactly what you need with powerful search
-- **Custom workflows** - Adapt the platform to your team's process
-- **Timeline tracking** - Monitor progress and identify bottlenecks
-
-### Integrations
-
-Connect with the tools you already use:
-
-- **GitHub/GitLab** - Sync code repositories and pull requests
-- **Slack/Teams** - Get notifications in your chat workspace  
-- **Jira/Linear** - Link issues and track development progress
-- **Figma/Adobe** - Embed designs and prototypes
-- **Google Workspace** - Share documents and calendars seamlessly
-
-### Security & Compliance
-
-- **Enterprise SSO** - Single sign-on with SAML/OAuth support
-- **Role-based permissions** - Control access with granular permissions
-- **Audit logs** - Track all user activity for compliance
-- **Data encryption** - Your data is protected at rest and in transit
-- **SOC 2 Type II** - Independently verified security controls
-
-## Getting started
-
-Ready to dive in? Here's how to get started:
-
-1. **[Sign up for an account](https://acme.com/signup)** - Create your workspace in under 2 minutes
-2. **[Follow our quickstart guide](quickstart)** - Set up your first project step-by-step  
-3. **[Invite your team](https://acme.com/team)** - Collaborate from day one
-4. **[Explore integrations](https://acme.com/integrations)** - Connect your existing tools
-
-<Callout kind="success">
-  New to SaaS platforms? No problem! Our [quickstart guide](quickstart) walks you through everything you need to know.
-</Callout>
-
-## Support and resources
-
-We're here to help you succeed:
-
-- **📚 [Documentation](/)** - Comprehensive guides and tutorials
-- **💬 [Community forum](https://community.acme.com)** - Connect with other users
-- **📧 [Email support](mailto:support@acme.com)** - Get help from our team
-- **🎥 [Video tutorials](https://acme.com/videos)** - Learn with guided walkthroughs
-- **📞 [Schedule a demo](https://acme.com/demo)** - See the platform in action
-
-## What's next?
-
-- [**Quickstart guide**](quickstart) - Get up and running in 10 minutes
-- [**Core concepts**](core-concepts) - Understand how everything works together
-- [**Best practices**](../guides/best-practices) - Learn from successful teams
-- [**API reference**](../api-reference/getting-started) - Integrate with our developer tools
-
----
-
-## Frequently asked questions
-
-<ExpandableGroup>
-<Expandable title="Is there a free trial available?" default-open="true">
-
-Yes! We offer a 14-day free trial with access to all features. No credit card required to get started.
-
-[Start your free trial](https://acme.com/signup)
-
-</Expandable>
-
-<Expandable title="Can I import data from other tools?" default-open="false">
-
-Absolutely. We support importing from most popular project management and collaboration tools including:
-
-- Asana, Trello, Monday.com
-- Notion, Confluence, Google Workspace
-- Slack, Microsoft Teams
-- Custom CSV/Excel imports
-
-Our support team can help with migration from any platform.
-
-</Expandable>
-
-<Expandable title="What security measures are in place?" default-open="false">
-
-Security is our top priority. We provide:
-
-- **Encryption**: AES-256 encryption at rest and TLS 1.3 in transit
-- **Access controls**: Role-based permissions and SSO integration
-- **Monitoring**: 24/7 security monitoring and incident response
-- **Compliance**: SOC 2 Type II, GDPR, and HIPAA compliance
-- **Backups**: Automated daily backups with point-in-time recovery
-
-</Expandable>
-
-<Expandable title="How does pricing work?" default-open="false">
-
-We offer transparent, usage-based pricing:
-
-- **Starter**: Free for small teams (up to 5 users)
-- **Professional**: $12/user/month for growing teams
-- **Enterprise**: Custom pricing for large organizations
-
-All plans include core features. Enterprise plans add advanced security, priority support, and custom integrations.
-
-[View detailed pricing](https://acme.com/pricing)
-
-</Expandable>
-</ExpandableGroup>
+````yaml get /async/chat/completions
+paths:
+  path: /async/chat/completions
+  method: get
+  servers:
+    - url: https://api.perplexity.ai
+  request:
+    security:
+      - title: HTTPBearer
+        parameters:
+          query: {}
+          header:
+            Authorization:
+              type: http
+              scheme: bearer
+          cookie: {}
+    parameters:
+      path: {}
+      query:
+        limit:
+          schema:
+            - type: integer
+              required: false
+              description: Maximum number of requests to return.
+              default: 20
+        next_token:
+          schema:
+            - type: string
+              required: false
+              description: >-
+                Token for fetching the next page of results. Ensure this token
+                is URL-encoded when passed as a query parameter.
+      header: {}
+      cookie: {}
+    body: {}
+  response:
+    '200':
+      application/json:
+        schemaArray:
+          - type: object
+            properties:
+              next_token:
+                allOf:
+                  - title: Next Token
+                    type: string
+                    nullable: true
+                    description: Token for fetching the next page of results.
+              requests:
+                allOf:
+                  - title: Requests
+                    type: array
+                    items:
+                      $ref: >-
+                        #/components/schemas/AsyncApiChatCompletionsResponseSummary
+            title: ListAsyncApiChatCompletionsResponse
+            refIdentifier: '#/components/schemas/ListAsyncApiChatCompletionsResponse'
+            requiredProperties:
+              - requests
+        examples:
+          example:
+            value:
+              next_token: <string>
+              requests:
+                - id: <string>
+                  created_at: 123
+                  started_at: 123
+                  completed_at: 123
+                  failed_at: 123
+                  model: <string>
+                  status: CREATED
+        description: Successfully retrieved list of async chat completion requests.
+  deprecated: false
+  type: path
+components:
+  schemas:
+    AsyncProcessingStatus:
+      title: AsyncProcessingStatus
+      type: string
+      enum:
+        - CREATED
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+      description: The status of an asynchronous processing job.
+    AsyncApiChatCompletionsResponseSummary:
+      title: AsyncApiChatCompletionsResponseSummary
+      type: object
+      properties:
+        id:
+          title: ID
+          type: string
+        created_at:
+          title: Created At
+          type: integer
+          format: int64
+          description: Unix timestamp of when the request was created.
+        started_at:
+          title: Started At
+          type: integer
+          format: int64
+          nullable: true
+          description: Unix timestamp of when processing started.
+        completed_at:
+          title: Completed At
+          type: integer
+          format: int64
+          nullable: true
+          description: Unix timestamp of when processing completed.
+        failed_at:
+          title: Failed At
+          type: integer
+          format: int64
+          nullable: true
+          description: Unix timestamp of when processing failed.
+        model:
+          title: Model
+          type: string
+        status:
+          $ref: '#/components/schemas/AsyncProcessingStatus'
+      required:
+        - id
+        - created_at
+        - model
+        - status
+````
