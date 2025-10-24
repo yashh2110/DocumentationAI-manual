@@ -80,48 +80,6 @@
                 "icon": "check-circle"
               }
             ]
-          },
-          {
-            "group": "Components Demo",
-            "icon": "package",
-            "expandable": true,
-            "pages": [
-              {
-                "title": "Components Overview",
-                "path": "components/components-overview",
-                "icon": "eye"
-              },
-              {
-                "title": "Text & Formatting",
-                "path": "components/text-and-formatting",
-                "icon": "type"
-              },
-              {
-                "title": "Code Examples",
-                "path": "components/code-examples",
-                "icon": "code"
-              },
-              {
-                "title": "Callouts & Alerts",
-                "path": "components/callouts-and-alerts",
-                "icon": "megaphone"
-              },
-              {
-                "title": "Images & Media",
-                "path": "components/images-and-media",
-                "icon": "image"
-              },
-              {
-                "title": "Tables & Lists",
-                "path": "components/tables-and-lists",
-                "icon": "list"
-              },
-              {
-                "title": "Expandables & Tabs",
-                "path": "components/expandables-and-tabs",
-                "icon": "chevron-down"
-              }
-            ]
           }
         ]
       },
